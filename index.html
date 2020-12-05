@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Studio.</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      crossorigin="anonymous"
+    />
+    <!-- Javascript -->
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"
+    ></script>
+    <script defer src="/js/animation.js"></script>
+    <script defer src="/js/function.js"></script>
+    <script defer src="/js/fetch.js"></script>
+  </head>
+
+  <body>
+    <div class="preload-wrapper">
+      <div class="preload-content">
+        <div class="preload-elem">
+          <hr />
+          <div class="preload-text">Sebastian</div>
+          <div class="preload-text">Software Engineer</div>
+        </div>
+        <div class="preload-elem">
+          <hr />
+        </div>
+        <div class="preload-elem">
+          <hr />
+        </div>
+      </div>
+    </div>
+    <div class="side-wrapper">Logo</div>
+    <div class="main-wrapper flex-center">
+      <div class="contact-btn-container flex-center">
+        <button class="contact-btn-open">
+          <i class="fas fa-pencil-alt"></i>
+        </button>
+        <button class="contact-btn-close"><i class="fas fa-times"></i></button>
+        <div class="contact-form-dropback"></div>
+      </div>
+      <div class="contact-form-body">
+        <div class="contact-form-envelope flex-center">
+          <i class="far fa-envelope"></i>
+        </div>
+        <div class="contact-form-text">text area</div>
+        <div class="contact-form-submit flex-center">
+          <button><i class="far fa-paper-plane"></i></button>
+        </div>
+      </div>
+      Texto secundario
+    </div>
+
+    <script>
+      if (!Element.prototype.matches) {
+        Element.prototype.matches =
+          Element.prototype.msMatchesSelector ||
+          Element.prototype.webkitMatchesSelector;
+      }
+    </script>
+  </body>
+</html>
