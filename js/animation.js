@@ -187,6 +187,39 @@ document.addEventListener("DOMContentLoaded", () => {
           loop: false,
         });
       }
+
+      var letterTime = 100;
+      var lineDrawing = anime({
+        targets: "#anime-letters svg path",
+        strokeDashoffset: [anime.setDashoffset, 0],
+        easing: "easeInOutCubic",
+        duration: letterTime,
+        delay: function (el, i) {
+          return letterTime * i;
+        },
+        begin: function (anim) {
+          var letters = document.querySelectorAll("#anime-letters svg path"),
+            i;
+
+          for (i = 0; i < letters.length; ++i) {
+            letters[i].setAttribute("stroke", "#1A1B41");
+            letters[i].setAttribute("fill", "none");
+          }
+        },
+        update: function (anim) {
+          var letters = document.querySelectorAll("#anime-letters svg path"),
+            i;
+
+          if (anim.currentTime >= letterTime) {
+            for (i = 0; i < letters.length; ++i) {
+              letters[i].setAttribute("fill", "#1A1B41");
+            }
+          }
+        },
+        autoplay: true,
+        loop: true,
+        direction: "alternate",
+      });
     },
     false
   );

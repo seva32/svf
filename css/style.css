@@ -246,20 +246,19 @@ body {
 }
 
 .contact-btn-close {
-  background-color: #ff898a;
   opacity: 0;
 }
 
 .contact-btn-open:hover,
 .contact-btn-close:hover {
-  transition: all 0.3s;
+  transition: transform 0.3s;
   transform: scale(1.3) translateX(-40%);
   cursor: pointer;
 }
 
 .contact-btn-open:not(:hover),
 .contact-btn-close:not(:hover) {
-  transition: all 0.3s;
+  transition: transform 0.3s;
   transform: scale(1) translateX(-52%);
 }
 
@@ -320,6 +319,15 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-end;
+}
+
+#anime-letters {
+  position: relative;
+}
+
+#anime-letters svg path {
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 #contact-email {
@@ -418,5 +426,9 @@ body {
   .contact-btn-open .fa-pencil-alt,
   .contact-btn-close .fa-times {
     font-size: 1.5rem;
+  }
+
+  #anime-demo {
+    transform: scale(0.8);
   }
 }
