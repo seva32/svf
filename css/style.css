@@ -1,10 +1,129 @@
-* {
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  background-repeat: no-repeat;
+  /* outline: 1px solid red; */
+}
+::-webkit-scrollbar {
+  display: none;
+}
+::before,
+::after {
+  text-decoration: inherit;
+  vertical-align: inherit;
+}
+html,
+body {
+  line-height: 1.5;
+  word-break: break-all;
+  list-style: none;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: "Futura";
-  font-weight: normal;
+  font-family: system-ui, /* macOS 10.11-10.12 */ -apple-system,
+    /* Windows 6+ */ Segoe UI, /* Android 4+ */ Roboto,
+    /* Ubuntu 10.10+ */ Ubuntu, /* Gnome 3+ */ Cantarell,
+    /* KDE Plasma 5+ */ Noto Sans, /* fallback */ sans-serif,
+    /* macOS emoji */ "Apple Color Emoji", /* Windows emoji */ "Segoe UI Emoji",
+    /* Windows emoji */ "Segoe UI Symbol", /* Linux emoji */ "Noto Color Emoji";
+  font-size: 62.5%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scrollbar-width: none;
 }
+svg:not([fill]) {
+  fill: currentColor;
+}
+textarea {
+  resize: vertical;
+}
+a,
+area,
+button,
+input,
+label,
+select,
+summary,
+textarea,
+[tabindex] {
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  text-decoration: none;
+}
+button,
+input,
+select,
+textarea {
+  background-color: transparent;
+  border: 1px solid WindowFrame;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  padding: 0.25em 0.375em;
+  outline: none;
+}
+select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background: no-repeat right center / 1em;
+  border-radius: 0;
+  padding-right: 1em;
+}
+select:not([multiple]):not([size]) {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='4'%3E%3Cpath d='M4 0h6L7 4'/%3E%3C/svg%3E");
+}
+::-ms-expand {
+  display: none;
+}
+[aria-busy="true"] {
+  cursor: progress;
+}
+[aria-controls] {
+  cursor: pointer;
+}
+[aria-disabled="true"],
+[disabled] {
+  cursor: default;
+}
+[aria-hidden="false"][hidden] {
+  display: initial;
+}
+[aria-hidden="false"][hidden]:not(:focus) {
+  clip: rect(0, 0, 0, 0);
+  position: absolute;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+ol,
+ul {
+  list-style: none;
+}
+code,
+kbd,
+pre,
+samp {
+  font-family:
+            /* macOS 10.10+ */ Menlo, /* Windows 6+ */ Consolas,
+    /* Android 4+ */ Roboto Mono, /* Ubuntu 10.10+ */ Ubuntu Monospace,
+    /* KDE Plasma 5+ */ Noto Mono, /* KDE Plasma 4+ */ Oxygen Mono,
+    /* Linux/OpenOffice fallback */ Liberation Mono, /* fallback */ monospace;
+}
+
+button > * {
+  pointer-events: none;
+}
+
+/* init style */
 
 html {
   background-color: #efefef;
@@ -26,6 +145,8 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+/* preload view */
 
 .preload-wrapper {
   position: absolute;
@@ -75,6 +196,8 @@ body {
   margin-left: 10%;
 }
 
+/* side bar */
+
 .side-wrapper {
   position: fixed;
   width: 10%;
@@ -84,6 +207,8 @@ body {
   background-color: white;
   z-index: 10;
 }
+
+/* main content */
 
 .main-wrapper {
   position: absolute;
@@ -96,13 +221,15 @@ body {
   z-index: 10;
 }
 
+/* pencil btn and form dropback start */
+
 .contact-btn-container {
   position: absolute;
   width: 100px;
   height: 100px;
   left: 0;
   bottom: 50px;
-  z-index: 0;
+  z-index: 20;
 }
 
 .contact-btn-open,
@@ -120,7 +247,7 @@ body {
 
 .contact-btn-close {
   background-color: #ff898a;
-  z-index: -1;
+  opacity: 0;
 }
 
 .contact-btn-open:hover,
@@ -130,45 +257,145 @@ body {
   cursor: pointer;
 }
 
-.contact-btn-open:not(:hover) {
+.contact-btn-open:not(:hover),
+.contact-btn-close:not(:hover) {
   transition: all 0.3s;
   transform: scale(1) translateX(-52%);
 }
 
 .contact-btn-open:focus,
-.contact-btn-close {
+.contact-btn-close:focus {
   outline: none;
   box-shadow: none;
 }
 
+.contact-btn-open .fa-pencil-alt,
+.contact-btn-close .fa-times {
+  font-size: 2rem;
+}
+
+.contact-btn-open .fa-pencil-alt {
+  color: whitesmoke;
+}
+
+.contact-btn-close .fa-times {
+  color: #063ba5;
+}
+
 .contact-form-dropback {
   background-color: #4d84f1;
-  z-index: -1;
+  opacity: 0;
   transform: translateX(-52%);
 }
 
+/* pencil btn and form dropback end */
+
+/* contact pencil btn form page start */
+
 .contact-form-body {
-  width: 100%;
+  width: 90%;
   height: 100%;
   display: flex;
+  position: absolute;
+  top: 0;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: red;
+  background: transparent;
+  opacity: 0;
 }
 
 .contact-form-body div {
   flex: 1 1 0%;
 }
 
-.contact-form-envelope,
-.contact-form-submit {
+.contact-form-submit,
+.contact-form-text {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.contact-form-email {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+#contact-email {
+  display: flex;
+  flex-direction: row;
+  transition: color 1s ease;
+}
+
+#contact-email .letter {
+  font-size: 2rem;
+}
+
+.contact-form-submit button {
+  width: 100%;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  position: relative;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-form-submit .submit-message svg {
+  position: absolute;
+  bottom: 0.5rem;
+}
+
+.contact-form-submit .submit-message img {
+  position: absolute;
+  color: whitesmoke;
+  top: 0.5rem;
+  width: 40px;
+  height: 40px;
+  transform: rotate(-45deg);
+}
+
+.contact-form-text textarea {
+  font-size: 1.5rem;
+  color: #063ba5;
+  padding: 1rem;
+  border: none;
+  background-color: whitesmoke;
+  border-radius: 1rem;
+  resize: none;
+}
+
+.contact-form-text textarea::placeholder {
+  color: rgba(142, 142, 201, 0.575);
+  font-size: 1.5rem;
+}
+
+/* contact pencil btn form page end */
+
+/* main page start */
+
+.main-page {
+  position: relative;
+  width: 100%;
+  height: 200vh;
+  justify-content: center;
+  align-items: center;
+  background-color: aqua;
+  z-index: 100;
+  display: none;
+}
+
+/* main page end */
+
 @media only screen and (max-width: 550px) {
+  html {
+    font-size: 55%;
+  }
+
   .side-wrapper {
     display: none;
   }
@@ -177,8 +404,19 @@ body {
     width: 100%;
   }
 
+  .contact-form-body {
+    width: 65%;
+  }
+
   .contact-btn-container {
     right: 0;
     left: auto;
+    width: 50px;
+    height: 50px;
+  }
+
+  .contact-btn-open .fa-pencil-alt,
+  .contact-btn-close .fa-times {
+    font-size: 1.5rem;
   }
 }

@@ -21,6 +21,7 @@
   </head>
 
   <body>
+    <!-- initial page animation -->
     <div class="preload-wrapper">
       <div class="preload-content">
         <div class="preload-elem">
@@ -36,8 +37,14 @@
         </div>
       </div>
     </div>
+
+    <!-- side bar -->
     <div class="side-wrapper">Logo</div>
+
+    <!-- main content -->
     <div class="main-wrapper flex-center">
+
+      <!-- pencil btn contact -->
       <div class="contact-btn-container flex-center">
         <button class="contact-btn-open">
           <i class="fas fa-pencil-alt"></i>
@@ -45,16 +52,64 @@
         <button class="contact-btn-close"><i class="fas fa-times"></i></button>
         <div class="contact-form-dropback"></div>
       </div>
+      
+      <!-- contact form from pencil btn -->
       <div class="contact-form-body">
-        <div class="contact-form-envelope flex-center">
-          <i class="far fa-envelope"></i>
+        <div class="contact-form-email flex-center">
+          <div id="contact-email">
+            <div class="letter">C</div>
+            <div class="letter">O</div>
+            <div class="letter">N</div>
+            <div class="letter">T</div>
+            <div class="letter">A</div>
+            <div class="letter">C</div>
+            <div class="letter">T</div>
+            <div class="letter">@</div>
+            <div class="letter">S</div>
+            <div class="letter">E</div>
+            <div class="letter">B</div>
+            <div class="letter">A</div>
+            <div class="letter">S</div>
+            <div class="letter">T</div>
+            <div class="letter">I</div>
+            <div class="letter">A</div>
+            <div class="letter">N</div>
+            <div class="letter">F</div>
+            <div class="letter">A</div>
+            <div class="letter">N</div>
+            <div class="letter">T</div>
+            <div class="letter">I</div>
+            <div class="letter">N</div>
+            <div class="letter">I</div>
+            <div class="letter">.</div>
+            <div class="letter">C</div>
+            <div class="letter">O</div>
+            <div class="letter">M</div>
+          </div>
         </div>
-        <div class="contact-form-text">text area</div>
+        <div class="contact-form-text">
+          <textarea
+            name="message"
+            id="message"
+            cols="40"
+            rows="5"
+            placeholder="Don't leave me blank ⁀⊙﹏☉⁀"
+          ></textarea>
+        </div>
         <div class="contact-form-submit flex-center">
-          <button><i class="far fa-paper-plane"></i></button>
+          <button class="submit-message">
+              <img class="paper-plane" src="/img/send.png" alt="send message"></i>
+              <svg id="submit-path" width="800" height="600">
+                <path
+                  stroke="none"
+                  fill="none"
+                  d="M 400 550 C 500 450 650 425 650 300 C 650 150 650 100 400 100 C 200 100 0 250 250 450 C 500 600 650 400 800 350"
+                ></path>
+              </svg>
+          </button>
         </div>
       </div>
-      Texto secundario
+      <!-- <div class="main-page">Main Page</div>  -->
     </div>
 
     <script>
