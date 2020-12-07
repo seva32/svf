@@ -83,6 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let btnOpen = document.querySelector(".contact-btn-open");
   let btnClose = document.querySelector(".contact-btn-close");
   let formBody = document.querySelector(".contact-form-body");
+  let submitBtn = document.getElementById(".submit-message");
 
   btnOpen.addEventListener("mouseenter", function (event) {
     btnOpen.style.transition = "transform 0.3s";
@@ -112,6 +113,14 @@ document.addEventListener("DOMContentLoaded", () => {
   anime.easings["tanSqr"] = function (t) {
     return Math.pow(Math.tan((t * Math.PI) / 4), 2);
   };
+
+  var animeLetters = anime({
+    targets: "#anime-letters",
+    opacity: [0, 1],
+    duration: 5000,
+    delay: 500,
+    autoplay: false,
+  });
 
   var letterTime = 100;
   var lineDrawing = anime({
@@ -173,6 +182,7 @@ document.addEventListener("DOMContentLoaded", () => {
       easing: "tanSqr",
       complete: function (anim) {
         lineDrawing.restart();
+        animeLetters.restart();
       },
     });
 
@@ -223,6 +233,11 @@ document.addEventListener("DOMContentLoaded", () => {
             opacity: [1, 0],
             duration: 1000,
             offset: "-=1000",
+          })
+          .add({
+            targets: "#anime-letters",
+            opacity: 0,
+            duration: 1,
           })
           .add({
             targets: ".contact-btn-open",

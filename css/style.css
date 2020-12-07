@@ -315,11 +315,10 @@ body {
 
 #anime-letters {
   position: relative;
+  opacity: 0;
 }
 
 #anime-letters svg path {
-  padding-left: 1rem;
-  padding-right: 1rem;
 }
 
 #contact-email {
