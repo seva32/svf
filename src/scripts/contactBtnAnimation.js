@@ -1,111 +1,35 @@
-document.addEventListener("DOMContentLoaded", () => {
-  function getWidth() {
-    return Math.min(
-      document.body.scrollWidth,
-      document.documentElement.scrollWidth,
-      document.body.offsetWidth,
-      document.documentElement.offsetWidth,
-      document.documentElement.clientWidth
-    );
-  }
-  const vw = getWidth();
-
-  //Intitial page load animation
-  if (vw > 550) {
-    anime
-      .timeline({
-        easing: "easeOutExpo",
-      })
-      .add({
-        targets: ".preload-wrapper",
-        opacity: [0, 1],
-        duration: 1,
-        delay: 1000,
-      })
-      .add({
-        targets: ".preload-content .preload-elem hr",
-        width: ["0%", "80%"],
-        delay: (el, i) => 200 * i,
-        duration: (el, i) => (i === 1 ? 1200 : 400),
-      })
-      .add({
-        targets: ".side-wrapper",
-        translateX: ["-30vh", "0vh"],
-        duration: 1000,
-        offset: "-=100",
-      })
-      .add({
-        targets: ".main-wrapper",
-        translateY: ["100vh", "0vh"],
-        duration: 2000,
-      })
-      .add({
-        targets: ".main-page",
-        display: "flex",
-      })
-      .add({
-        targets: ".contact-btn-open",
-        zIndex: 1,
-        duration: 1,
-      });
-  } else {
-    anime
-      .timeline({
-        easing: "easeOutExpo",
-      })
-      .add({
-        targets: ".preload-wrapper",
-        opacity: [0, 1],
-        duration: 1,
-        delay: 1000,
-      })
-      .add({
-        targets: ".preload-content .preload-elem hr",
-        width: ["0%", "80%"],
-        delay: (el, i) => 200 * i,
-        duration: (el, i) => (i === 1 ? 1200 : 400),
-      })
-      .add({
-        targets: ".main-wrapper",
-        translateY: ["100vh", "0vh"],
-        duration: 2000,
-      })
-      .add({
-        targets: ".contact-btn-open",
-        zIndex: 1,
-        duration: 1,
-      });
-  }
-  // initial preload animation ends
-
-  // contact button animations start
-
+export default () => {
   let btnOpen = document.querySelector(".contact-btn-open");
   let btnClose = document.querySelector(".contact-btn-close");
   let formBody = document.querySelector(".contact-form-body");
   let submitBtn = document.getElementById(".submit-message");
 
+  // hover ani
   btnOpen.addEventListener("mouseenter", function (event) {
     btnOpen.style.transition = "transform 0.3s";
     btnOpen.style.transform = "scale(1.3) translateX(-40%)";
   });
+  // hover ani
   btnOpen.addEventListener("mouseleave", function (event) {
     btnOpen.style.transform = "scale(1) translateX(-52%)";
   });
+  // transition to form page
   btnOpen.addEventListener("click", function (event) {
     btnOpen.style.zIndex = -1;
     btnClose.style.zIndex = 20;
     formBody.style.zIndex = 30;
   });
-
+  // hover ani
   btnClose.addEventListener("mouseenter", function (event) {
     btnClose.style.transition = "transform 0.3s";
     btnClose.style.transform = "scale(1.3) translateX(-40%)";
   });
+  // hover ani
   btnClose.addEventListener("mouseleave", function (event) {
     btnClose.style.transform = "scale(1) translateX(-52%)";
   });
 
+  // custom animejs easeings
   anime.easings["tanCube"] = function (t) {
     return Math.pow(Math.tan((t * Math.PI) / 4), 3);
   };
@@ -114,6 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return Math.pow(Math.tan((t * Math.PI) / 4), 2);
   };
 
+  // contact email shows after form & plane lands
   var animeLetters = anime({
     targets: "#anime-letters",
     opacity: [0, 1],
@@ -122,6 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
     autoplay: false,
   });
 
+  // contact email letters animations
   var letterTime = 100;
   var lineDrawing = anime({
     targets: "#anime-letters svg path",
@@ -132,8 +58,8 @@ document.addEventListener("DOMContentLoaded", () => {
       return letterTime * i;
     },
     begin: function (anim) {
-      let letters = document.querySelectorAll("#anime-letters svg path");
-      let i;
+      var letters = document.querySelectorAll("#anime-letters svg path"),
+        i;
 
       for (i = 0; i < letters.length; ++i) {
         letters[i].setAttribute("stroke", "#1A1B41");
@@ -141,43 +67,38 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     },
     update: function (anim) {
-      let letters = document.querySelectorAll("#anime-letters svg path");
-      let i;
+      var letters = document.querySelectorAll("#anime-letters svg path"),
+        i;
 
       if (anim.currentTime >= letterTime) {
         for (i = 0; i < letters.length; ++i) {
           letters[i].setAttribute("fill", "#1A1B41");
-          // letters[i].setAttribute("fill", "#f4f4f4");
         }
       }
     },
-    // complete: function (anim) {
-    //   let letters = document.querySelectorAll("#anime-letters svg path");
-    //   let i;
-    //   console.log("anim", anim);
-    //   for (i = 0; i < letters.length; ++i) {
-    //     letters[i].setAttribute("stroke", "none");
-    //     letters[i].setAttribute("fill", "none");
-    //   }
-    // },
     autoplay: false,
     loop: true,
     direction: "alternate",
   });
 
-  let tl = anime.timeline({
+  // transitions from main page to form page
+  // contact-btn-open main -> form, contact-btn-close form -> main
+
+  // animation opening the form/modal
+  let openModalTL = anime.timeline({
     direction: "normal",
     autoplay: false,
   });
-  tl.add({
-    targets: ".contact-btn-close",
-    backgroundColor: "#ffffff",
-    opacity: [0, 1],
-    duration: 3000,
-  })
+  openModalTL
+    .add({
+      targets: ".contact-btn-close",
+      backgroundColor: "#ffffff",
+      opacity: [0, 1],
+      duration: 3000,
+    })
     .add({
       targets: ".contact-form-dropback",
-      scale: 30,
+      scale: 25,
       zIndex: 5,
       opacity: [0, 1],
       duration: 2000,
@@ -196,6 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
       },
     });
 
+  // global listener for btn actions starts
   document.addEventListener(
     "click",
     function (event) {
@@ -209,10 +131,11 @@ document.addEventListener("DOMContentLoaded", () => {
       event.preventDefault();
 
       if (event.target.matches(".contact-btn-open")) {
-        tl.restart();
+        openModalTL.restart();
       }
 
       if (event.target.matches(".contact-btn-close")) {
+        // close modal timeline
         anime
           .timeline({
             easing: "easeOutExpo",
@@ -256,6 +179,7 @@ document.addEventListener("DOMContentLoaded", () => {
           });
       }
 
+      // plane animation on submit btn
       if (event.target.matches(".submit-message")) {
         let path = anime.path("#submit-path path");
         anime({
@@ -279,13 +203,5 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     false
   );
-
-  let resizeTimer;
-  window.addEventListener("resize", () => {
-    document.body.classList.add("resize-animation-stopper");
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => {
-      document.body.classList.remove("resize-animation-stopper");
-    }, 400);
-  });
-});
+  // global listener for btn actions ends
+};

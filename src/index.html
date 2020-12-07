@@ -2,22 +2,16 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Studio.</title>
+    <title>Sebastian Fantini | Dev</title>
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="/css/style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
       crossorigin="anonymous"
     />
-    <!-- Javascript -->
     <script
-      defer
       src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"
     ></script>
-    <script defer src="/js/animation.js"></script>
-    <script defer src="/js/function.js"></script>
-    <script defer src="/js/fetch.js"></script>
   </head>
 
   <body>
@@ -39,7 +33,7 @@
     </div>
 
     <!-- side bar -->
-    <div class="side-wrapper">Logo</div>
+    <div class="side-wrapper"><a href="#" id="projects-link">Projects</a></div>
 
     <!-- main content -->
     <div class="main-wrapper flex-center">
@@ -100,7 +94,7 @@
         </div>
         <div class="contact-form-submit flex-center">
           <button class="submit-message">
-              <img class="paper-plane" src="/img/send.png" alt="send message"></i>
+              <img class="paper-plane" id="plane" src="" alt="send message"></i>
               <svg id="submit-path" width="800" height="600">
                 <path
                   stroke="none"
@@ -111,9 +105,38 @@
           </button>
         </div>
       </div>
-      <!-- <div class="main-page">Main Page</div>  -->
+
+      <!-- hero -->
+      <div class="main-page">
+        <!-- navigation -->
+        <div class="nav-wrapper">
+          <nav>
+			      <a href="#" id="projects-link" class="active">Projects
+			      </a>
+          </nav>
+        </div>
+
+        <!-- content -->
+        <div class="column-wrapper">
+          <!-- primero hacer desvanecer un sector haciendo los targets por class y tags -->
+          <section class="text-section new-content"><p>section1</p></section>
+          <!-- el resto desaparece al final del que desvanece, pero inmediato a traves de column wrapper -->
+          <section class="img-section"><p>section2</p></section>
+        </div> 
+
+        <!-- bottom navigation -->
+        <div class="gallery-nav">
+          <div id="white-bg">
+            Izquierda
+          </div>
+          <div id="white-bg">
+            Derecha
+          </div>
+        </div>
+
     </div>
 
+    <!-- polyfill -->
     <script>
       if (!Element.prototype.matches) {
         Element.prototype.matches =
