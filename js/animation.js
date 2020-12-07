@@ -76,6 +76,105 @@ document.addEventListener("DOMContentLoaded", () => {
         duration: 1,
       });
   }
+  // initial preload animation ends
+
+  // contact button animations start
+
+  let btnOpen = document.querySelector(".contact-btn-open");
+  let btnClose = document.querySelector(".contact-btn-close");
+  let formBody = document.querySelector(".contact-form-body");
+
+  btnOpen.addEventListener("mouseenter", function (event) {
+    btnOpen.style.transition = "transform 0.3s";
+    btnOpen.style.transform = "scale(1.3) translateX(-40%)";
+  });
+  btnOpen.addEventListener("mouseleave", function (event) {
+    btnOpen.style.transform = "scale(1) translateX(-52%)";
+  });
+  btnOpen.addEventListener("click", function (event) {
+    btnOpen.style.zIndex = -1;
+    btnClose.style.zIndex = 20;
+    formBody.style.zIndex = 30;
+  });
+
+  btnClose.addEventListener("mouseenter", function (event) {
+    btnClose.style.transition = "transform 0.3s";
+    btnClose.style.transform = "scale(1.3) translateX(-40%)";
+  });
+  btnClose.addEventListener("mouseleave", function (event) {
+    btnClose.style.transform = "scale(1) translateX(-52%)";
+  });
+
+  anime.easings["tanCube"] = function (t) {
+    return Math.pow(Math.tan((t * Math.PI) / 4), 3);
+  };
+
+  anime.easings["tanSqr"] = function (t) {
+    return Math.pow(Math.tan((t * Math.PI) / 4), 2);
+  };
+
+  var letterTime = 100;
+  var lineDrawing = anime({
+    targets: "#anime-letters svg path",
+    strokeDashoffset: [anime.setDashoffset, 0],
+    easing: "easeInOutCubic",
+    duration: letterTime,
+    delay: function (el, i) {
+      return letterTime * i;
+    },
+    begin: function (anim) {
+      var letters = document.querySelectorAll("#anime-letters svg path"),
+        i;
+
+      for (i = 0; i < letters.length; ++i) {
+        letters[i].setAttribute("stroke", "#1A1B41");
+        letters[i].setAttribute("fill", "none");
+      }
+    },
+    update: function (anim) {
+      var letters = document.querySelectorAll("#anime-letters svg path"),
+        i;
+
+      if (anim.currentTime >= letterTime) {
+        for (i = 0; i < letters.length; ++i) {
+          letters[i].setAttribute("fill", "#1A1B41");
+        }
+      }
+    },
+    autoplay: false,
+    loop: true,
+    direction: "alternate",
+  });
+
+  let tl = anime.timeline({
+    direction: "normal",
+    autoplay: false,
+  });
+  tl.add({
+    targets: ".contact-btn-close",
+    backgroundColor: "#ffffff",
+    opacity: [0, 1],
+    duration: 3000,
+  })
+    .add({
+      targets: ".contact-form-dropback",
+      scale: 25,
+      zIndex: 5,
+      opacity: [0, 1],
+      duration: 2000,
+      offset: "-=3000",
+    })
+    .add({
+      targets: ".contact-form-body",
+      translateY: ["100vh", "0vh"],
+      opacity: [0, 1],
+      duration: 1500,
+      offset: "-=3500",
+      easing: "tanSqr",
+      complete: function (anim) {
+        lineDrawing.restart();
+      },
+    });
 
   document.addEventListener(
     "click",
@@ -90,42 +189,7 @@ document.addEventListener("DOMContentLoaded", () => {
       event.preventDefault();
 
       if (event.target.matches(".contact-btn-open")) {
-        anime
-          .timeline({
-            easing: "easeOutExpo",
-          })
-          .add({
-            targets: ".contact-btn-open",
-            zIndex: -1,
-            duration: 1,
-          })
-          .add({
-            targets: ".contact-btn-close",
-            backgroundColor: "#ffffff",
-            duration: 1000,
-          })
-          .add({
-            targets: ".contact-btn-close, .contact-form-dropback",
-            zIndex: (el, i) => (i === 0 ? 10 : 5),
-            opacity: [0, 1],
-            duration: 1000,
-            offset: "-=1000",
-          })
-          .add({
-            targets: ".contact-form-dropback",
-            scale: 25,
-            zIndex: 5,
-            offset: "-=1000",
-          })
-          .add({
-            targets: ".contact-form-body",
-            delay: 100,
-            translateY: ["100vh", "0vh"],
-            opacity: [0, 1],
-            duration: 1000,
-            zIndex: 30,
-            offset: "-=500",
-          });
+        tl.restart();
       }
 
       if (event.target.matches(".contact-btn-close")) {
@@ -187,39 +251,6 @@ document.addEventListener("DOMContentLoaded", () => {
           loop: false,
         });
       }
-
-      var letterTime = 100;
-      var lineDrawing = anime({
-        targets: "#anime-letters svg path",
-        strokeDashoffset: [anime.setDashoffset, 0],
-        easing: "easeInOutCubic",
-        duration: letterTime,
-        delay: function (el, i) {
-          return letterTime * i;
-        },
-        begin: function (anim) {
-          var letters = document.querySelectorAll("#anime-letters svg path"),
-            i;
-
-          for (i = 0; i < letters.length; ++i) {
-            letters[i].setAttribute("stroke", "#1A1B41");
-            letters[i].setAttribute("fill", "none");
-          }
-        },
-        update: function (anim) {
-          var letters = document.querySelectorAll("#anime-letters svg path"),
-            i;
-
-          if (anim.currentTime >= letterTime) {
-            for (i = 0; i < letters.length; ++i) {
-              letters[i].setAttribute("fill", "#1A1B41");
-            }
-          }
-        },
-        autoplay: true,
-        loop: true,
-        direction: "alternate",
-      });
     },
     false
   );
