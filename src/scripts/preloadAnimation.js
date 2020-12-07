@@ -30,10 +30,6 @@ export default () => {
         duration: 2000,
       })
       .add({
-        targets: ".main-page",
-        display: "flex",
-      })
-      .add({
         targets: ".contact-btn-open",
         zIndex: 1,
         duration: 1,

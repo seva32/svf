@@ -98,7 +98,7 @@ export default () => {
     })
     .add({
       targets: ".contact-form-dropback",
-      scale: 25,
+      scale: 30,
       zIndex: 5,
       opacity: [0, 1],
       duration: 2000,
