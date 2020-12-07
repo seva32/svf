@@ -132,8 +132,8 @@ document.addEventListener("DOMContentLoaded", () => {
       return letterTime * i;
     },
     begin: function (anim) {
-      var letters = document.querySelectorAll("#anime-letters svg path"),
-        i;
+      let letters = document.querySelectorAll("#anime-letters svg path");
+      let i;
 
       for (i = 0; i < letters.length; ++i) {
         letters[i].setAttribute("stroke", "#1A1B41");
@@ -141,15 +141,25 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     },
     update: function (anim) {
-      var letters = document.querySelectorAll("#anime-letters svg path"),
-        i;
+      let letters = document.querySelectorAll("#anime-letters svg path");
+      let i;
 
       if (anim.currentTime >= letterTime) {
         for (i = 0; i < letters.length; ++i) {
           letters[i].setAttribute("fill", "#1A1B41");
+          // letters[i].setAttribute("fill", "#f4f4f4");
         }
       }
     },
+    // complete: function (anim) {
+    //   let letters = document.querySelectorAll("#anime-letters svg path");
+    //   let i;
+    //   console.log("anim", anim);
+    //   for (i = 0; i < letters.length; ++i) {
+    //     letters[i].setAttribute("stroke", "none");
+    //     letters[i].setAttribute("fill", "none");
+    //   }
+    // },
     autoplay: false,
     loop: true,
     direction: "alternate",
@@ -167,7 +177,7 @@ document.addEventListener("DOMContentLoaded", () => {
   })
     .add({
       targets: ".contact-form-dropback",
-      scale: 25,
+      scale: 30,
       zIndex: 5,
       opacity: [0, 1],
       duration: 2000,
