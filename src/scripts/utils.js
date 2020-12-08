@@ -16,7 +16,7 @@ function getWidth() {
     document.documentElement.scrollWidth,
     document.body.offsetWidth,
     document.documentElement.offsetWidth,
-    document.documentElement.clientWidth
+    document.documentElement.clientWidth,
   );
 }
 export const vw = getWidth();
@@ -25,7 +25,8 @@ export const vw = getWidth();
 
 export const tes = function () {
   return new Promise((resolve, reject) => {
-    setTimeout(() => resolve("Some Data"), 1000);
+    setTimeout(() =>
+      resolve("Some Data"), 1000);
   });
 };
 
@@ -36,11 +37,11 @@ export const tes = function () {
 // }
 // run();
 
-export const lazyLoad = () => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => resolve("Hello from lazy load!"), 1000);
+export const lazyLoad = () =>
+  new Promise((resolve, reject) => {
+    setTimeout(() =>
+      resolve("Hello from lazy load!"), 1000);
   });
-};
 
 // usage
 // async function lazyLoadExample() {

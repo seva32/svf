@@ -1,3 +1,4 @@
+/* global anime */
 import { vw } from "./utils";
 
 export default () => {
@@ -15,8 +16,10 @@ export default () => {
       .add({
         targets: ".preload-content .preload-elem hr",
         width: ["0%", "80%"],
-        delay: (el, i) => 200 * i,
-        duration: (el, i) => (i === 1 ? 1200 : 400),
+        delay: (el, i) =>
+          200 * i,
+        duration: (el, i) =>
+          (i === 1 ? 1200 : 400),
       })
       .add({
         targets: ".side-wrapper",
@@ -48,8 +51,10 @@ export default () => {
       .add({
         targets: ".preload-content .preload-elem hr",
         width: ["0%", "80%"],
-        delay: (el, i) => 200 * i,
-        duration: (el, i) => (i === 1 ? 1200 : 400),
+        delay: (el, i) =>
+          200 * i,
+        duration: (el, i) =>
+          (i === 1 ? 1200 : 400),
       })
       .add({
         targets: ".main-wrapper",

@@ -1,60 +1,72 @@
-// fetch() to animate html snippets in and out
+/* global anime */
+export default () => {
+  // fetch() to animate html snippets in and out
 
-let projectsLink = document.querySelector("#projects-link");
+  const projectsLink = document.querySelector("#projects-link");
+  const homeLink = document.querySelector("#home-link");
 
-let linkArray = [projectsLink];
+  const linkArray = [projectsLink, homeLink];
 
-linkArray.forEach((eachLink) => {
-  eachLink.addEventListener("click", (e) => {
-    switch (eachLink) {
-      case projectsLink:
-        fetchPage(eachLink, "projects.html");
-        break;
+  function fetchPage(link, page) {
+    let baseURL = `${window.location.protocol}//${window.location.hostname}`;
+
+    if (window.location.port) {
+      baseURL += `:${window.location.port}`;
     }
-  });
-});
 
-function fetchPage(link, page) {
-  let baseURL = `${window.location.protocol}//${window.location.hostname}`;
+    console.log(`${baseURL}/${page}`);
 
-  if (window.location.port) {
-    baseURL += `:${window.location.port}`;
-  }
+    fetch(`${baseURL}/${page}`)
+      .then((response) =>
+        response.text())
+      .then((html) => {
+        console.log(html);
 
-  fetch(`${baseURL}/${page}`)
-    .then(function (response) {
-      return response.text();
-    })
-    .then(function (html) {
-      let doc = new DOMParser().parseFromString(html, "text/html");
-
-      anime({
-        targets: ".text-section h1, .text-section p, .text-section div",
-        translateX: 700,
-        opacity: 0,
-        easing: "easeInExpo",
-        duration: 700,
-        complete: (anim) => {
-          document.querySelector(".column-wrapper").remove();
-        },
-      });
-
-      setTimeout(function () {
-        document
-          .querySelector(".main-page")
-          .insertBefore(
-            doc.querySelector(".new-content"),
-            document.querySelector(".gallery-nav")
-          );
+        const doc = new DOMParser().parseFromString(html, "text/html");
 
         anime({
-          targets:
-            ".new-content .text-section h1, .new-content .text-section p, .new-content .text-section div",
-          translateX: [-600, 0],
-          delay: (el, i) => 100 * i,
-          opacity: [0, 1],
-          easing: "easeOutExpo",
+          targets: ".text-section h1, .text-section p, .text-section div",
+          translateX: 700,
+          opacity: 0,
+          easing: "easeInExpo",
+          duration: 700,
+          complete: (anim) => {
+            document.querySelector(".column-wrapper").remove();
+          },
         });
-      }, 700);
+
+        setTimeout(() => {
+          document
+            .querySelector(".main-page")
+            .insertBefore(
+              doc.querySelector(".new-content"),
+              document.querySelector(".gallery-nav"),
+            );
+
+          anime({
+            targets:
+              ".new-content .text-section h1, .new-content .text-section p, .new-content .text-section div",
+            translateX: [-600, 0],
+            delay: (el, i) =>
+              100 * i,
+            opacity: [0, 1],
+            easing: "easeOutExpo",
+          });
+        }, 700);
+      });
+  }
+
+  linkArray.forEach((eachLink) => {
+    eachLink.addEventListener("click", (e) => {
+      switch (eachLink) {
+          case projectsLink:
+            fetchPage(eachLink, "projects.html");
+            break;
+          case homeLink:
+            fetchPage(eachLink, "home.html"); // es el index.html
+            break;
+          default:
+      }
     });
-}
+  });
+};

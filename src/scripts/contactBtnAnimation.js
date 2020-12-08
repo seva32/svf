@@ -1,45 +1,46 @@
+/* global anime */
 export default () => {
-  let btnOpen = document.querySelector(".contact-btn-open");
-  let btnClose = document.querySelector(".contact-btn-close");
-  let formBody = document.querySelector(".contact-form-body");
-  let submitBtn = document.getElementById(".submit-message");
+  const btnOpen = document.querySelector(".contact-btn-open");
+  const btnClose = document.querySelector(".contact-btn-close");
+  const formBody = document.querySelector(".contact-form-body");
+  const submitBtn = document.getElementById(".submit-message");
 
   // hover ani
-  btnOpen.addEventListener("mouseenter", function (event) {
+  btnOpen.addEventListener("mouseenter", (event) => {
     btnOpen.style.transition = "transform 0.3s";
     btnOpen.style.transform = "scale(1.3) translateX(-40%)";
   });
   // hover ani
-  btnOpen.addEventListener("mouseleave", function (event) {
+  btnOpen.addEventListener("mouseleave", (event) => {
     btnOpen.style.transform = "scale(1) translateX(-52%)";
   });
   // transition to form page
-  btnOpen.addEventListener("click", function (event) {
+  btnOpen.addEventListener("click", (event) => {
     btnOpen.style.zIndex = -1;
     btnClose.style.zIndex = 20;
     formBody.style.zIndex = 30;
   });
   // hover ani
-  btnClose.addEventListener("mouseenter", function (event) {
+  btnClose.addEventListener("mouseenter", (event) => {
     btnClose.style.transition = "transform 0.3s";
     btnClose.style.transform = "scale(1.3) translateX(-40%)";
   });
   // hover ani
-  btnClose.addEventListener("mouseleave", function (event) {
+  btnClose.addEventListener("mouseleave", (event) => {
     btnClose.style.transform = "scale(1) translateX(-52%)";
   });
 
   // custom animejs easeings
-  anime.easings["tanCube"] = function (t) {
-    return Math.pow(Math.tan((t * Math.PI) / 4), 3);
+  anime.easings.tanCube = function (t) {
+    return Math.tan((t * Math.PI) / 4) ** 3;
   };
 
-  anime.easings["tanSqr"] = function (t) {
-    return Math.pow(Math.tan((t * Math.PI) / 4), 2);
+  anime.easings.tanSqr = function (t) {
+    return Math.tan((t * Math.PI) / 4) ** 2;
   };
 
   // contact email shows after form & plane lands
-  var animeLetters = anime({
+  const animeLetters = anime({
     targets: "#anime-letters",
     opacity: [0, 1],
     duration: 5000,
@@ -48,27 +49,27 @@ export default () => {
   });
 
   // contact email letters animations
-  var letterTime = 100;
-  var lineDrawing = anime({
+  const letterTime = 100;
+  const lineDrawing = anime({
     targets: "#anime-letters svg path",
     strokeDashoffset: [anime.setDashoffset, 0],
     easing: "easeInOutCubic",
     duration: letterTime,
-    delay: function (el, i) {
+    delay(el, i) {
       return letterTime * i;
     },
-    begin: function (anim) {
-      var letters = document.querySelectorAll("#anime-letters svg path"),
-        i;
+    begin(anim) {
+      const letters = document.querySelectorAll("#anime-letters svg path");
+      let i;
 
       for (i = 0; i < letters.length; ++i) {
         letters[i].setAttribute("stroke", "#1A1B41");
         letters[i].setAttribute("fill", "none");
       }
     },
-    update: function (anim) {
-      var letters = document.querySelectorAll("#anime-letters svg path"),
-        i;
+    update(anim) {
+      const letters = document.querySelectorAll("#anime-letters svg path");
+      let i;
 
       if (anim.currentTime >= letterTime) {
         for (i = 0; i < letters.length; ++i) {
@@ -85,7 +86,7 @@ export default () => {
   // contact-btn-open main -> form, contact-btn-close form -> main
 
   // animation opening the form/modal
-  let openModalTL = anime.timeline({
+  const openModalTL = anime.timeline({
     direction: "normal",
     autoplay: false,
   });
@@ -111,7 +112,7 @@ export default () => {
       duration: 1500,
       offset: "-=3500",
       easing: "tanSqr",
-      complete: function (anim) {
+      complete(anim) {
         lineDrawing.restart();
         animeLetters.restart();
       },
@@ -120,13 +121,12 @@ export default () => {
   // global listener for btn actions starts
   document.addEventListener(
     "click",
-    function (event) {
+    (event) => {
       if (
         !event.target.matches(".contact-btn-open") &&
         !event.target.matches(".contact-btn-close") &&
         !event.target.matches(".submit-message")
-      )
-        return;
+      ) { return; }
 
       event.preventDefault();
 
@@ -181,7 +181,7 @@ export default () => {
 
       // plane animation on submit btn
       if (event.target.matches(".submit-message")) {
-        let path = anime.path("#submit-path path");
+        const path = anime.path("#submit-path path");
         anime({
           targets: ".contact-form-submit .submit-message img",
           top: "-560px",
@@ -201,7 +201,7 @@ export default () => {
         });
       }
     },
-    false
+    false,
   );
   // global listener for btn actions ends
 };
