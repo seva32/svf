@@ -3,6 +3,7 @@ import loadImgSrc from "./scripts/loadImgSrc";
 import preloadAnimation from "./scripts/preloadAnimation";
 import contactBtnAnimation from "./scripts/contactBtnAnimation";
 import loadHTML from "./scripts/loadHTML";
+import sideBarAnimation from "./scripts/sideBarAnimation";
 
 import "./styles/style.css";
 
@@ -11,3 +12,4 @@ loadImgSrc();
 preloadAnimation();
 contactBtnAnimation();
 loadHTML();
+sideBarAnimation();

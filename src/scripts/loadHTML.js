@@ -25,7 +25,7 @@ export default () => {
         const doc = new DOMParser().parseFromString(html, "text/html");
 
         anime({
-          targets: ".text-section h1, .text-section p, .text-section div",
+          targets: ".text-section div",
           translateX: 700,
           opacity: 0,
           easing: "easeInExpo",
@@ -40,12 +40,12 @@ export default () => {
             .querySelector(".main-page")
             .insertBefore(
               doc.querySelector(".new-content"),
-              document.querySelector(".gallery-nav"),
+              document.querySelector(".footer"),
             );
 
           anime({
             targets:
-              ".new-content .text-section h1, .new-content .text-section p, .new-content .text-section div",
+              ".new-content .text-section div",
             translateX: [-600, 0],
             delay: (el, i) =>
               100 * i,
