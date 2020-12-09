@@ -19,7 +19,7 @@ export default () => {
         response.text())
       .then((html) => {
         const doc = new DOMParser().parseFromString(html, "text/html");
-
+        // ambos targets tienes que apuntar a los nodos/class que agregue
         anime({
           targets: ".content-section div",
           translateX: 700,
