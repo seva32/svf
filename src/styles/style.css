@@ -490,12 +490,12 @@ h4 {
   align-self: center;
 }
 
-.column-wrapper {
+.content-wrapper {
   display: flex;
   height: 100vh;
 }
 
-.column-wrapper section {
+.content-wrapper div {
   display: flex;
 }
 

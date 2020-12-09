@@ -14,24 +14,20 @@ export default () => {
       baseURL += `:${window.location.port}`;
     }
 
-    console.log(`${baseURL}/${page}`);
-
     fetch(`${baseURL}/${page}`)
       .then((response) =>
         response.text())
       .then((html) => {
-        console.log(html);
-
         const doc = new DOMParser().parseFromString(html, "text/html");
 
         anime({
-          targets: ".text-section div",
+          targets: ".content-section div",
           translateX: 700,
           opacity: 0,
           easing: "easeInExpo",
           duration: 700,
           complete: (anim) => {
-            document.querySelector(".column-wrapper").remove();
+            document.querySelector(".content-wrapper").remove();
           },
         });
 
@@ -45,7 +41,7 @@ export default () => {
 
           anime({
             targets:
-              ".new-content .text-section div",
+              ".new-content .content-section div",
             translateX: [-600, 0],
             delay: (el, i) =>
               100 * i,
