@@ -31,13 +31,13 @@ export default () => {
   });
 
   // custom animejs easeings
-  anime.easings.tanCube = function (t) {
-    return Math.tan((t * Math.PI) / 4) ** 3;
-  };
+  // anime.easings.tanCube = function (t) {
+  //   return Math.tan((t * Math.PI) / 4) ** 3;
+  // };
 
-  anime.easings.tanSqr = function (t) {
-    return Math.tan((t * Math.PI) / 4) ** 2;
-  };
+  // anime.easings.tanSqr = function (t) {
+  //   return Math.tan((t * Math.PI) / 4) ** 2;
+  // };
 
   // contact email shows after form & plane lands
   const animeLetters = anime({
@@ -111,7 +111,11 @@ export default () => {
       opacity: [0, 1],
       duration: 1500,
       offset: "-=3500",
-      easing: "tanSqr",
+      easing(el, i, total) {
+        return function (t) {
+          return Math.tan((t * Math.PI) / 4) ** 3;
+        };
+      },
       complete(anim) {
         lineDrawing.restart();
         animeLetters.restart();

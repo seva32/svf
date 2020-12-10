@@ -1,5 +1,5 @@
-/* global anime */
 import { vw } from "./utils";
+import heroAnimation from "./heroAnimation";
 
 export default () => {
   if (vw > 550) {
@@ -30,14 +30,14 @@ export default () => {
       .add({
         targets: ".main-wrapper",
         translateY: ["100vh", "0vh"],
-        duration: 2000,
+        duration: 1200,
       })
       .add({
         targets: ".contact-btn-open",
         zIndex: 1,
         duration: 1,
         complete: (anim) => {
-          alert("complete");
+          heroAnimation.restart();
         },
       });
   } else {
