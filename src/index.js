@@ -4,6 +4,7 @@ import preloadAnimation from "./scripts/preloadAnimation";
 import contactBtnAnimation from "./scripts/contactBtnAnimation";
 import loadHTML from "./scripts/loadHTML";
 import sideBarAnimation from "./scripts/sideBarAnimation";
+import heroAnimation from "./scripts/heroAnimation";
 
 import "./styles/style.css";
 
@@ -13,3 +14,4 @@ preloadAnimation();
 contactBtnAnimation();
 loadHTML();
 sideBarAnimation();
+// heroAnimation();

@@ -34,8 +34,8 @@ body {
     /* Windows 6+ */ Segoe UI, /* Android 4+ */ Roboto,
     /* Ubuntu 10.10+ */ Ubuntu, /* Gnome 3+ */ Cantarell,
     /* KDE Plasma 5+ */ Noto Sans, /* fallback */ sans-serif,
-    /* macOS emoji */ "Apple Color Emoji", /* Windows emoji */ "Segoe UI Emoji",
-    /* Windows emoji */ "Segoe UI Symbol", /* Linux emoji */ "Noto Color Emoji";
+    /* macOS emoji */ 'Apple Color Emoji', /* Windows emoji */ 'Segoe UI Emoji',
+    /* Windows emoji */ 'Segoe UI Symbol', /* Linux emoji */ 'Noto Color Emoji';
   font-size: 62.5%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -86,20 +86,20 @@ select:not([multiple]):not([size]) {
 ::-ms-expand {
   display: none;
 }
-[aria-busy="true"] {
+[aria-busy='true'] {
   cursor: progress;
 }
 [aria-controls] {
   cursor: pointer;
 }
-[aria-disabled="true"],
+[aria-disabled='true'],
 [disabled] {
   cursor: default;
 }
-[aria-hidden="false"][hidden] {
+[aria-hidden='false'][hidden] {
   display: initial;
 }
-[aria-hidden="false"][hidden]:not(:focus) {
+[aria-hidden='false'][hidden]:not(:focus) {
   clip: rect(0, 0, 0, 0);
   position: absolute;
 }
@@ -111,7 +111,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: "";
+  content: '';
   content: none;
 }
 ol,
@@ -143,7 +143,7 @@ body {
   position: relative;
   z-index: 0;
   overflow: hidden;
-  font-family: "Advent Pro", sans-serif;
+  font-family: 'Advent Pro', sans-serif;
 }
 
 h1 {
@@ -485,7 +485,7 @@ h4 {
 }
 
 .hamburger-wrapper {
-  width: 100%;
+  width: 10%;
   height: 100%;
   display: flex;
   justify-content: flex-start;

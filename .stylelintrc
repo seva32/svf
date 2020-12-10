@@ -1,0 +1,34 @@
+{
+	"rules": {
+		"indentation": [2, { "ignore": ["inside-parens"] }],
+		"block-no-empty": true,
+		"color-no-invalid-hex": true,
+		"declaration-colon-space-after": "always",
+		"max-empty-lines": 2,
+		"rule-empty-line-before": [
+			"always",
+			{
+				"except": [
+					"first-nested"
+				],
+				"ignore": [
+					"after-comment"
+				]
+			}
+		],
+		"unit-whitelist": [
+			"px",
+			"em",
+			"rem",
+			"vw",
+			"vh",
+			"deg",
+			"ms",
+			"%",
+			"s",
+			"dpi",
+			"pt",
+			"fr"
+		]
+	}
+}

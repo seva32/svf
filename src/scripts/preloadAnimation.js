@@ -36,6 +36,9 @@ export default () => {
         targets: ".contact-btn-open",
         zIndex: 1,
         duration: 1,
+        complete: (anim) => {
+          alert("complete");
+        },
       });
   } else {
     anime
