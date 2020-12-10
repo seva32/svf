@@ -5,7 +5,13 @@ export default () => {
   const projectsLink = document.querySelector("#projects-link");
   const homeLink = document.querySelector("#home-link");
 
-  const linkArray = [projectsLink, homeLink];
+  let linkArray = [projectsLink, homeLink];
+
+  function bouncer(arrToFilter) {
+    return arrToFilter.filter(Boolean);
+  }
+
+  linkArray = bouncer(linkArray);
 
   function fetchPage(link, page) {
     let baseURL = `${window.location.protocol}//${window.location.hostname}`;
@@ -52,17 +58,19 @@ export default () => {
       });
   }
 
-  linkArray.forEach((eachLink) => {
-    eachLink.addEventListener("click", (e) => {
-      switch (eachLink) {
-          case projectsLink:
-            fetchPage(eachLink, "projects.html");
-            break;
-          case homeLink:
-            fetchPage(eachLink, "home.html"); // es el index.html
-            break;
-          default:
-      }
+  if (linkArray && linkArray.length > 0) {
+    linkArray.forEach((eachLink) => {
+      eachLink.addEventListener("click", (e) => {
+        switch (eachLink) {
+            case projectsLink:
+              fetchPage(eachLink, "projects.html");
+              break;
+            case homeLink:
+              fetchPage(eachLink, "home.html"); // es el index.html
+              break;
+            default:
+        }
+      });
     });
-  });
+  }
 };
