@@ -38,8 +38,7 @@ var callback = function (entries) {
           begin(anim) {
             let i;
             for (i = 0; i < words.length; ++i) {
-              console.log(words[i].attributes.id);
-              if (i === 1) {
+              if (words[i].attributes.id.nodeValue.includes('software')) {
                 const tl = anime.timeline({
                   duration: 2000,
                   delay: 2700,
