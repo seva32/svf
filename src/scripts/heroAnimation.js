@@ -1,127 +1,103 @@
-const wordTime = 100;
+const words = document.querySelectorAll(".hero-img svg g");
+const colors = [
+  "#5c27c1ff",
+  "#9dacffff",
+  "#8093F1",
+  "#d81159ff",
+  "#72DDF7",
+  "#F7AEF8",
+];
 
-const heroAnimation = anime({
-  targets: ".hero-img",
+const heroAnimation = anime.timeline({
   easing: "easeOutExpo",
-  opacity: [0, 1],
-  duration: 500,
-  autoplay: false,
-  begin(anim) {
-    const words = document.querySelectorAll(".hero-img svg g");
-    let i;
+  duration: 6000,
+});
 
+heroAnimation.add({
+  targets: ".hero-img",
+  opacity: [0, 1],
+  begin(anim) {
+    let i;
     for (i = 0; i < words.length; ++i) {
-      if (i < 4) {
-        anime({
-          targets: words[i],
-          easing: "easeOutExpo",
-          translateX: ["1000px", "0px"],
+      if (i === 1) {
+        const tl = anime.timeline({
           duration: 2000,
+          delay: 2700,
         });
-      } else if (i < 9) {
-        anime({
+        tl.add({
+          targets: words[1],
+          opacity: [0, 1],
+          scale: [0.2, 1],
+          translateX: "0%",
+          translateY: "0%",
+        });
+      } else if (i < 5) {
+        const tl = anime.timeline({
+          duration: 2500,
+          delay: 500,
+        });
+        tl.add({
           targets: words[i],
-          easing: "easeOutExpo",
+          keyframes: [
+            { translateY: 40 },
+            { translateX: -50 },
+            { translateY: -40 },
+            { translateX: 0 },
+            { translateY: 0 },
+          ],
+          easing: "easeOutElastic(1, .8)",
+        });
+      } else if (i < 10) {
+        const tl = anime.timeline({
+          duration: 1500,
+        });
+        tl.add({
+          targets: words[i],
+          easing: "easeOutBounce",
           translateX: ["-1000px", "0px"],
-          duration: 2000,
+          opacity: [0, 1],
         });
       } else {
-        anime({
+        const tl = anime.timeline({
+          duration: 3000,
+        });
+        tl.add({
           targets: words[i],
-          easing: "easeOutExpo",
-          translateY: ["1000px", "0px"],
-          duration: 2000,
+          keyframes: [
+            { translateY: -20 },
+            { translateX: 200 },
+            { translateY: 20 },
+            { translateX: 0 },
+            { translateY: 0 },
+          ],
+          easing: "easeOutElastic(1, .8)",
         });
       }
     }
   },
-  complete(anim) {
-    const grid = [4, 4];
-    const cell = 50;
-    const numberOfElements = grid[0] * grid[1];
-    let animation;
-    let paused = true;
-
-    let index = anime.random(0, numberOfElements - 1);
-    let nextIndex = 0;
-
-    anime.set("#cursor", {
-      translateX: anime.stagger(-cell, { grid, from: index, axis: "x" }),
-      translateY: anime.stagger(-cell, { grid, from: index, axis: "y" }),
-      translateZ: 0,
-      scale: 1.1,
-    });
-
-    const words = document.querySelectorAll(".hero-img svg g");
-    let i;
-
-    function play() {
-      paused = false;
-      if (animation) animation.pause();
-
-      nextIndex = anime.random(0, numberOfElements - 1);
-
-      animation = anime.timeline({
-        easing: "easeInOutQuad",
-        complete: play,
-      })
-        .add({
-          targets: "#cursor",
-          keyframes: [
-            { scale: 0.75, duration: 120 },
-            { scale: 2.5, duration: 220 },
-            { scale: 1.5, duration: 450 },
-          ],
-          duration: 300,
-        })
-        .add({
-          targets: ".dot",
-          keyframes: [
-            {
-              translateX: anime.stagger("-2px", { grid, from: index, axis: "x" }),
-              translateY: anime.stagger("-2px", { grid, from: index, axis: "y" }),
-              duration: 100,
-            }, {
-              translateX: anime.stagger("4px", { grid, from: index, axis: "x" }),
-              translateY: anime.stagger("4px", { grid, from: index, axis: "y" }),
-              scale: anime.stagger([1.2, 1], { grid, from: index }),
-              duration: 225,
-            }, {
-              translateX: 0,
-              translateY: 0,
-              scale: 1,
-              duration: 1200,
-            },
-          ],
-          delay: anime.stagger(80, { grid, from: index }),
-        }, 30)
-        .add({
-          targets: "#cursor",
-          translateX: { value: anime.stagger(-cell, { grid, from: nextIndex, axis: "x" }) },
-          translateY: { value: anime.stagger(-cell, { grid, from: nextIndex, axis: "y" }) },
-          scale: 1.5,
-          easing: "cubicBezier(.075, .2, .165, 1)",
-        }, "-=800");
-
-      index = nextIndex;
-    }
-
-    for (i = 0; i < words.length; ++i) {
-      words[i].classList.add("dot");
-    }
-
-    play();
+}).add({
+  targets: words,
+  duration: 1000,
+  strokeWidth: ["3px", "1px"],
+  stroke(el, i, l) {
+    return colors[anime.random(0, 5)];
   },
-  //   update(anim) {
-  //     const words = document.querySelectorAll(".hero-img svg g");
-  //     let i;
+  loop: 3,
+  easing: "easeInOutBounce",
+  delay(el, i, l) {
+    return i * 100;
+  },
+  endDelay(el, i, l) {
+    return (l - i) * 100;
+  },
+  autoplay: false,
+}, "+=3000")
+  .add({
+    targets: words,
+    stroke: "#d81159ff",
+    duration: 300,
+  });
 
-  //     if (anim.currentTime >= wordTime) {
-  //       for (i = 0; i < words.length; ++i) {
-
-//       }
-//     }
-//   },
-});
+heroAnimation.pause();
 
 export default heroAnimation;

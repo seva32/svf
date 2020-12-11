@@ -1,5 +1,5 @@
 import { vw } from "./utils";
-import heroAnimation from "./heroAnimation";
+// import heroAnimation from "./heroAnimation";
 
 export default () => {
   if (vw > 550) {
@@ -36,10 +36,13 @@ export default () => {
         targets: ".contact-btn-open",
         zIndex: 1,
         duration: 1,
-        complete: (anim) => {
-          heroAnimation.restart();
-        },
       });
+    // .add({
+    //   targets: ".hero-img",
+    //   begin: (anim) => {
+    //     heroAnimation.play();
+    //   },
+    // });
   } else {
     anime
       .timeline({
@@ -69,5 +72,11 @@ export default () => {
         zIndex: 1,
         duration: 1,
       });
+    // .add({
+    //   targets: ".hero-img",
+    //   begin: (anim) => {
+    //     heroAnimation.play();
+    //   },
+    // });
   }
 };
