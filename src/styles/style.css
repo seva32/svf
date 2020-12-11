@@ -553,6 +553,7 @@ h4 {
   display: flex;
   justify-content: center;
   align-items: center;
+  opacity: 0;
 }
 
 .hero-img svg {
