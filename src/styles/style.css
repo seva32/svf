@@ -405,7 +405,16 @@ h4 {
 
 #anime-letters {
   position: relative;
-  opacity: 0;
+  display: block;
+  overflow: hidden;
+  margin-bottom: -6rem;
+  z-index: -1;
+}
+
+.contact-form-email .letter {
+  transform-origin: 0 100%;
+  display: inline-block;
+  line-height: 1rem;
 }
 
 #anime-letters svg path {

@@ -54,47 +54,71 @@ export default () => {
   // };
 
   // contact email shows after form & plane lands
-  const animeLetters = anime({
-    targets: "#anime-letters",
-    opacity: [0, 1],
-    duration: 5000,
-    delay: 500,
-    autoplay: false,
-  });
+  // const animeLetters = anime({
+  //   targets: "#anime-letters",
+  //   opacity: [0, 1],
+  //   duration: 5000,
+  //   delay: 500,
+  //   autoplay: false,
+  // });
 
   // contact email letters animations
-  const letterTime = 100;
-  const lineDrawing = anime({
-    targets: "#anime-letters svg path",
-    strokeDashoffset: [anime.setDashoffset, 0],
-    easing: "easeInOutCubic",
-    duration: letterTime,
-    delay(el, i) {
-      return letterTime * i;
-    },
-    begin(anim) {
-      const letters = document.querySelectorAll("#anime-letters svg path");
-      let i;
+  // const letterTime = 100;
+  // const lineDrawing = anime({
+  //   targets: "#anime-letters svg path",
+  //   strokeDashoffset: [anime.setDashoffset, 0],
+  //   easing: "easeInOutCubic",
+  //   duration: letterTime,
+  //   delay(el, i) {
+  //     return letterTime * i;
+  //   },
+  //   begin(anim) {
+  //     const letters = document.querySelectorAll("#anime-letters svg path");
+  //     let i;
 
-      for (i = 0; i < letters.length; ++i) {
-        letters[i].setAttribute("stroke", "#1A1B41");
-        letters[i].setAttribute("fill", "none");
-      }
-    },
-    update(anim) {
-      const letters = document.querySelectorAll("#anime-letters svg path");
-      let i;
+  //     for (i = 0; i < letters.length; ++i) {
+  //       letters[i].setAttribute("stroke", "#1A1B41");
+  //       letters[i].setAttribute("fill", "none");
+  //     }
+  //   },
+  //   update(anim) {
+  //     const letters = document.querySelectorAll("#anime-letters svg path");
+  //     let i;
 
-      if (anim.currentTime >= letterTime) {
-        for (i = 0; i < letters.length; ++i) {
-          letters[i].setAttribute("fill", "#1A1B41");
-        }
-      }
-    },
-    autoplay: false,
-    loop: true,
-    direction: "alternate",
+  //     if (anim.currentTime >= letterTime) {
+  //       for (i = 0; i < letters.length; ++i) {
+  //         letters[i].setAttribute("fill", "#1A1B41");
+  //       }
+  //     }
+  //   },
+  //   autoplay: false,
+  //   loop: true,
+  //   direction: "alternate",
+  // });
+
+  const textWrapper = document.querySelector(".contact-form-email .letters");
+  textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<h2 class='letter'>$&</h2>");
+
+  const lettersTL = anime.timeline({ loop: true });
+  lettersTL.add({
+    targets: ".contact-form-email .letter",
+    translateY: ["15rem", 0],
+    translateX: ["1rem", 0],
+    translateZ: 0,
+    rotateZ: [180, 0],
+    duration: 750,
+    easing: "easeOutExpo",
+    delay: (el, i) =>
+      50 * i,
+  }).add({
+    targets: ".contact-form-email",
+    opacity: 0,
+    duration: 1000,
+    easing: "easeOutExpo",
+    delay: 1000,
   });
+
+  lettersTL.pause();
 
   // transitions from main page to form page
   // contact-btn-open main -> form, contact-btn-close form -> main
@@ -125,8 +149,9 @@ export default () => {
         };
       },
       complete(anim) {
-        lineDrawing.restart();
-        animeLetters.restart();
+        // lineDrawing.restart();
+        // animeLetters.restart();
+        lettersTL.play();
       },
     }, "-=1500");
 
