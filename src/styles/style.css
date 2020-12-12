@@ -554,11 +554,14 @@ h4 {
   justify-content: center;
   align-items: center;
   opacity: 0;
+  overflow: visible;
 }
 
 .hero-img svg {
+  width: 100%;
   max-width: 650px;
   height: auto;
+  overflow: visible;
 }
 
 .first-content {

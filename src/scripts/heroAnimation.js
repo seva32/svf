@@ -99,7 +99,7 @@ var callback = function (entries) {
           {
             targets: words,
             duration: 1000,
-            strokeWidth: ['3px', '1px'],
+            strokeWidth: ['2px', '1px'],
             stroke(el, i, l) {
               return colors[anime.random(0, 5)];
             },
@@ -119,6 +119,21 @@ var callback = function (entries) {
           stroke: '#d81159ff',
           duration: 300,
         });
+      // .add({
+      //   targets: '#software',
+      //   strokeWidth: ['100%', '1px'],
+      //   stroke: '#d81159ff',
+      //   update(anim) {
+      //     const software = document.getElementById('#software');
+      //     software.attributes.stroke = colors[anime.random(0, 5)];
+      //   },
+      //   delay(el, i, l) {
+      //     return i * 100;
+      //   },
+      //   endDelay(el, i, l) {
+      //     return (l - i) * 100;
+      //   },
+      // });
     }
   });
 };
