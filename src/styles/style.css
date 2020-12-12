@@ -321,6 +321,7 @@ h4 {
   left: 0;
   bottom: 50px;
   z-index: 20;
+  transform: translateX(-52%);
 }
 
 .contact-btn-open,
@@ -333,7 +334,6 @@ h4 {
   border: none;
   background-color: var(--ruby);
   border-radius: 9999px;
-  transform: translateX(-52%);
 }
 
 .contact-btn-open svg {

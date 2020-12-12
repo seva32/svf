@@ -7,12 +7,19 @@ export default () => {
 
   // hover ani
   btnOpen.addEventListener("mouseenter", (event) => {
-    btnOpen.style.transition = "transform 0.3s";
-    btnOpen.style.transform = "scale(1.3) translateX(-40%)";
+    anime({
+      targets: btnOpen,
+      duration: 500,
+      scale: 1.3,
+    });
   });
   // hover ani
   btnOpen.addEventListener("mouseleave", (event) => {
-    btnOpen.style.transform = "scale(1) translateX(-52%)";
+    anime({
+      targets: btnOpen,
+      duration: 500,
+      scale: 1,
+    });
   });
   // transition to form page
   btnOpen.addEventListener("click", (event) => {
@@ -22,12 +29,19 @@ export default () => {
   });
   // hover ani
   btnClose.addEventListener("mouseenter", (event) => {
-    btnClose.style.transition = "transform 0.3s";
-    btnClose.style.transform = "scale(1.3) translateX(-40%)";
+    anime({
+      targets: btnClose,
+      duration: 500,
+      scale: 1.3,
+    });
   });
   // hover ani
   btnClose.addEventListener("mouseleave", (event) => {
-    btnClose.style.transform = "scale(1) translateX(-52%)";
+    anime({
+      targets: btnClose,
+      duration: 500,
+      scale: 1,
+    });
   });
 
   // custom animejs easeings
@@ -87,30 +101,24 @@ export default () => {
 
   // animation opening the form/modal
   const openModalTL = anime.timeline({
-    direction: "normal",
-    autoplay: false,
+    duration: 2000,
   });
   openModalTL
     .add({
       targets: ".contact-btn-close",
       backgroundColor: "#ffffff",
       opacity: [0, 1],
-      duration: 3000,
     })
     .add({
       targets: ".contact-form-dropback",
       scale: 30,
       zIndex: 5,
       opacity: [0, 1],
-      duration: 2000,
-      offset: "-=3000",
-    })
+    }, "-=2000")
     .add({
       targets: ".contact-form-body",
       translateY: ["100vh", "0vh"],
-      opacity: [0, 1],
-      duration: 1500,
-      offset: "-=3500",
+      opacity: [0.5, 1],
       easing(el, i, total) {
         return function (t) {
           return Math.tan((t * Math.PI) / 4) ** 3;
@@ -120,7 +128,9 @@ export default () => {
         lineDrawing.restart();
         animeLetters.restart();
       },
-    });
+    }, "-=1500");
+
+  openModalTL.pause();
 
   // global listener for btn actions starts
   document.addEventListener(
@@ -137,7 +147,7 @@ export default () => {
       event.preventDefault();
 
       if (event.target.matches(".contact-btn-open")) {
-        openModalTL.restart();
+        openModalTL.play();
       }
 
       if (event.target.matches(".contact-btn-close")) {
@@ -163,16 +173,13 @@ export default () => {
             targets: ".contact-btn-close",
             backgroundColor: "#ff898a",
             duration: 1000,
-            offset: "-=1000",
-          })
+          }, "-=1000")
           .add({
             targets: ".contact-form-dropback",
-            translateX: ["0%", "-52%"],
             scale: 1,
             opacity: [1, 0],
             duration: 1000,
-            offset: "-=1000",
-          })
+          }, "-=1300")
           .add({
             targets: "#anime-letters",
             opacity: 0,
