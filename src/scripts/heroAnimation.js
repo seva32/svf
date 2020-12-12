@@ -1,3 +1,13 @@
+import { vw } from "./utils";
+
+const logaritmo = Math.log(vw);
+
+const translateXvalue = `${vw > 550 ? (logaritmo * 163) - 800 : 0}%`;
+// eslint-disable-next-line no-nested-ternary
+// const translateYvalue = `${vw < 550 ? 2000 : vw < 763 ? 7184 - (logaritmo * 965)
+// : 1450 - (logaritmo * 109)}%`;
+let translateYvalue = 0;
+
 const options = {
   root: null,
   rootMargin: "0px",
@@ -28,7 +38,7 @@ const callback = function (entries) {
 
       const heroAnimation = anime.timeline({
         easing: "easeOutExpo",
-        duration: 6000,
+        duration: 4000,
       });
 
       heroAnimation
@@ -98,7 +108,7 @@ const callback = function (entries) {
         .add(
           {
             targets: words,
-            duration: 1000,
+            duration: 300,
             strokeWidth: ["2px", "1px"],
             stroke(el, i, l) {
               return colors[anime.random(0, 5)];
@@ -116,8 +126,37 @@ const callback = function (entries) {
         )
         .add({
           targets: words,
-          stroke: "#d81159ff",
+          stroke: "#333138",
           duration: 300,
+        })
+        .add({
+          targets: ".hero-img",
+          scale: [
+            { value: 1.2, duration: 800 },
+            { value: 0.1, duration: 300 },
+          ],
+          complete(anim) {
+            const elem = document.querySelector(".hero-img");
+            const elemFooter = document.querySelector(".footer");
+            translateYvalue = ((elem.getBoundingClientRect().bottom) * 8)
+                                + (((elemFooter.getBoundingClientRect().height / 2) * 8) - 20);
+          },
+        })
+        .add({
+          targets: ".hero-img",
+          duration: 2000,
+          begin(anim) {
+            anime({
+              targets: ".hero-img",
+              keyframes: [
+                { translateX: translateXvalue, duration: 800 },
+                { translateY: `${translateYvalue}px`, duration: 1000 },
+                { opacity: 0, duration: 200 },
+              ],
+              duration: 2000,
+            });
+          },
+          easing: "easeOutElastic(1, .8)",
         });
       // .add({
       //   targets: '#software',

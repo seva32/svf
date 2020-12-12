@@ -3,7 +3,7 @@ export default () => {
   const btnOpen = document.querySelector(".contact-btn-open");
   const btnClose = document.querySelector(".contact-btn-close");
   const formBody = document.querySelector(".contact-form-body");
-  const submitBtn = document.getElementById(".submit-message");
+  // const submitBtn = document.getElementById(".submit-message");
 
   // hover ani
   btnOpen.addEventListener("mouseenter", (event) => {
@@ -44,62 +44,10 @@ export default () => {
     });
   });
 
-  // custom animejs easeings
-  // anime.easings.tanCube = function (t) {
-  //   return Math.tan((t * Math.PI) / 4) ** 3;
-  // };
-
-  // anime.easings.tanSqr = function (t) {
-  //   return Math.tan((t * Math.PI) / 4) ** 2;
-  // };
-
-  // contact email shows after form & plane lands
-  // const animeLetters = anime({
-  //   targets: "#anime-letters",
-  //   opacity: [0, 1],
-  //   duration: 5000,
-  //   delay: 500,
-  //   autoplay: false,
-  // });
-
-  // contact email letters animations
-  // const letterTime = 100;
-  // const lineDrawing = anime({
-  //   targets: "#anime-letters svg path",
-  //   strokeDashoffset: [anime.setDashoffset, 0],
-  //   easing: "easeInOutCubic",
-  //   duration: letterTime,
-  //   delay(el, i) {
-  //     return letterTime * i;
-  //   },
-  //   begin(anim) {
-  //     const letters = document.querySelectorAll("#anime-letters svg path");
-  //     let i;
-
-  //     for (i = 0; i < letters.length; ++i) {
-  //       letters[i].setAttribute("stroke", "#1A1B41");
-  //       letters[i].setAttribute("fill", "none");
-  //     }
-  //   },
-  //   update(anim) {
-  //     const letters = document.querySelectorAll("#anime-letters svg path");
-  //     let i;
-
-  //     if (anim.currentTime >= letterTime) {
-  //       for (i = 0; i < letters.length; ++i) {
-  //         letters[i].setAttribute("fill", "#1A1B41");
-  //       }
-  //     }
-  //   },
-  //   autoplay: false,
-  //   loop: true,
-  //   direction: "alternate",
-  // });
-
   const textWrapper = document.querySelector(".contact-form-email .letters");
   textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<h2 class='letter'>$&</h2>");
 
-  const lettersTL = anime.timeline({ loop: true });
+  const lettersTL = anime.timeline({ loop: 1 });
   lettersTL.add({
     targets: ".contact-form-email .letter",
     translateY: ["15rem", 0],
@@ -110,13 +58,14 @@ export default () => {
     easing: "easeOutExpo",
     delay: (el, i) =>
       50 * i,
-  }).add({
-    targets: ".contact-form-email",
-    opacity: 0,
-    duration: 1000,
-    easing: "easeOutExpo",
-    delay: 1000,
   });
+  // .add({
+  //   targets: ".contact-form-email",
+  //   opacity: 0,
+  //   duration: 1000,
+  //   easing: "easeOutExpo",
+  //   delay: 1000,
+  // });
 
   lettersTL.pause();
 
@@ -149,11 +98,22 @@ export default () => {
         };
       },
       complete(anim) {
-        // lineDrawing.restart();
-        // animeLetters.restart();
+        document.getElementById("anime-letters").style.opacity = 1;
         lettersTL.play();
       },
-    }, "-=1500");
+    }, "-=1500")
+    .add({
+      targets: ".contact-form-submit .submit-message img",
+      scale: [
+        { value: 1, duration: 600 },
+        { value: 3, duration: 600 },
+        { value: 0.7, duration: 300 },
+        { value: 1.2, duration: 600 },
+      ],
+      duration: 1000,
+      easing: "easeInOutBack",
+      delay: 1000,
+    });
 
   openModalTL.pause();
 
@@ -204,6 +164,9 @@ export default () => {
             scale: 1,
             opacity: [1, 0],
             duration: 1000,
+            complete(anim) {
+              lettersTL.pause();
+            },
           }, "-=1300")
           .add({
             targets: "#anime-letters",
@@ -227,6 +190,20 @@ export default () => {
           duration: 1,
           delay: 1,
         });
+        anime({
+          targets: ".contact-form-submit .submit-message img",
+          top: "-672px",
+          left: "-480px",
+          duration: 1,
+          delay: 1,
+        });
+        // anime({
+        //   targets: ".contact-form-submit .submit-message img",
+        //   top: "-1120px",
+        //   left: "-800px",
+        //   duration: 1,
+        //   delay: 1,
+        // });
         anime({
           targets: ".contact-form-submit .submit-message img",
           translateX: path("x"),
