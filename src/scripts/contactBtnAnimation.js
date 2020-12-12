@@ -130,7 +130,9 @@ export default () => {
         !event.target.matches(".contact-btn-open") &&
         !event.target.matches(".contact-btn-close") &&
         !event.target.matches(".submit-message")
-      ) { return; }
+      ) {
+        return;
+      }
 
       event.preventDefault();
 

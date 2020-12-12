@@ -1,5 +1,5 @@
+/* global anime */
 import { vw } from "./utils";
-// import heroAnimation from "./heroAnimation";
 
 export default () => {
   if (vw > 550) {
@@ -30,19 +30,13 @@ export default () => {
       .add({
         targets: ".main-wrapper",
         translateY: ["100vh", "0vh"],
-        duration: 1200,
+        duration: 2000,
       })
       .add({
         targets: ".contact-btn-open",
         zIndex: 1,
         duration: 1,
       });
-    // .add({
-    //   targets: ".hero-img",
-    //   begin: (anim) => {
-    //     heroAnimation.play();
-    //   },
-    // });
   } else {
     anime
       .timeline({
@@ -72,11 +66,5 @@ export default () => {
         zIndex: 1,
         duration: 1,
       });
-    // .add({
-    //   targets: ".hero-img",
-    //   begin: (anim) => {
-    //     heroAnimation.play();
-    //   },
-    // });
   }
 };
