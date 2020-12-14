@@ -154,9 +154,31 @@ const callback = function (entries) {
                 { opacity: 0, duration: 200 },
               ],
               duration: 2000,
+              complete(ani) {
+                anime({
+                  targets: ".hamburger-wrapper",
+                  scale: [
+                    { value: 1.3, duration: 300 },
+                    { value: 1, duration: 600 },
+                    { value: 1.3, duration: 300 },
+                    { value: 1, duration: 600 },
+                    { value: 1.3, duration: 300 },
+                    { value: 1, duration: 600 },
+                  ],
+                  translateY: [
+                    { value: "40px", duration: 900 },
+                    { value: "80px", duration: 900 },
+                    { value: "240px", duration: 900 },
+                  ],
+                  easing: "easeInOutQuad",
+                });
+              },
             });
           },
           easing: "easeOutElastic(1, .8)",
+        })
+        .add({
+
         });
       // .add({
       //   targets: '#software',
