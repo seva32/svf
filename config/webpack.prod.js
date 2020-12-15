@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
@@ -7,6 +8,7 @@ const TerserJSPlugin = require("terser-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const BrotliPlugin = require("brotli-webpack-plugin");
 const PurgecssPlugin = require("purgecss-webpack-plugin");
+// eslint-disable-next-line import/no-extraneous-dependencies
 const glob = require("glob");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 
@@ -18,7 +20,7 @@ module.exports = {
     path: path.join(__dirname, "../build"),
     filename: "[name].[chunkhash:8].bundle.js",
     chunkFilename: "[name].[chunkhash:8].chunk.js",
-    publicPath: "/",
+    publicPath: "/app2",
   },
   mode: "production",
   module: {
