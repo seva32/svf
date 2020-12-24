@@ -1,9 +1,10 @@
+/* eslint-disable indent */
 /* global anime */
 export default () => {
   // fetch() to animate html snippets in and out
 
-  const projectsLink = document.querySelector("#projects-link");
-  const homeLink = document.querySelector("#home-link");
+  const projectsLink = document.querySelector('#projects-link');
+  const homeLink = document.querySelector('#home-link');
 
   let linkArray = [projectsLink, homeLink];
 
@@ -21,38 +22,35 @@ export default () => {
     }
 
     fetch(`${baseURL}/${page}`)
-      .then((response) =>
-        response.text())
+      .then((response) => response.text())
       .then((html) => {
-        const doc = new DOMParser().parseFromString(html, "text/html");
+        const doc = new DOMParser().parseFromString(html, 'text/html');
         // ambos targets tienes que apuntar a los nodos/class que agregue
         anime({
-          targets: ".content-section div",
+          targets: '.content-section div',
           translateX: 700,
           opacity: 0,
-          easing: "easeInExpo",
+          easing: 'easeInExpo',
           duration: 700,
           complete: (anim) => {
-            document.querySelector(".content-wrapper").remove();
+            document.querySelector('.content-wrapper').remove();
           },
         });
 
         setTimeout(() => {
           document
-            .querySelector(".main-page")
+            .querySelector('.main-page')
             .insertBefore(
-              doc.querySelector(".new-content"),
-              document.querySelector(".footer"),
+              doc.querySelector('.new-content'),
+              document.querySelector('.footer'),
             );
 
           anime({
-            targets:
-              ".new-content .content-section div",
+            targets: '.new-content .content-section div',
             translateX: [-600, 0],
-            delay: (el, i) =>
-              100 * i,
+            delay: (el, i) => 100 * i,
             opacity: [0, 1],
-            easing: "easeOutExpo",
+            easing: 'easeOutExpo',
           });
         }, 700);
       });
@@ -60,15 +58,15 @@ export default () => {
 
   if (linkArray && linkArray.length > 0) {
     linkArray.forEach((eachLink) => {
-      eachLink.addEventListener("click", (e) => {
+      eachLink.addEventListener('click', (e) => {
         switch (eachLink) {
-            case projectsLink:
-              fetchPage(eachLink, "projects.html");
-              break;
-            case homeLink:
-              fetchPage(eachLink, "home.html"); // es el index.html
-              break;
-            default:
+          case projectsLink:
+            fetchPage(eachLink, 'projects.html');
+            break;
+          case homeLink:
+            fetchPage(eachLink, 'home.html'); // es el index.html
+            break;
+          default:
         }
       });
     });

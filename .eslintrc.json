@@ -22,7 +22,7 @@
         ],
         "quotes": [
             "error",
-            "double"
+            "single"
         ],
         "global-require": "off",
         "operator-linebreak": "off",

@@ -1,68 +1,64 @@
 /* global anime */
-import { vw } from "./utils";
+import { vw } from './utils';
 
 export default () => {
   if (vw > 550) {
     anime
       .timeline({
-        easing: "easeOutExpo",
+        easing: 'easeOutExpo',
       })
       .add({
-        targets: ".preload-wrapper",
+        targets: '.preload-wrapper',
         opacity: [0, 1],
         duration: 1,
         delay: 1000,
       })
       .add({
-        targets: ".preload-content .preload-elem hr",
-        width: ["0%", "80%"],
-        delay: (el, i) =>
-          200 * i,
-        duration: (el, i) =>
-          (i === 1 ? 1200 : 400),
+        targets: '.preload-content .preload-elem hr',
+        width: ['0%', '80%'],
+        delay: (el, i) => 200 * i,
+        duration: (el, i) => (i === 1 ? 1200 : 400),
       })
       .add({
-        targets: ".side-wrapper",
-        translateX: ["-30vh", "0vh"],
+        targets: '.side-wrapper',
+        translateX: ['-30vh', '0vh'],
         duration: 1000,
-        offset: "-=100",
+        offset: '-=100',
       })
       .add({
-        targets: ".main-wrapper",
-        translateY: ["100vh", "0vh"],
+        targets: '.main-wrapper',
+        translateY: ['100vh', '0vh'],
         duration: 2000,
       })
       .add({
-        targets: ".contact-btn-open",
+        targets: '.contact-btn-open',
         zIndex: 1,
         duration: 1,
       });
   } else {
     anime
       .timeline({
-        easing: "easeOutExpo",
+        easing: 'easeOutExpo',
       })
       .add({
-        targets: ".preload-wrapper",
+        targets: '.preload-wrapper',
         opacity: [0, 1],
         duration: 1,
         delay: 1000,
       })
       .add({
-        targets: ".preload-content .preload-elem hr",
-        width: ["0%", "80%"],
-        delay: (el, i) =>
-          200 * i,
-        duration: (el, i) =>
-          (i === 1 ? 1200 : 400),
+        targets: '.preload-content .preload-elem hr',
+        width: ['0%', '80%'],
+        delay: (el, i) => 200 * i,
+        duration: (el, i) => (i === 1 ? 1200 : 400),
       })
       .add({
-        targets: ".main-wrapper",
-        translateY: ["100vh", "0vh"],
+        targets: '.main-wrapper',
+        translateY: ['100vh', '0vh'],
         duration: 2000,
       })
       .add({
-        targets: ".contact-btn-open",
+        targets: '.contact-btn-open',
         zIndex: 1,
         duration: 1,
       });
