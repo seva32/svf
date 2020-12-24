@@ -302,6 +302,11 @@ h4 {
 
 /* main content */
 
+/* .hero-img svg:first-child {
+  position: fixed;
+  top: 0;
+} */
+
 .main-wrapper {
   position: absolute;
   width: 90%;
@@ -568,19 +573,33 @@ h4 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  opacity: 0;
+  /* opacity: 0; */
   overflow: visible;
 }
 
 .hero-img svg {
-  width: 100%;
-  max-width: 650px;
+  /* width: 100%;
+  max-width: 650px; */
   height: auto;
   overflow: visible;
 }
 
-.first-content {
-  background: green;
+#software-svg svg path {
+  fill: var(--blue-purple);
+  stroke: #ff00db;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 0, 25, 175;
+}
+
+#skills-svg svg path {
+  fill: var(--jet);
+  stroke: #00ffaa;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 0, 25, 175;
 }
 
 /* main page end */
