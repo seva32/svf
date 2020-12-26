@@ -18,21 +18,26 @@ const callback = (entries) => {
     //   entry.target,
     //   entry.time,
     if (entry.intersectionRatio) {
-      const svgElems = document.querySelectorAll(
-        '.svg-container div div:not(#software-svg)',
-      );
+      const opacityAni = anime({
+        targets: '.svg-container',
+        opacity: [0, 1],
+        scale: [0, 1],
+        duration: 300,
+        autoplay: false,
+        easing: 'linear',
+      });
 
-      const wordsShake = anime({
+      const wordsShakeAni = anime({
         targets: '.svg-container div div',
         rotate: [
-          { value: '3deg', duration: 50 },
-          { value: '0deg', duration: 50 },
-          { value: '-3deg', duration: 50 },
-          { value: '0deg', duration: 50 },
-          { value: '3deg', duration: 50 },
-          { value: '0deg', duration: 50 },
-          { value: '-3deg', duration: 50 },
-          { value: '0deg', duration: 50 },
+          { value: '3deg', duration: 30 },
+          { value: '0deg', duration: 30 },
+          { value: '-3deg', duration: 30 },
+          { value: '0deg', duration: 30 },
+          { value: '3deg', duration: 30 },
+          { value: '0deg', duration: 30 },
+          { value: '-3deg', duration: 30 },
+          { value: '0deg', duration: 30 },
         ],
         scale(el, i, l) {
           if (el.id.includes('software')) {
@@ -43,139 +48,80 @@ const callback = (entries) => {
         autoplay: false,
       });
 
-      const opacityAni = anime({
-        targets: '.svg-container',
-        opacity: [0, 1],
-        duration: 3000,
-        autoplay: false,
+      const colors = ['#642ca9ff', '#ff36abff', '#ccb921', '#170312ff'];
+
+      const tlColors = anime.timeline({
         easing: 'linear',
-      });
-
-      const softwareSvg = anime({
-        targets: '#software-svg',
-        strokeWidth: [
-          { value: '50', duration: 1000 },
-          { value: '30', duration: 1000 },
-          { value: '10', duration: 1000 },
-          { value: '2', duration: 1000 },
-        ],
-        keyframes: [
-          { scale: 2.2, duration: 1 },
-          { rotateX: '6turn', duration: 4500, easing: 'easeOutQuad' },
-        ],
-        complete(anim) {
-          const colors = [
-            '#642ca9ff',
-            '#ff36abff',
-            '#ccb921',
-            '#170312ff',
-            '#437eee',
-          ];
-          const tlColors = anime.timeline({
-            easing: 'linear',
-            duration: 200,
-            autoplay: false,
-          });
-          tlColors
-            .add(
-              {
-                begin(_anim) {
-                  wordsShake.restart();
-                },
-                duration: 100,
-                delay: 2000,
-              },
-              '-=400',
-            )
-            .add({
-              targets: '.svg-container div div svg path',
-              fill: '#642ca9ff',
-              delay: 2000,
-            })
-            .add(
-              {
-                begin(_anim) {
-                  wordsShake.restart();
-                },
-                duration: 100,
-                delay: 2000,
-              },
-              '-=400',
-            )
-            .add({
-              targets: '.svg-container div div svg path',
-              fill: '#ff36abff',
-              delay: 2000,
-            })
-            .add(
-              {
-                begin(_anim) {
-                  wordsShake.restart();
-                },
-                duration: 100,
-                delay: 2000,
-              },
-              '-=400',
-            )
-            .add({
-              targets: '.svg-container div div svg path',
-              fill: '#ccb921',
-              delay: 2000,
-            })
-            .add(
-              {
-                begin(_anim) {
-                  wordsShake.restart();
-                },
-                duration: 100,
-                delay: 2000,
-              },
-              '-=400',
-            )
-            .add({
-              targets: '.svg-container div div svg path',
-              fill: '#437eee',
-              delay: 2000,
-            })
-            // .add(
-            //   {
-            //     begin(_anim) {
-            //       wordsShake.restart();
-            //     },
-            //     duration: 100,
-            //     delay: 2000,
-            //   },
-            //   '-=400',
-            // )
-            .add({
-              targets: '.svg-container div div',
-              scale: 0.005,
-              duration: 500,
-            })
-            .add({
-              targets: '.svg-container div div svg path',
-              fill(el, i, l) {
-                return colors[anime.random(0, 4)];
-              },
-              duration: 1,
-            })
-            .add({
-              targets: '.svg-container div div',
-              scale(el, i, l) {
-                if (el.id.includes('software')) {
-                  return 2.2;
-                }
-                return 1;
-              },
-              duration: 500,
-            });
-          tlColors.restart();
-        },
+        duration: 200,
         autoplay: false,
       });
 
+      tlColors
+        .add(
+          {
+            begin(_anim) {
+              wordsShakeAni.restart();
+            },
+            duration: 100,
+          },
+          '-=400',
+        )
+        .add({
+          targets: '.svg-container div div svg path',
+          fill: '#642ca9ff',
+          delay: 3000,
+        })
+        .add(
+          {
+            begin(_anim) {
+              wordsShakeAni.restart();
+            },
+            duration: 100,
+            delay: 3000,
+          },
+          '-=400',
+        )
+        .add({
+          targets: '.svg-container div div svg path',
+          fill: '#ff36abff',
+          delay: 3000,
+        })
+        .add(
+          {
+            begin(_anim) {
+              wordsShakeAni.restart();
+            },
+            duration: 100,
+            delay: 3000,
+          },
+          '-=400',
+        )
+        .add({
+          targets: '.svg-container div div svg path',
+          fill: '#ccb921',
+          delay: 3000,
+        })
+        .add(
+          {
+            begin(_anim) {
+              wordsShakeAni.restart();
+            },
+            duration: 100,
+            delay: 3000,
+          },
+          '-=400',
+        )
+        .add({
+          targets: '.svg-container div div svg path',
+          fill(el, i, l) {
+            return colors[anime.random(0, 3)];
+          },
+          duration: 1,
+        });
+
+      tlColors.restart();
       opacityAni.restart();
-      softwareSvg.restart();
+      // strokeWidthAni.restart();
 
       const allElemsPath = document.querySelectorAll(
         '.svg-container div div svg path',
@@ -186,28 +132,29 @@ const callback = (entries) => {
         const elemOffset = anime.setDashoffset(elemPath);
         elemPath.setAttribute('stroke-dashoffset', elemOffset);
 
-        anime({
-          targets: elemPath,
-          strokeDashoffset: [elemOffset, 100],
-          duration: 1000,
-          // duration: anime.random(3000, 6000),
-          loop: 4,
-          direction: 'alternate',
-          easing: 'easeInOutSine',
-          autoplay: true,
-        });
-      }
-
-      for (let j = 0; j < svgElems.length; j++) {
-        const svgEl = svgElems[j];
-
-        const tl = anime.timeline({});
-
-        tl.add({
-          targets: svgEl,
-          rotateX: `${anime.random(3, 8)}turn`,
-          duration: anime.random(3000, 5000),
-        });
+        anime(
+          {
+            targets: elemPath,
+            strokeDashoffset: [elemOffset, 100],
+            duration: 3000,
+            strokeWidth: [
+              { value: '6', duration: 1000 },
+              { value: '2', duration: 1000 },
+            ],
+            loop: 4,
+            // direction: 'alternate',
+            easing: 'easeInOutSine',
+            autoplay: true,
+            complete(anim) {
+              anime({
+                targets: elemPath,
+                strokeWidth: 2,
+                duration: 1,
+              });
+            },
+          },
+          '-=400',
+        );
       }
     }
   });

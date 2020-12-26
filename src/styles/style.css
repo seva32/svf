@@ -702,155 +702,154 @@ h4 {
 
 .content-wrapper div .hero-img .svg-container div svg path {
   stroke: var(--black);
-  /* stroke-width: 2; */
 }
 
-#software-svg svg {
+.content-wrapper div .hero-img .svg-container div svg {
   overflow: visible;
 }
 
 #software-svg svg path {
   fill: var(--black);
   /* stroke: #ff00db;
-  stroke-width: 2;
+  stroke-width: 2;*/
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 0, 25, 175; */
+  /* stroke-dasharray: 0, 25, 175; */
 }
 
 #skills-svg svg path {
   fill: var(--rose);
   /* stroke: #00ffaa;
-  stroke-width: 2;
+  stroke-width: 2;*/
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 0, 25, 175; */
+  /* stroke-dasharray: 0, 25, 175; */
 }
 
 #application-svg svg path {
   fill: var(--purple);
   /* stroke: #00ffaa;
-  stroke-width: 2;
+  stroke-width: 2;*/
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 0, 25, 175; */
+  /* stroke-dasharray: 0, 25, 175; */
 }
 
 #backend-svg svg path {
   fill: var(--mellon);
   /* stroke: #00ffaa;
-  stroke-width: 2;
+  stroke-width: 2;*/
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 0, 25, 175; */
+  /* stroke-dasharray: 0, 25, 175; */
 }
 
 #build-svg svg path {
   fill: var(--purple);
   /* stroke: #00ffaa;
-  stroke-width: 2;
+  stroke-width: 2;*/
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 0, 25, 175; */
+  /* stroke-dasharray: 0, 25, 175; */
 }
 
 #code-svg svg path {
   fill: var(--mellon);
   /* stroke: #00ffaa;
-  stroke-width: 2;
+  stroke-width: 2;*/
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 0, 25, 175; */
+  /* stroke-dasharray: 0, 25, 175; */
 }
 
 #data-svg svg path {
   fill: var(--rose);
   /* stroke: #00ffaa;
-  stroke-width: 2;
+  stroke-width: 2;*/
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 0, 25, 175; */
+  /* stroke-dasharray: 0, 25, 175; */
 }
 
 #design-svg svg path {
   fill: var(--mellon);
   /* stroke: #00ffaa;
-  stroke-width: 2;
+  stroke-width: 2;*/
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 0, 25, 175; */
+  /* stroke-dasharray: 0, 25, 175; */
 }
 
 #frontend-svg svg path {
   fill: var(--purple);
   /* stroke: #00ffaa;
-  stroke-width: 2;
+  stroke-width: 2;*/
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 0, 25, 175; */
+  /* stroke-dasharray: 0, 25, 175; */
 }
 
 #javascript-svg svg path {
   fill: var(--mellon);
   /* stroke: #00ffaa;
-  stroke-width: 2;
+  stroke-width: 2;*/
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 0, 25, 175; */
+  /* stroke-dasharray: 0, 25, 175; */
 }
 
 #learning-svg svg path {
   fill: var(--black);
   /* stroke: #00ffaa;
-  stroke-width: 2;
+  stroke-width: 2;*/
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 0, 25, 175; */
+  /* stroke-dasharray: 0, 25, 175; */
 }
 
 #modern-svg svg path {
   fill: var(--rose);
   /* stroke: #00ffaa;
-  stroke-width: 2;
+  stroke-width: 2;*/
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 0, 25, 175; */
+  /* stroke-dasharray: 0, 25, 175; */
 }
 
 #project-svg svg path {
   fill: var(--capri);
   /* stroke: #00ffaa;
-  stroke-width: 2;
+  stroke-width: 2;*/
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 0, 25, 175; */
+  /* stroke-dasharray: 0, 25, 175; */
 }
 
 #team-svg svg path {
   fill: var(--capri);
   /* stroke: #00ffaa;
-  stroke-width: 2;
+  stroke-width: 2;*/
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 0, 25, 175; */
+  /* stroke-dasharray: 0, 25, 175; */
 }
 
 #technologies-svg svg path {
   fill: var(--black);
   /* stroke: #00ffaa;
-  stroke-width: 2;
+  stroke-width: 2;*/
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 0, 25, 175; */
+  /* stroke-dasharray: 0, 25, 175; */
 }
 
 #work-svg svg path {
   fill: var(--mellon);
   /* stroke: #00ffaa;
-  stroke-width: 2;
+  stroke-width: 2;*/
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 0, 25, 175; */
+  /* stroke-dasharray: 0, 25, 175; */
 }
 
 /* main page end */
