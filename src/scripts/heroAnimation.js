@@ -18,15 +18,6 @@ const callback = (entries) => {
     //   entry.target,
     //   entry.time,
     if (entry.intersectionRatio) {
-      const opacityAni = anime({
-        targets: '.svg-container',
-        opacity: [0, 1],
-        scale: [0, 1],
-        duration: 300,
-        autoplay: false,
-        easing: 'linear',
-      });
-
       const wordsShakeAni = anime({
         targets: '.svg-container div div',
         rotate: [
@@ -120,7 +111,6 @@ const callback = (entries) => {
         });
 
       tlColors.restart();
-      opacityAni.restart();
 
       const allElemsPath = document.querySelectorAll(
         '.svg-container div div svg path',
@@ -141,7 +131,6 @@ const callback = (entries) => {
               { value: '2', duration: 1000 },
             ],
             loop: 4,
-            // direction: 'alternate',
             easing: 'easeInOutSine',
             autoplay: true,
             complete(anim) {

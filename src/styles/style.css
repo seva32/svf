@@ -577,7 +577,7 @@ h4 {
   height: 100%;
   display: block;
   overflow: visible;
-  opacity: 0;
+  /* opacity: 0; */
 }
 
 .content-wrapper div .hero-img .svg-container .svg-col-1,
@@ -959,7 +959,7 @@ h4 {
   }
 
   #anime-letters {
-    margin-bottom: none;
+    margin-bottom: 0.5rem;
   }
 
   #anime-letters h2 {

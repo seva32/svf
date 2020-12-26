@@ -75,7 +75,7 @@ export default () => {
   openModalTL
     .add({
       targets: '.contact-btn-close',
-      backgroundColor: '#fffffaff',
+      backgroundColor: '#ffffff',
       opacity: [0, 1],
     })
     .add(
