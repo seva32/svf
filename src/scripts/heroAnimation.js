@@ -121,7 +121,6 @@ const callback = (entries) => {
 
       tlColors.restart();
       opacityAni.restart();
-      // strokeWidthAni.restart();
 
       const allElemsPath = document.querySelectorAll(
         '.svg-container div div svg path',

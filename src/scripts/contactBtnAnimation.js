@@ -62,13 +62,6 @@ export default () => {
     easing: 'easeOutExpo',
     delay: (el, i) => 50 * i,
   });
-  // .add({
-  //   targets: ".contact-form-email",
-  //   opacity: 0,
-  //   duration: 1000,
-  //   easing: "easeOutExpo",
-  //   delay: 1000,
-  // });
 
   lettersTL.pause();
 
@@ -82,7 +75,7 @@ export default () => {
   openModalTL
     .add({
       targets: '.contact-btn-close',
-      backgroundColor: '#ffffff',
+      backgroundColor: '#fffffaff',
       opacity: [0, 1],
     })
     .add(
@@ -212,13 +205,6 @@ export default () => {
           duration: 1,
           delay: 1,
         });
-        // anime({
-        //   targets: ".contact-form-submit .submit-message img",
-        //   top: "-1120px",
-        //   left: "-800px",
-        //   duration: 1,
-        //   delay: 1,
-        // });
         anime({
           targets: '.contact-form-submit .submit-message img',
           translateX: path('x'),

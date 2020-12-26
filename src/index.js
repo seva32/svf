@@ -7,7 +7,8 @@ import contactBtnAnimation from './scripts/contactBtnAnimation';
 import loadHTML from './scripts/loadHTML';
 import sideBarAnimation from './scripts/sideBarAnimation';
 // eslint-disable-next-line no-unused-vars
-import heroAnimation from './scripts/heroAnimation'; // es un observer, no una funcion
+import './scripts/heroAnimation'; // es un observer, no una funcion
+import './scripts/hamburgerAnimation';
 
 import './styles/style.css';
 
@@ -35,6 +36,7 @@ const svgData = [
   { node: 'modern-svg', file: 'modernSVG', id: 'modern' },
   { node: 'project-svg', file: 'projectSVG', id: 'project' },
   { node: 'team-svg', file: 'teamSVG', id: 'team' },
+  { node: 'footer-svg', file: 'footerSVG', id: 'footer-path' },
 ];
 
 svgData.forEach((d) =>
