@@ -29,6 +29,7 @@ export default () => {
         targets: '.main-wrapper',
         translateY: ['100vh', '0vh'],
         duration: 2000,
+        easing: 'easeInQuint',
       })
       .add({
         targets: '.contact-btn-open',
@@ -56,6 +57,7 @@ export default () => {
         targets: '.main-wrapper',
         translateY: ['100vh', '0vh'],
         duration: 2000,
+        easing: 'easeInQuint',
       })
       .add({
         targets: '.contact-btn-open',

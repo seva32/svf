@@ -1,11 +1,14 @@
 :root {
-  --purple: #5c27c1ff;
-  --blue-purple: #9dacffff;
   --baby-powder: #fffffaff;
   --ruby: #d81159ff;
-  --ruby-light: rgb(211, 132, 161);
+  --ruby-dark: #751739;
   --dirty-white: #f2f2f2;
   --jet: #333138;
+  --purple: #642ca9ff;
+  --rose: #ff36abff;
+  --mellon: #ccb921;
+  --black: #170312ff;
+  --capri: #437eee;
 }
 
 *,
@@ -13,7 +16,7 @@
 ::after {
   box-sizing: border-box;
   background-repeat: no-repeat;
-  outline: 1px solid red;
+  /* outline: 1px solid red; */
 }
 ::-webkit-scrollbar {
   display: none;
@@ -370,7 +373,7 @@ h4 {
 }
 
 .contact-form-dropback {
-  background-color: var(--ruby-light);
+  background-color: var(--ruby-dark);
   opacity: 0;
   transform: translateX(-52%);
 }
@@ -575,12 +578,9 @@ h4 {
 .svg-container {
   width: 100%;
   height: 100%;
-  /* display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center; */
   display: block;
   overflow: visible;
+  opacity: 0;
 }
 
 .content-wrapper div .hero-img .svg-container .svg-col-1,
@@ -630,7 +630,6 @@ h4 {
 }
 
 .content-wrapper div .hero-img .svg-container .svg-col-2 {
-  /* transform: translateX(2rem); */
   min-height: 100%;
   padding-left: 2rem;
 }
@@ -638,11 +637,11 @@ h4 {
 #learning-svg {
   margin-bottom: 3rem;
   margin-right: 16rem;
-  transform: scale(1.4);
+  width: 140%;
 }
 
 #design-svg {
-  margin-bottom: 8rem;
+  margin-bottom: 8.5rem;
 }
 
 #data-svg {
@@ -651,7 +650,7 @@ h4 {
 
 #application-svg {
   margin-top: 3rem;
-  transform: scale(2.5);
+  width: 230%;
 }
 
 .content-wrapper div .hero-img .svg-container .svg-col-3 {
@@ -661,7 +660,7 @@ h4 {
 
 #team-svg {
   margin-top: -5rem;
-  transform: scale(1.4);
+  width: 140%;
 }
 
 #modern-svg {
@@ -669,13 +668,13 @@ h4 {
 }
 
 #javascript-svg {
-  transform: scale(1.2);
+  width: 120%;
   margin-right: 8rem;
 }
 
 #technologies-svg {
   margin-left: 16rem;
-  transform: scale(2.2);
+  width: 200%;
   margin-bottom: 2rem;
 }
 
@@ -684,7 +683,7 @@ h4 {
 }
 
 #frontend-svg {
-  transform: scale(0.7);
+  padding-left: 35%;
   margin-left: 4rem;
 }
 
@@ -701,148 +700,157 @@ h4 {
 #code-svg {
 }
 
+.content-wrapper div .hero-img .svg-container div svg path {
+  stroke: var(--black);
+  /* stroke-width: 2; */
+}
+
+#software-svg svg {
+  overflow: visible;
+}
+
 #software-svg svg path {
-  fill: var(--blue-purple);
-  stroke: #ff00db;
+  fill: var(--black);
+  /* stroke: #ff00db;
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 0, 25, 175;
+  stroke-dasharray: 0, 25, 175; */
 }
 
 #skills-svg svg path {
-  fill: var(--jet);
-  stroke: #00ffaa;
+  fill: var(--rose);
+  /* stroke: #00ffaa;
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 0, 25, 175;
+  stroke-dasharray: 0, 25, 175; */
 }
 
 #application-svg svg path {
-  fill: var(--jet);
-  stroke: #00ffaa;
+  fill: var(--purple);
+  /* stroke: #00ffaa;
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 0, 25, 175;
+  stroke-dasharray: 0, 25, 175; */
 }
 
 #backend-svg svg path {
-  fill: var(--jet);
-  stroke: #00ffaa;
+  fill: var(--mellon);
+  /* stroke: #00ffaa;
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 0, 25, 175;
+  stroke-dasharray: 0, 25, 175; */
 }
 
 #build-svg svg path {
-  fill: var(--jet);
-  stroke: #00ffaa;
+  fill: var(--purple);
+  /* stroke: #00ffaa;
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 0, 25, 175;
+  stroke-dasharray: 0, 25, 175; */
 }
 
 #code-svg svg path {
-  fill: var(--jet);
-  stroke: #00ffaa;
+  fill: var(--mellon);
+  /* stroke: #00ffaa;
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 0, 25, 175;
+  stroke-dasharray: 0, 25, 175; */
 }
 
 #data-svg svg path {
-  fill: var(--jet);
-  stroke: #00ffaa;
+  fill: var(--rose);
+  /* stroke: #00ffaa;
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 0, 25, 175;
+  stroke-dasharray: 0, 25, 175; */
 }
 
 #design-svg svg path {
-  fill: var(--jet);
-  stroke: #00ffaa;
+  fill: var(--mellon);
+  /* stroke: #00ffaa;
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 0, 25, 175;
+  stroke-dasharray: 0, 25, 175; */
 }
 
 #frontend-svg svg path {
-  fill: var(--jet);
-  stroke: #00ffaa;
+  fill: var(--purple);
+  /* stroke: #00ffaa;
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 0, 25, 175;
+  stroke-dasharray: 0, 25, 175; */
 }
 
 #javascript-svg svg path {
-  fill: var(--jet);
-  stroke: #00ffaa;
+  fill: var(--mellon);
+  /* stroke: #00ffaa;
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 0, 25, 175;
+  stroke-dasharray: 0, 25, 175; */
 }
 
 #learning-svg svg path {
-  fill: var(--jet);
-  stroke: #00ffaa;
+  fill: var(--black);
+  /* stroke: #00ffaa;
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 0, 25, 175;
+  stroke-dasharray: 0, 25, 175; */
 }
 
 #modern-svg svg path {
-  fill: var(--jet);
-  stroke: #00ffaa;
+  fill: var(--rose);
+  /* stroke: #00ffaa;
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 0, 25, 175;
+  stroke-dasharray: 0, 25, 175; */
 }
 
 #project-svg svg path {
-  fill: var(--jet);
-  stroke: #00ffaa;
+  fill: var(--capri);
+  /* stroke: #00ffaa;
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 0, 25, 175;
+  stroke-dasharray: 0, 25, 175; */
 }
 
 #team-svg svg path {
-  fill: var(--jet);
-  stroke: #00ffaa;
+  fill: var(--capri);
+  /* stroke: #00ffaa;
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 0, 25, 175;
+  stroke-dasharray: 0, 25, 175; */
 }
 
 #technologies-svg svg path {
-  fill: var(--jet);
-  stroke: #00ffaa;
+  fill: var(--black);
+  /* stroke: #00ffaa;
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 0, 25, 175;
+  stroke-dasharray: 0, 25, 175; */
 }
 
 #work-svg svg path {
-  fill: var(--jet);
-  stroke: #00ffaa;
+  fill: var(--mellon);
+  /* stroke: #00ffaa;
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 0, 25, 175;
+  stroke-dasharray: 0, 25, 175; */
 }
 
 /* main page end */
@@ -905,7 +913,7 @@ h4 {
   }
 
   .content-wrapper div .hero-img .svg-container .svg-col-2 div {
-    transform: scale(2);
+    width: 200%;
   }
 
   .content-wrapper div .hero-img .svg-container .svg-col-4 {
@@ -914,6 +922,11 @@ h4 {
 
   #software-svg {
     margin-left: 8rem;
+    margin-bottom: -4rem;
+  }
+
+  #design-svg {
+    margin-bottom: 5rem;
   }
 
   #technologies-svg {
@@ -924,16 +937,12 @@ h4 {
     margin-right: 10rem;
   }
 
-  #software-svg {
-    margin-bottom: -4rem;
-  }
-
   .content-wrapper
     div
     .hero-img
     .svg-container
     .svg-col-1
     div:not(#software-svg) {
-    transform: scale(1.5);
+    width: 150%;
   }
 }
