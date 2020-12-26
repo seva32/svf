@@ -5,8 +5,9 @@ import loadImgSrc from './scripts/loadImgSrc';
 import preloadAnimation from './scripts/preloadAnimation';
 import contactBtnAnimation from './scripts/contactBtnAnimation';
 import loadHTML from './scripts/loadHTML';
-// import sideBarAnimation from './scripts/sideBarAnimation';
-// import heroAnimation from './scripts/heroAnimation';
+import sideBarAnimation from './scripts/sideBarAnimation';
+// eslint-disable-next-line no-unused-vars
+import heroAnimation from './scripts/heroAnimation'; // es un observer, no una funcion
 
 import './styles/style.css';
 
@@ -15,8 +16,7 @@ loadImgSrc();
 preloadAnimation();
 contactBtnAnimation();
 loadHTML();
-// sideBarAnimation();
-// heroAnimation();
+sideBarAnimation();
 
 const svgData = [
   { node: 'software-svg', file: 'softwareSVG', id: 'software' },
