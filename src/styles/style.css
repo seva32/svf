@@ -435,29 +435,32 @@ h4 {
 }
 
 .contact-form-submit button {
-  width: 100%;
   border: none;
   background-color: transparent;
   cursor: pointer;
   position: relative;
-  height: 40px;
-  width: 40px;
+  height: 4rem;
+  width: 6rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  user-select: none;
+  padding: 0;
+  margin: 0;
 }
 
-.contact-form-submit .submit-message svg {
+.plane-mail {
+  position: relative;
+}
+
+#submit-path {
   position: absolute;
   bottom: 0.5rem;
 }
 
-.contact-form-submit .submit-message img {
-  position: absolute;
-  top: 0.5rem;
-  width: 40px;
-  height: 40px;
-  transform: rotate(-45deg);
+.contact-form-submit .submit-message .plane-mail {
+  position: relative;
+  max-width: 100%;
 }
 
 .contact-form-text textarea {
