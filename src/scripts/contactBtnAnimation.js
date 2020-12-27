@@ -205,19 +205,22 @@ export default () => {
           duration: 1500,
         })
           .add({
-            targets: '.contact-form-submit .submit-message .plane-wrapper',
+            targets:
+              '.contact-form-submit .submit-message .plane-wrapper .plane-mail',
             top: '-550px',
             left: '-400px',
             duration: 1,
             delay: 1,
           })
           .add({
-            targets: '.contact-form-submit .submit-message .plane-wrapper',
+            targets:
+              '.contact-form-submit .submit-message .plane-wrapper .plane-mail',
             rotate: '-20deg',
             duration: 1,
             complete(ani) {
               anime({
-                targets: '.contact-form-submit .submit-message .plane-wrapper',
+                targets:
+                  '.contact-form-submit .submit-message .plane-wrapper .plane-mail',
                 translateX: path('x'),
                 translateY: path('y'),
                 easing: 'linear',
