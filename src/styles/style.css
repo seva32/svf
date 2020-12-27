@@ -457,6 +457,12 @@ h4 {
   margin-bottom: -6rem;
 }
 
+.plane-wrapper img {
+  position: absolute;
+  max-width: 100%;
+  padding-top: 7rem;
+}
+
 .plane-mail {
   position: absolute;
   max-width: 100%;

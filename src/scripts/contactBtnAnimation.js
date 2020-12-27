@@ -102,20 +102,7 @@ export default () => {
         },
       },
       '-=1500',
-    )
-    .add({
-      targets: '.contact-form-submit .submit-message img',
-      scale: [
-        { value: 1, duration: 600 },
-        { value: 3, duration: 600 },
-        { value: 0.7, duration: 300 },
-        { value: 1.2, duration: 600 },
-      ],
-      duration: 1000,
-      easing: 'easeInOutBack',
-      delay: 1000,
-    });
-
+    );
   openModalTL.pause();
 
   // global listener for btn actions starts
@@ -134,6 +121,11 @@ export default () => {
 
       if (event.target.matches('.contact-btn-open')) {
         openModalTL.play();
+        anime({
+          targets: '.enve-plane',
+          opacity: 1,
+          duration: 1,
+        });
       }
 
       if (event.target.matches('.contact-btn-close')) {
@@ -201,31 +193,38 @@ export default () => {
             },
           ],
           duration: 1000,
-          // complete(anim) {
-          //   anime({
-          //     targets:
-          //       '.contact-form-submit .submit-message .plane-wrapper .plane-mail',
-          //     top: '-550px',
-          //     left: '-400px',
-          //     duration: 1,
-          //     delay: 2000,
-          //   });
-          // },
+          complete(anim) {
+            anime({
+              targets:
+                '.contact-form-submit .submit-message .plane-wrapper img',
+              top: '-553px',
+              left: '-615px',
+              duration: 1,
+            });
+            anime({
+              targets: '.enve-plane',
+              opacity: 0,
+              duration: 1,
+            });
+          },
         });
 
-        // const path = anime.path('#submit-path path');
-        // anime({
-        //   targets:
-        //     '.contact-form-submit .submit-message .plane-wrapper .plane-mail',
-        //   translateX: path('x'),
-        //   translateY: path('y'),
-        //   easing: 'linear',
-        //   duration: 2200,
-        //   // opacity: [1, 0],
-        //   rotate: path('angle'),
-        //   loop: false,
-        //   delay: 1500,
-        // });
+        const path = anime.path('#submit-path path');
+        anime({
+          targets: '.contact-form-submit .submit-message .plane-wrapper img',
+          translateX: path('x'),
+          translateY: path('y'),
+          easing: 'linear',
+          duration: 2900,
+          rotate: path('angle'),
+          loop: false,
+          delay: 1500,
+          complete(_anim) {
+            setTimeout(() => {
+              btnClose.click();
+            }, 1000);
+          },
+        });
       }
     },
     false,
