@@ -447,10 +447,18 @@ h4 {
   user-select: none;
   padding: 0;
   margin: 0;
+  overflow: visible;
+}
+
+.plane-wrapper {
+  position: relative;
+  max-width: 100%;
+  padding-bottom: 70%;
 }
 
 .plane-mail {
-  position: relative;
+  position: absolute;
+  max-width: 100%;
 }
 
 #submit-path {
