@@ -118,6 +118,48 @@ export default () => {
 
   openModalTL.pause();
 
+  const path = anime.path('#submit-path path');
+  const tlPlane = anime.timeline({});
+  tlPlane
+    .add(
+      {
+        targets: '.enve-plane',
+        d: [
+          {
+            value: [
+              'M 270 180 L 30 180 L 30 60 L 140 110 L 30 30 L 270 30 L 160 110 L 270 60 Z',
+              'M 120 170 L 100 110 L 30 80 L 120 170 L 30 80 L 270 30 L 100 110 L 270 30 Z',
+            ],
+            easing: 'easeInOutQuad',
+          },
+        ],
+        duration: 1000,
+        delay: 1000,
+      },
+      '-=1000',
+    )
+    .add({
+      targets:
+        '.contact-form-submit .submit-message .plane-wrapper .plane-mail',
+      top: '-550px',
+      left: '-400px',
+      duration: 1,
+      delay: 1,
+    });
+  const pathAni = anime({
+    targets: '.contact-form-submit .submit-message .plane-wrapper .plane-mail',
+    translateX: path('x'),
+    translateY: path('y'),
+    easing: 'linear',
+    duration: 2200,
+    opacity: [1, 0],
+    rotate: path('angle'),
+    loop: false,
+    delay: 1000,
+    autoplay: false,
+  });
+  tlPlane.pause();
+
   // global listener for btn actions starts
   document.addEventListener(
     'click',
@@ -189,47 +231,8 @@ export default () => {
 
       // plane animation on submit btn
       if (event.target.matches('.submit-message')) {
-        const path = anime.path('#submit-path path');
-        const tl = anime.timeline({ autoplay: false });
-        tl.add({
-          targets: '.enve-plane',
-          d: [
-            {
-              value: [
-                'M 270 180 L 30 180 L 30 60 L 140 110 L 30 30 L 270 30 L 160 110 L 270 60 Z',
-                'M 120 170 L 100 110 L 30 80 L 120 170 L 30 80 L 270 30 L 100 110 L 270 30 Z',
-              ],
-              easing: 'easeInOutQuad',
-            },
-          ],
-          duration: 1500,
-        })
-          .add({
-            targets: '.contact-form-submit .submit-message .plane-wrapper',
-            // top: '-550px',
-            // left: '-400px',
-            duration: 1,
-            delay: 1,
-          })
-          .add({
-            targets: '.contact-form-submit .submit-message .plane-wrapper',
-            rotate: '-20deg',
-            duration: 1,
-            complete(ani) {
-              anime({
-                targets: '.contact-form-submit .submit-message .plane-wrapper',
-                translateX: path('x'),
-                translateY: path('y'),
-                easing: 'linear',
-                duration: 2200,
-                opacity: [1, 0],
-                rotate: path('angle'),
-                loop: false,
-                delay: 1000,
-              });
-            },
-          });
-        tl.restart();
+        tlPlane.play();
+        pathAni.restart();
       }
     },
     false,
