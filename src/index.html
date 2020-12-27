@@ -119,11 +119,29 @@
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
+                <defs>
+                  <filter id="circlefilter">
+                    <fegaussianblur
+                      in="SourceAlpha"
+                      stdDeviation="25"
+                      result="desenfoque"
+                    />
+                    <feflood flood-color="#2df5ff" />
+                    <fecomposite in2="desenfoque" operator="in" />
+                    <feoffset dx="0" dy="0" />
+                    <femerge>
+                      <femergenode />
+                      <femergenode in="SourceGraphic" />
+                    </femerge>
+                  </filter>
+                </defs>
                 <path
                   class="enve-plane"
                   d="M 270 180 L 30 180 L 30 60 L 140 110 L 30 30 L 270 30 L 160 110 L 270 60 Z"
-                  stroke="black"
-                  stroke-width="4"
+                  stroke="#170312ff"
+                  stroke-width="10"
+                  stroke-linecap="round"
+                  fill="#ccb921"
                 />
               </svg>
             </div>

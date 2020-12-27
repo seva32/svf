@@ -439,8 +439,8 @@ h4 {
   background-color: transparent;
   cursor: pointer;
   position: relative;
-  height: 4rem;
-  width: 6rem;
+  height: 6rem;
+  width: 9rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -454,6 +454,7 @@ h4 {
   position: relative;
   max-width: 100%;
   padding-bottom: 70%;
+  margin-bottom: -6rem;
 }
 
 .plane-mail {
@@ -461,9 +462,16 @@ h4 {
   max-width: 100%;
 }
 
+.plane-mail path.enve-plane {
+  filter: url(#circlefilter);
+}
+
 #submit-path {
   position: absolute;
-  bottom: 0.5rem;
+  /* bottom: 0.5rem;
+  transform: translateX(-400px) translateY(-550); */
+  left: -400px;
+  top: -550px;
 }
 
 .contact-form-submit .submit-message .plane-mail {
