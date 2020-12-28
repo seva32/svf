@@ -946,6 +946,21 @@ h4 {
 
 /* hamburger menu end */
 
+/* vs */
+
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.notap {
+  -webkit-tap-highlight-color: transparent;
+}
+
 @media only screen and (max-width: 550px) {
   html {
     font-size: 55%;
