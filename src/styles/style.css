@@ -18,6 +18,9 @@
   background-repeat: no-repeat;
   /* outline: 1px solid red; */
 }
+*:focus {
+  outline: 0;
+}
 ::-webkit-scrollbar {
   display: none;
 }
@@ -1040,5 +1043,9 @@ h4 {
 
   .hamburger-wrapper {
     transform: scale(1);
+  }
+
+  .plane-wrapper img {
+    padding-top: 8rem;
   }
 }
