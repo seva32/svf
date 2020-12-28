@@ -476,9 +476,9 @@ h4 {
   max-width: 100%;
 }
 
-.plane-mail path.enve-plane {
+/* .plane-mail path.enve-plane {
   filter: url(#circlefilter);
-}
+} */
 
 #submit-path {
   position: absolute;
