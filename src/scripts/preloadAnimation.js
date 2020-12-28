@@ -58,6 +58,9 @@ export default () => {
         translateY: ['100vh', '0vh'],
         duration: 2000,
         easing: 'easeInQuint',
+        begin(anim) {
+          document.querySelector('.svg-container').style.opacity = 0;
+        },
       })
       .add({
         targets: '.contact-btn-open',

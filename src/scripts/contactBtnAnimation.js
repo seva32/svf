@@ -199,6 +199,7 @@ export default () => {
                 '.contact-form-submit .submit-message .plane-wrapper img',
               top: '-553px',
               left: '-615px',
+              opacity: 1,
               duration: 1,
             });
             anime({
@@ -221,6 +222,12 @@ export default () => {
           delay: 1500,
           complete(_anim) {
             setTimeout(() => {
+              anime({
+                targets:
+                  '.contact-form-submit .submit-message .plane-wrapper img',
+                opacity: 0,
+                duration: 1,
+              });
               btnClose.click();
             }, 1000);
           },

@@ -19,7 +19,11 @@
   /* outline: 1px solid red; */
 }
 *:focus {
-  outline: 0;
+  outline: none !important;
+  -webkit-appearance: none;
+}
+*:focus-within {
+  background: transparent;
 }
 ::-webkit-scrollbar {
   display: none;
@@ -464,6 +468,7 @@ h4 {
   position: absolute;
   max-width: 100%;
   padding-top: 7rem;
+  opacity: 0;
 }
 
 .plane-mail {
