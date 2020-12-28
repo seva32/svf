@@ -169,7 +169,11 @@ const callback = (entries) => {
               duration: 1,
               complete(_ani) {
                 if (i === words.length - 1) {
-                  document.querySelector('.svg-container').style.opacity = 1;
+                  anime({
+                    targets: '.svg-container',
+                    opacity: 1,
+                    duration: 1,
+                  });
                   for (let j = 0; j < words.length; j++) {
                     if (j < 5) {
                       anime({
