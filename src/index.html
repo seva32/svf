@@ -75,7 +75,7 @@
     <!-- main content -->
     <div class="main-wrapper flex-center">
       <!-- pencil btn contact -->
-      <div class="contact-btn-container flex-center">
+      <div class="contact-btn-container flex-center no-select no-tap-highlight">
         <button class="contact-btn-open">
           <svg
             width="30"
@@ -97,13 +97,13 @@
       </div>
 
       <!-- contact form from pencil btn -->
-      <div class="contact-form-body noselect notap">
-        <div class="contact-form-email flex-center noselect notap">
+      <div class="contact-form-body no-select no-tap-highlight">
+        <div class="contact-form-email flex-center">
           <div id="anime-letters">
             <h2 class="letters">hello@sebastianfantini.com</h2>
           </div>
         </div>
-        <div class="contact-form-text noselect notap">
+        <div class="contact-form-text">
           <textarea
             name="message"
             id="message"
@@ -112,7 +112,7 @@
             placeholder="Don't leave me blank ⁀⊙﹏☉⁀"
           ></textarea>
         </div>
-        <div class="contact-form-submit flex-center noselect notap">
+        <div class="contact-form-submit flex-center">
           <button class="submit-message">
             <!-- <img class="paper-plane" id="plane" src="#" alt="send message" /> -->
             <div class="plane-wrapper">
@@ -153,12 +153,7 @@
                 />
               </svg>
             </div>
-            <svg
-              id="submit-path"
-              width="800"
-              height="600"
-              class="noselect notap"
-            >
+            <svg id="submit-path" width="800" height="600">
               <path
                 stroke="none"
                 fill="none"
@@ -172,7 +167,7 @@
       <!-- hero -->
       <div class="main-page">
         <!-- navigation -->
-        <div class="nav-wrapper">
+        <div class="nav-wrapper no-select no-tap-highlight">
           <!-- <nav>
             <a href="#" id="projects-link" class="active">Projects </a>
             <a href="#" id="home-link">Home</a>
