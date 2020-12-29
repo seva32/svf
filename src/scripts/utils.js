@@ -1,7 +1,8 @@
 export const resizeTimerListener = () => {
   let resizeTimer;
   window.addEventListener('resize', () => {
-    console.log('resize');
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
     document.body.classList.add('resize-animation-stopper');
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {

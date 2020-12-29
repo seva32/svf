@@ -6,6 +6,8 @@ const options = {
   threshold: 1.0,
 };
 
+const svgContainer = document.querySelector('.svg-container');
+
 const callback = (entries) => {
   entries.forEach((entry) => {
     // Cada entry describe un cambio en la intersección para
@@ -148,61 +150,59 @@ const callback = (entries) => {
         }
       } else {
         // animation for mobile
-        const words = document.querySelectorAll('.svg-container div div');
-        for (let i = 0; i < words.length; i++) {
-          if (i < 5) {
-            anime({
-              targets: words[i],
-              translateX: anime.random(600, 1000),
-              duration: 1,
-            });
-          } else if (i < 10) {
-            anime({
-              targets: words[i],
-              translateX: anime.random(-600, -1000),
-              duration: 1,
-            });
-          } else {
-            anime({
-              targets: words[i],
-              translateY: anime.random(600, 1000),
-              duration: 1,
-              complete(_ani) {
-                if (i === words.length - 1) {
-                  anime({
-                    targets: '.svg-container',
-                    opacity: 1,
-                    duration: 1,
-                  });
-                  for (let j = 0; j < words.length; j++) {
-                    if (j < 5) {
-                      anime({
-                        targets: words[j],
-                        translateX: '0px',
-                        duration: 3000,
-                        easing: 'easeOutBounce',
-                      });
-                    } else if (j < 10) {
-                      anime({
-                        targets: words[j],
-                        translateX: '0px',
-                        duration: 3000,
-                        easing: 'easeOutBounce',
-                      });
-                    } else {
-                      anime({
-                        targets: words[j],
-                        translateY: '0px',
-                        duration: 3000,
-                        easing: 'easeOutBounce',
-                      });
-                    }
-                  }
-                }
-              },
-            });
-          }
-        }
+        // const words = document.querySelectorAll('.svg-container div div');
+        // for (let i = 0; i < words.length; i++) {
+        //   if (i < 5) {
+        //     anime({
+        //       targets: words[i],
+        //       translateX: anime.random(600, 1000),
+        //       duration: 1,
+        //     });
+        //   } else if (i < 10) {
+        //     anime({
+        //       targets: words[i],
+        //       translateX: anime.random(-600, -1000),
+        //       duration: 1,
+        //     });
+        //   } else {
+        //     anime({
+        //       targets: words[i],
+        //       translateY: anime.random(600, 1000),
+        //       duration: 1,
+        //       complete(_ani) {
+        //         // se completa la ultima animacion que saca las palabras del viewport
+        //         // entonces puedo comenzar la animacion para traerlas nuevamente
+        //         if (i === words.length - 1) {
+        //           // nueva iter sobre todas las palabras
+        //           for (let j = 0; j < words.length; j++) {
+        //             if (j < 5) {
+        //               anime({
+        //                 targets: words[j],
+        //                 translateX: '0px',
+        //                 duration: 3000,
+        //                 easing: 'easeOutBounce',
+        //               });
+        //             } else if (j < 10) {
+        //               anime({
+        //                 targets: words[j],
+        //                 translateX: '0px',
+        //                 duration: 3000,
+        //                 easing: 'easeOutBounce',
+        //               });
+        //             } else {
+        //               anime({
+        //                 targets: words[j],
+        //                 translateY: '0px',
+        //                 duration: 3000,
+        //                 easing: 'easeOutBounce',
+        //               });
+        //             }
+        //           }
+        //         }
+        //       },
+        //     });
+        //   }
+        // }
       }
     }
   });

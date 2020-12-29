@@ -80,7 +80,7 @@ export default () => {
     .add(
       {
         targets: '.contact-form-dropback',
-        scale: 30,
+        scale: 35,
         zIndex: 5,
         opacity: [0, 1],
       },
@@ -90,7 +90,7 @@ export default () => {
       {
         targets: '.contact-form-body',
         translateY: ['100vh', '0vh'],
-        opacity: [0.5, 1],
+        opacity: [0.8, 1],
         easing(el, i, total) {
           return function (t) {
             return Math.tan((t * Math.PI) / 4) ** 3;
@@ -100,6 +100,7 @@ export default () => {
           document.getElementById('anime-letters').style.opacity = 1;
           lettersTL.play();
         },
+        duration: 600,
       },
       '-=1500',
     );

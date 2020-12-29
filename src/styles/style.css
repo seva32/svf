@@ -612,7 +612,7 @@ h4 {
   height: 100%;
   display: block;
   overflow: visible;
-  /* opacity: 0; */
+  opacity: 0;
 }
 
 .content-wrapper div .hero-img .svg-container .svg-col-1,
@@ -968,6 +968,12 @@ h4 {
     font-size: 55%;
   }
 
+  body {
+    max-height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+    max-height: calc(var(--vh, 1vh) * 100);
+    min-height: -webkit-fill-available;
+  }
+
   .preload-content {
     width: 100%;
   }
@@ -978,6 +984,7 @@ h4 {
 
   .main-wrapper {
     width: 100%;
+    height: auto;
   }
 
   .contact-form-body {
@@ -1054,6 +1061,11 @@ h4 {
     width: 150%;
   }
 
+  .contact-form-body {
+    display: block;
+    top: 10%;
+  }
+
   .contact-form-text textarea {
     width: 80vw;
     font-size: 1.8rem;
@@ -1063,11 +1075,19 @@ h4 {
     font-size: 1.8rem;
   }
 
+  .contact-form-submit {
+    margin-top: 5rem;
+  }
+
   .hamburger-wrapper {
     transform: scale(1);
   }
 
   .plane-wrapper img {
     padding-top: 8rem;
+  }
+
+  .hero-img {
+    min-height: calc(100vh - 170px);
   }
 }
