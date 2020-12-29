@@ -9,6 +9,8 @@
   --mellon: #ccb921;
   --black: #170312ff;
   --capri: #437eee;
+  /* touch-action: pan-x pan-y;
+  height: 100%; */
 }
 
 *,
