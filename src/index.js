@@ -6,6 +6,7 @@ import preloadAnimation from './scripts/preloadAnimation';
 import contactBtnAnimation from './scripts/contactBtnAnimation';
 import loadHTML from './scripts/loadHTML';
 import sideBarAnimation from './scripts/sideBarAnimation';
+import loadFooter from './scripts/loadFooter';
 // eslint-disable-next-line no-unused-vars
 import './scripts/heroAnimation'; // es un observer, no una funcion
 import './scripts/hamburgerAnimation';
@@ -44,3 +45,7 @@ svgData.forEach((d) =>
     .getElementById(d.node)
     .appendChild(require(`./scripts/svg/${d.file}.js`).default({ id: d.id })),
 );
+
+document
+  .querySelector('.footer .copyright')
+  .appendChild(loadFooter({ content: 'sebastianfantini.com' }));
