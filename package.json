@@ -2,7 +2,7 @@
   "homepage": "https://seva32.github.io/svf",
   "name": "sebastian-fantini",
   "version": "1.0.0",
-  "description": "Sebastian Fantini - Software developer",
+  "description": "Sebastian Fantini - Software developer. This is my personal site, developed with <3 in vanilla javascript. I'm a full stack developer, working with javascript (node, react) and java. You can reach me at hello@sebastianfantini.com",
   "author": "Sebastian Fantini",
   "license": "MIT",
   "devDependencies": {
