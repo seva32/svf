@@ -17,7 +17,7 @@
 ::after {
   box-sizing: border-box;
   background-repeat: no-repeat;
-  /* outline: 1px solid red; */
+  outline: 1px solid red;
 }
 *:focus {
   outline: none !important;
@@ -538,14 +538,6 @@ h4 {
   z-index: 1;
 }
 
-.hamburger-wrapper {
-  width: 10%;
-  height: 100%;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-
 .hamburger-wrapper svg {
   max-width: 100%;
 }
@@ -888,6 +880,13 @@ h4 {
 
 /* hamburger menu start */
 .hamburger-wrapper {
+  width: 10%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 20;
+  min-width: 90px;
   cursor: pointer;
   border: none;
   transform: scale(1.5);
@@ -895,12 +894,64 @@ h4 {
   top: 20px;
 }
 
+.hamburger-items {
+  position: absolute;
+  top: 2.8rem;
+  margin-left: 1rem;
+  height: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  z-index: -1;
+}
+
+.hamburger-items div {
+  opacity: 0;
+}
+
+.hamburger-items div a {
+  /* opacity: 0; */
+}
+
+.hamburger-backdrop {
+  z-index: -2;
+  background-color: var(--baby-powder);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  width: 5%;
+  top: 20px;
+  height: 100%;
+}
+
+/* .hamburger-wrapper svg path {
+  transition: transform 0.3s ease-in-out;
+}
+
 .hamburger-wrapper svg path:first-child {
-  transform: translateX(-20px);
+  transform: translateX(0px);
 }
 
 .hamburger-wrapper svg path:last-child {
-  transform: translateX(20px);
+  transform: translateX(0px);
+}
+
+.hamburger-wrapper:hover svg path:first-child {
+  transform: translateX(-10px);
+}
+
+.hamburger-wrapper:hover svg path:last-child {
+  transform: translateX(10px);
+} */
+
+/* .hamburger-wrapper .hamburger-line {
+  transition: stroke-width 0.3s ease-in-out;
+} */
+
+.hamburger-wrapper:hover .hamburger-line {
+  stroke-width: 12;
 }
 
 .hamburger-line {
@@ -947,6 +998,12 @@ h4 {
 }
 
 /* hamburger menu end */
+
+/* projects view */
+
+.projects-wrapper {
+  height: calc(100vh - 170px);
+}
 
 /* vs */
 
@@ -1013,6 +1070,7 @@ h4 {
 
   .hamburger-wrapper {
     width: 50px;
+    min-width: 50px;
   }
 
   #anime-letters {
@@ -1089,5 +1147,19 @@ h4 {
 
   .hero-img {
     min-height: calc(100vh - 170px);
+  }
+
+  .hamburger-items {
+    top: 4.5rem;
+    margin-left: 1.7rem;
+    height: 2.3rem;
+  }
+
+  .hamburger-backdrop {
+    width: 17%;
+  }
+
+  .hamburger-items div:first-child {
+    margin-top: 12rem;
   }
 }

@@ -1,0 +1,190 @@
+html {
+  /* container size , con 100vh no tendria containers sino queries del viewport */
+  --base_size: 100%;
+  /* puntos en los q quiero que el container cambie su estilo */
+  --breakpoint_wide: 1500px;
+  /* Wider than 1500px will be considered wide */
+  --breakpoint_medium: 800px;
+  /* From 801px to 1500px will be considered medium */
+  /* Smaller than or exact 800px will be small */
+  --length_4_small: calc((100% / 1) - 10px); /* Change to your needs */
+  --length_4_medium: calc((100% / 2) - 10px); /* Change to your needs */
+  --length_4_wide: calc((100% / 3) - 10px); /* Change to your needs */
+  /* if --base_size is bigger than --breakpoint_wide, we want a variable that’s 1px. Otherwise, we want 0px */
+  --is_wide: clamp(0px, var(--base_size) - var(--breakpoint_wide), 1px);
+  /* We got an indicator variable for “wide.” Let’s do this for the “medium” interval */
+  /* subtracting --is_wide value. In the wide interval, 1px - 1px is 0px; in the medium interval 1px - 0px is 1px; and for the small interval 0px - 0px gives 0px. */
+  --is_medium: calc(
+    clamp(0px, var(--base_size) - var(--breakpoint_medium), 1px) -
+      var(--is_wide)
+  );
+  /* --is_small: calc(
+  clamp(0px,
+    (var(--base_size) - 0px,
+    1px)
+  - (var(--is_medium) + var(--is_wide))
+  ); */
+  --is_small: calc(1px - (var(--is_medium) + var(--is_wide)));
+
+  /* 
+  calc(
+  (var(--is_small) * 100) 
+  +
+  (var(--is_medium) * 200) 
+  );
+  This will return 100px + 0px = 100px in the small interval (where --is_small is 1px and --is_medium is 0px). In the medium interval (where --is_medium is 1px and --is_small is 0px), it will return 0px + 200px = 200px. 
+  */
+  width: calc(
+    (var(--is_small) * 100) + (var(--is_medium) * 200) + (var(--is_wide) * 500)
+  );
+
+  --very_big_int: 9999;
+  /* Pure, unitless number. Must be bigger than any length appearing elsewhere. */
+  /* if --is_small is 0px, it will return 0px */
+  /* If --is_small is 1px, min will return: --length_4_small */
+  /* min(
+  var(--length_4_small), 
+  var(--is_small) * var(--very_big_int) 
+  ); */
+
+  /* calculate our dynamic container-width-based, breakpoint-driven value like this */
+  --dyn_length: calc(
+    min(var(--is_wide) * var(--very_big_int), var(--length_4_wide)) +
+      min(var(--is_medium) * var(--very_big_int), var(--length_4_medium)) +
+      min(var(--is_small) * var(--very_big_int), var(--length_4_small))
+  );
+}
+
+/* <h2>Go to the CSS editor and find .try_out_dimensions. Play with the width value.</h2>
+<div class="container breakpoints_1 try_out_dimensions">
+  <div class="size show_small">
+      Layout is small
+    </div>
+    <div class="size show_medium">
+      Layout is medium
+    </div>
+    <div class="size show_wide">
+      Layout is wide
+    </div>
+  <hr>
+	<div class="item">	
+  demo text 1
+  </div>
+  <div class="item">	
+		demo text 2
+	</div>
+	<div class="item">	
+		demo text 3
+	</div>
+	<div class="item">	
+		demo text 4
+	</div>
+	<div class="item">	
+		demo text 5
+	</div>
+  <div class="item">	
+		demo text 6
+	</div>
+</div> */
+
+:root {
+  box-sizing: border-box;
+}
+.try_out_dimensions {
+  /* U can set width to 100% and resize your browser to see the raven switching live 
+  Or set width to 500px,501px,1000px and 1001px to see the pixel perfect triggering of the raven*/
+
+  width: 1600px;
+
+  height: 100%;
+
+  /* Set border to 0px, so border width will not influence the value of "100%" */
+  border: 0px solid black;
+}
+
+.breakpoints_1 {
+  /* what length should the breakpoints be based on 
+  ("100%" for container width in all cases, where 100% evaluates to width ...)
+  Setting "100vw" makes this a media query, but you can choose any length you like  
+  */
+  --base_size: 100%;
+
+  /* define the Breakpoints   */
+  --breakpoint_wide: 1000px;
+  --breakpoint_medium: 500px;
+
+  /* set the length for the breakpoint-regions*/
+  --length_4_small: calc((100% / 1) - 10px);
+  --length_4_medium: calc((100% / 3) - 10px);
+  --length_4_wide: calc((100% / 4) - 10px);
+}
+
+.container {
+  display: inline-block;
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+
+  /* this large number is the "hacky" part, since dropping units from vars is not possible, 
+  but designates length should not be limited to pixels */
+
+  --very_big_int: 9999; /* pure number, in px must be bigger than any length appearing elsewhere */
+
+  /* This is where the magic happens:
+	calculate indicators if  --base_size is bigger then breakpoint.
+	returns "0px" if width is smaller, "1px" otherwise via clamp function.
+  */
+  --is_wide: clamp(0px, (var(--base_size) - var(--breakpoint_wide)), 1px);
+  --is_medium: calc(
+    clamp(0px, (var(--base_size) - var(--breakpoint_medium)), 1px) -
+      var(--is_wide)
+  );
+  /* if it is wide, it is not medium (clamp gives 1px, so subtract --is_wide) */
+  --is_small: calc(1px - (var(--is_medium) + var(--is_wide)));
+  /* if it is wide or medium, it is not small */
+
+  /* multiply indicator with a very large number .... 
+	if indicator is 0px, it stays 0px 
+	if indicator is 1px, a very long length is returned.
+	minimum with wanted length is 0px (if indicator is 0px) or wanted length (if indicator is 1px).
+	summing stuff up gives the one wanted value
+	*/
+
+  --dyn_length: calc(
+    min(var(--is_wide) * var(--very_big_int), var(--length_4_wide)) +
+      min(var(--is_medium) * var(--very_big_int), var(--length_4_medium)) +
+      min(var(--is_small) * var(--very_big_int), var(--length_4_small))
+  );
+}
+
+.container > .item {
+  background-color: green;
+  display: inline-block;
+  vertical-align: top;
+  margin: 0px;
+  padding: 0px;
+  border: 1px;
+  border-color: black;
+  border-style: solid;
+  height: 200px;
+
+  width: var(--dyn_length);
+}
+
+.size {
+  display: inline-block;
+  box-sizing: border-box;
+  vertical-align: top;
+  overflow: hidden;
+  padding: 0px;
+}
+
+.show_small {
+  width: calc(var(--is_small) * 100);
+}
+.show_medium {
+  width: calc(var(--is_medium) * 100);
+}
+.show_wide {
+  width: calc(var(--is_wide) * 100);
+}
