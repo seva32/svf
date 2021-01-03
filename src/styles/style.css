@@ -910,7 +910,8 @@ h4 {
 }
 
 .hamburger-items div a {
-  /* opacity: 0; */
+  color: var(--black);
+  text-transform: lowercase;
 }
 
 .hamburger-backdrop {

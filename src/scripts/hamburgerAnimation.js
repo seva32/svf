@@ -1,8 +1,8 @@
 import { vw } from './utils';
 
-const backdropScale = vw > 550 ? 45 : 20;
+const backdropScale = vw > 550 ? 45 : 25;
 const itemsTranslateX = vw > 550 ? '2rem' : '1.5rem';
-const itemsScale = vw > 550 ? 10 : 5;
+const itemsScale = vw > 550 ? 7 : 5;
 
 const hamWrapper = document.querySelector('.hamburger-wrapper');
 // const firstPath = document.querySelector(
@@ -79,6 +79,18 @@ const toggleHamburger = () => {
 
 if (hamWrapper) {
   hamWrapper.addEventListener('click', toggleHamburger);
+}
+
+const aArr = document.querySelectorAll('.hamburger-items div a');
+
+for (let s = 0; s < aArr.length; s++) {
+  aArr[s].addEventListener(
+    'click',
+    function () {
+      hamWrapper.click();
+    },
+    false,
+  );
 }
 
 // function toggleInstanceDirection() {
