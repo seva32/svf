@@ -927,6 +927,38 @@ h4 {
   height: 100%;
 }
 
+.wave-container {
+  height: 80%;
+  background: #5b9ebf;
+  background: linear-gradient(to right, #6d81b9, #00e5d0);
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.svg-wave-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.svg-wave-container svg {
+  display: block;
+}
+
+.svg-wave-container svg path {
+  fill: #fff;
+}
+
+.svg-wave-container svg path#curve1 {
+  opacity: 0.6;
+}
+
+.svg-wave-container svg path#curve2 {
+  opacity: 0.4;
+}
+
 /* .hamburger-wrapper svg path {
   transition: transform 0.3s ease-in-out;
 }
