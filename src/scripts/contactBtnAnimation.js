@@ -1,3 +1,7 @@
+import { vw } from './utils';
+
+const dropbackScale = vw > 550 ? 40 : 20;
+
 export default () => {
   const btnOpen = document.querySelector('.contact-btn-open');
   const btnClose = document.querySelector('.contact-btn-close');
@@ -80,7 +84,7 @@ export default () => {
     .add(
       {
         targets: '.contact-form-dropback',
-        scale: 35,
+        scale: dropbackScale,
         zIndex: 5,
         opacity: [0, 1],
       },
@@ -222,13 +226,13 @@ export default () => {
           loop: false,
           delay: 1500,
           complete(_anim) {
+            anime({
+              targets:
+                '.contact-form-submit .submit-message .plane-wrapper img',
+              opacity: 0,
+              duration: 1,
+            });
             setTimeout(() => {
-              anime({
-                targets:
-                  '.contact-form-submit .submit-message .plane-wrapper img',
-                opacity: 0,
-                duration: 1,
-              });
               btnClose.click();
             }, 1000);
           },

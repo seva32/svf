@@ -17,7 +17,7 @@
 ::after {
   box-sizing: border-box;
   background-repeat: no-repeat;
-  outline: 1px solid red;
+  /* outline: 1px solid red; */
 }
 *:focus {
   outline: none !important;
@@ -927,36 +927,28 @@ h4 {
   height: 100%;
 }
 
-.wave-container {
-  height: 80%;
-  background: #5b9ebf;
-  background: linear-gradient(to right, #6d81b9, #00e5d0);
-  background-position: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.svg-wave-container {
-  position: absolute;
+.waves-container {
+  position: fixed;
+  top: 70%;
   bottom: 0;
   left: 0;
+  right: 0;
+  z-index: 100;
+  display: none;
+}
+
+.waves-container div.waves {
   width: 100%;
+  bottom: 0;
+  height: 100%;
+  position: absolute;
 }
 
-.svg-wave-container svg {
-  display: block;
-}
-
-.svg-wave-container svg path {
-  fill: #fff;
-}
-
-.svg-wave-container svg path#curve1 {
-  opacity: 0.6;
-}
-
-.svg-wave-container svg path#curve2 {
-  opacity: 0.4;
+.waves-container div.waves svg {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
 }
 
 /* .hamburger-wrapper svg path {
