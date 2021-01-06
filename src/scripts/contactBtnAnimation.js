@@ -1,6 +1,6 @@
 import { vw } from './utils';
 
-const dropbackScale = vw > 550 ? 40 : 20;
+const dropbackScale = vw > 550 ? 40 : 30;
 
 export default () => {
   const btnOpen = document.querySelector('.contact-btn-open');
