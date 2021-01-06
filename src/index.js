@@ -38,12 +38,13 @@ const svgData = [
   { node: 'project-svg', file: 'projectSVG', id: 'project' },
   { node: 'team-svg', file: 'teamSVG', id: 'team' },
   { node: 'footer-svg', file: 'footerSVG', id: 'footer-path' },
+  { node: 'fractal-svg', file: 'fractalSVG', id: 'fractal' },
 ];
 
 svgData.forEach((d) =>
   document
     .getElementById(d.node)
-    .appendChild(require(`./scripts/svg/${d.file}.js`).default({ id: d.id })),
+    .appendChild(require(`./scripts/svg/${d.file}.js`).default({ name: d.id })),
 );
 
 document

@@ -1050,6 +1050,13 @@ h4 {
   -webkit-tap-highlight-color: transparent;
 }
 
+.fractal-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20%;
+}
+
 @media only screen and (max-width: 550px) {
   html {
     font-size: 55%;
@@ -1200,7 +1207,14 @@ h4 {
   .waves-container div.waves svg {
     overflow: visible;
   }
+
   .waves-container div.waves svg path {
     transform: scale(2) translateY(-200px);
+  }
+
+  .fractal-container {
+    top: -50px;
+    right: -30px;
+    width: 40%;
   }
 }
