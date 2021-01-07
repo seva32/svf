@@ -211,6 +211,19 @@ export default () => {
               targets: '.enve-plane',
               opacity: 0,
               duration: 1,
+              complete(_ani) {
+                anime({
+                  targets: '.enve-plane',
+                  d: [
+                    {
+                      value: [
+                        'M 270 180 L 30 180 L 30 60 L 140 110 L 30 30 L 270 30 L 160 110 L 270 60 Z',
+                      ],
+                      duration: 1,
+                    },
+                  ],
+                });
+              },
             });
           },
         });

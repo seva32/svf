@@ -377,6 +377,13 @@
                       <femergenode in="SourceGraphic" />
                     </femerge>
                   </filter>
+                  <lineargradient
+                    id="myGradient"
+                    gradientTransform="rotate(90)"
+                  >
+                    <stop offset="5%" stop-color="#c4c0a1" />
+                    <stop offset="95%" stop-color="#ccb921" />
+                  </lineargradient>
                 </defs>
                 <path
                   id="plane-id"
@@ -385,7 +392,7 @@
                   stroke="#170312ff"
                   stroke-width="10"
                   stroke-linecap="round"
-                  fill="#ccb921"
+                  fill="url(#myGradient)"
                   filter="url(#circlefilter)"
                 />
               </svg>
@@ -493,16 +500,16 @@
           .addEventListener('change', function (event) {
             event.preventDefault();
             this.contact_number.value = (Math.random() * 100000) | 0;
-            emailjs.sendForm('gmail', 'template_fJkHYOay', this).then(
-              function () {
-                // console.log('SUCCESS!');
-                document.getElementById('contact-form').reset();
-              },
-              function (error) {
-                // console.log('FAILED...', error);
-                document.getElementById('contact-form').reset();
-              },
-            );
+            // emailjs.sendForm('gmail', 'template_fJkHYOay', this).then(
+            //   function () {
+            //     // console.log('SUCCESS!');
+            //     document.getElementById('contact-form').reset();
+            //   },
+            //   function (error) {
+            //     // console.log('FAILED...', error);
+            //     document.getElementById('contact-form').reset();
+            //   },
+            // );
           });
       };
     </script>
