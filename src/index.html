@@ -346,7 +346,7 @@
               id="message"
               cols="40"
               rows="5"
-              placeholder="Don't leave me blank ⁀⊙..☉⁀"
+              placeholder="(☞ﾟヮﾟ)☞ send me a line"
             ></textarea>
           </form>
         </div>
@@ -500,16 +500,16 @@
           .addEventListener('change', function (event) {
             event.preventDefault();
             this.contact_number.value = (Math.random() * 100000) | 0;
-            // emailjs.sendForm('gmail', 'template_fJkHYOay', this).then(
-            //   function () {
-            //     // console.log('SUCCESS!');
-            //     document.getElementById('contact-form').reset();
-            //   },
-            //   function (error) {
-            //     // console.log('FAILED...', error);
-            //     document.getElementById('contact-form').reset();
-            //   },
-            // );
+            emailjs.sendForm('gmail', 'template_fJkHYOay', this).then(
+              function () {
+                // console.log('SUCCESS!');
+                document.getElementById('contact-form').reset();
+              },
+              function (error) {
+                // console.log('FAILED...', error);
+                document.getElementById('contact-form').reset();
+              },
+            );
           });
       };
     </script>
