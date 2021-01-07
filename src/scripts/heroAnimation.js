@@ -6,8 +6,6 @@ const options = {
   threshold: 1.0,
 };
 
-const svgContainer = document.querySelector('.svg-container');
-
 const callback = (entries) => {
   entries.forEach((entry) => {
     // Cada entry describe un cambio en la intersección para
@@ -22,187 +20,33 @@ const callback = (entries) => {
     if (entry.intersectionRatio) {
       // animation for desktop
       if (vw > 550) {
-        const wordsShakeAni = anime({
-          targets: '.svg-container div div',
-          rotate: [
-            { value: '3deg', duration: 30 },
-            { value: '0deg', duration: 30 },
-            { value: '-3deg', duration: 30 },
-            { value: '0deg', duration: 30 },
-            { value: '3deg', duration: 30 },
-            { value: '0deg', duration: 30 },
-            { value: '-3deg', duration: 30 },
-            { value: '0deg', duration: 30 },
-          ],
-          scale(el, i, l) {
-            if (el.id.includes('software')) {
-              return 2.2;
-            }
-            return 1;
-          },
-          autoplay: false,
-        });
-
-        const colors = ['#642ca9ff', '#ff36abff', '#ccb921', '#170312ff'];
-
-        const tlColors = anime.timeline({
-          easing: 'linear',
-          duration: 200,
-          autoplay: false,
-        });
-
-        tlColors
-          .add(
-            {
-              begin(_anim) {
-                wordsShakeAni.restart();
-              },
-              duration: 100,
-            },
-            '-=400',
-          )
-          .add({
-            targets: '.svg-container div div svg path',
-            fill: '#642ca9ff',
-            delay: 3000,
-          })
-          .add(
-            {
-              begin(_anim) {
-                wordsShakeAni.restart();
-              },
-              duration: 100,
-              delay: 3000,
-            },
-            '-=400',
-          )
-          .add({
-            targets: '.svg-container div div svg path',
-            fill: '#ff36abff',
-            delay: 3000,
-          })
-          // .add(
-          //   {
-          //     begin(_anim) {
-          //       wordsShakeAni.restart();
-          //     },
-          //     duration: 100,
-          //     delay: 3000,
-          //   },
-          //   '-=400',
-          // )
-          // .add({
-          //   targets: '.svg-container div div svg path',
-          //   fill: '#ccb921',
-          //   delay: 3000,
-          // })
-          .add(
-            {
-              begin(_anim) {
-                wordsShakeAni.restart();
-              },
-              duration: 100,
-              delay: 3000,
-            },
-            '-=400',
-          )
-          .add({
-            targets: '.svg-container div div svg path',
-            fill(el, i, l) {
-              return colors[anime.random(0, 3)];
-            },
-            duration: 1,
-          });
-
-        tlColors.restart();
-
-        const allElemsPath = document.querySelectorAll(
-          '.svg-container div div svg path',
-        );
-
-        for (let s = 0; s < allElemsPath.length; s++) {
-          const elemPath = allElemsPath[s];
-          const elemOffset = anime.setDashoffset(elemPath);
-          elemPath.setAttribute('stroke-dashoffset', elemOffset);
-
-          anime(
-            {
-              targets: elemPath,
-              strokeDashoffset: [elemOffset, 100],
-              duration: 3000,
-              strokeWidth: [
-                { value: '6', duration: 1000 },
-                { value: '2', duration: 1000 },
-              ],
-              loop: 3,
-              easing: 'easeInOutSine',
-              autoplay: true,
-              complete(anim) {
-                anime({
-                  targets: elemPath,
-                  strokeWidth: 2,
-                  duration: 1,
-                });
-              },
-            },
-            '-=400',
-          );
-        }
-      } else {
-        // animation for mobile
-        // const words = document.querySelectorAll('.svg-container div div');
-        // for (let i = 0; i < words.length; i++) {
-        //   if (i < 5) {
-        //     anime({
-        //       targets: words[i],
-        //       translateX: anime.random(600, 1000),
-        //       duration: 1,
-        //     });
-        //   } else if (i < 10) {
-        //     anime({
-        //       targets: words[i],
-        //       translateX: anime.random(-600, -1000),
-        //       duration: 1,
-        //     });
-        //   } else {
-        //     anime({
-        //       targets: words[i],
-        //       translateY: anime.random(600, 1000),
-        //       duration: 1,
-        //       complete(_ani) {
-        //         // se completa la ultima animacion que saca las palabras del viewport
-        //         // entonces puedo comenzar la animacion para traerlas nuevamente
-        //         if (i === words.length - 1) {
-        //           // nueva iter sobre todas las palabras
-        //           for (let j = 0; j < words.length; j++) {
-        //             if (j < 5) {
-        //               anime({
-        //                 targets: words[j],
-        //                 translateX: '0px',
-        //                 duration: 3000,
-        //                 easing: 'easeOutBounce',
-        //               });
-        //             } else if (j < 10) {
-        //               anime({
-        //                 targets: words[j],
-        //                 translateX: '0px',
-        //                 duration: 3000,
-        //                 easing: 'easeOutBounce',
-        //               });
-        //             } else {
-        //               anime({
-        //                 targets: words[j],
-        //                 translateY: '0px',
-        //                 duration: 3000,
-        //                 easing: 'easeOutBounce',
-        //               });
-        //             }
-        //           }
-        //         }
-        //       },
-        //     });
-        //   }
+        // const allElemsPath = document.querySelectorAll(
+        //   '.svg-container div div svg path',
+        // );
+        // for (let s = 0; s < allElemsPath.length; s++) {
+        //   const elemPath = allElemsPath[s];
+        //   const elemOffset = anime.setDashoffset(elemPath);
+        //   elemPath.setAttribute('stroke-dashoffset', elemOffset);
+        //   anime(
+        //     {
+        //       targets: elemPath,
+        //       strokeDashoffset: [elemOffset, 100],
+        //       duration: 2000,
+        //       stroke: '#ff36abff',
+        //       strokeWidth: [
+        //         { value: '2', duration: 1000 },
+        //         { value: '1', duration: 1000 },
+        //       ],
+        //       loop: 2,
+        //       easing: 'easeInOutSine',
+        //       autoplay: true,
+        //       direction: 'alternate',
+        //     },
+        //     '-=400',
+        //   );
         // }
+      } else {
+        //
       }
     }
   });

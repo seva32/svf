@@ -17,13 +17,13 @@ function fractalSVG(props) {
         id="p1"
         attributeName="d"
         values="m160,160l0,0 0,0;m130,110l30,-17 30,17;m130,60l30,-17 30,17;m160,20l0,0 0,0"
-        dur="6s"
+        dur="10s"
         repeatCount="indefinite"
       />
       <animate
         attributeName="stroke-width"
         values="0;4;4;4;0"
-        dur="6s"
+        dur="10s"
         repeatCount="indefinite"
         begin="p1.begin"
       />
@@ -32,14 +32,14 @@ function fractalSVG(props) {
       <animate
         attributeName="d"
         values="m160,160l0,0 0,0;m130,110l30,-17 30,17;m130,60l30,-17 30,17;m160,20l0,0 0,0"
-        dur="6s"
+        dur="10s"
         repeatCount="indefinite"
         begin="p1.begin+1s"
       />
       <animate
         attributeName="stroke-width"
         values="0;4;4;4;0"
-        dur="6s"
+        dur="10s"
         repeatCount="indefinite"
         begin="p1.begin+1s"
       />
@@ -48,14 +48,14 @@ function fractalSVG(props) {
       <animate
         attributeName="d"
         values="m160,160l0,0 0,0;m130,110l30,-17 30,17;m130,60l30,-17 30,17;m160,20l0,0 0,0"
-        dur="6s"
+        dur="10s"
         repeatCount="indefinite"
         begin="p1.begin+2s"
       />
       <animate
         attributeName="stroke-width"
         values="0;4;4;4;0"
-        dur="6s"
+        dur="10s"
         repeatCount="indefinite"
         begin="p1.begin+2s"
       />
@@ -65,14 +65,14 @@ function fractalSVG(props) {
         id="p1"
         attributeName="d"
         values="m160,160l0,0 0,0;m130,110l30,-17 30,17;m130,60l30,-17 30,17;m160,20l0,0 0,0"
-        dur="6s"
+        dur="10s"
         repeatCount="indefinite"
         begin="p1.begin+3s"
       />
       <animate
         attributeName="stroke-width"
         values="0;4;4;4;0"
-        dur="6s"
+        dur="10s"
         repeatCount="indefinite"
         begin="p1.begin+3s"
       />
@@ -81,14 +81,14 @@ function fractalSVG(props) {
       <animate
         attributeName="d"
         values="m160,160l0,0 0,0;m130,110l30,-17 30,17;m130,60l30,-17 30,17;m160,20l0,0 0,0"
-        dur="6s"
+        dur="10s"
         repeatCount="indefinite"
         begin="p1.begin+4s"
       />
       <animate
         attributeName="stroke-width"
         values="0;4;4;4;0"
-        dur="6s"
+        dur="10s"
         repeatCount="indefinite"
         begin="p1.begin+4s"
       />
@@ -97,14 +97,14 @@ function fractalSVG(props) {
       <animate
         attributeName="d"
         values="m160,160l0,0 0,0;m130,110l30,-17 30,17;m130,60l30,-17 30,17;m160,20l0,0 0,0"
-        dur="6s"
+        dur="10s"
         repeatCount="indefinite"
         begin="p1.begin+5s"
       />
       <animate
         attributeName="stroke-width"
         values="0;4;4;4;0"
-        dur="6s"
+        dur="10s"
         repeatCount="indefinite"
         begin="p1.begin+5s"
       />

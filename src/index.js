@@ -39,6 +39,7 @@ const svgData = [
   { node: 'team-svg', file: 'teamSVG', id: 'team' },
   { node: 'footer-svg', file: 'footerSVG', id: 'footer-path' },
   { node: 'fractal-svg', file: 'fractalSVG', id: 'fractal' },
+  { node: 'fractal-hero-svg', file: 'fractalSVG', id: 'fractal-hero' },
 ];
 
 svgData.forEach((d) =>
