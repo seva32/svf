@@ -6,7 +6,7 @@ function fractalSVG(props) {
   viewBox="0 0 320 320"
   preserveAspectRatio="xMinYMin meet"
   fill="none"
-  stroke="#fffffaff"
+  stroke="#e54f6dff"
   stroke-linecap="round"
   xmlns="http://www.w3.org/2000/svg"
   xmlns:xlink="http://www.w3.org/1999/xlink"
