@@ -1,11 +1,12 @@
 import hyperHTML from 'hyperhtml';
 
 function fractalSVG(props) {
+  const color = props.name.includes('hero') ? '#f5e8ff' : 'white';
   return hyperHTML.wire(props, 'svg')`<svg
   version="1.1"
   viewBox="0 0 320 320"
   preserveAspectRatio="xMinYMin meet"
-  fill="white"
+  fill=${color}
   stroke="transparent"
   stroke-linecap="round"
   xmlns="http://www.w3.org/2000/svg"
