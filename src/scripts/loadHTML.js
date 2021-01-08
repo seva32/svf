@@ -1,5 +1,7 @@
 /* eslint-disable indent */
 /* global anime */
+import { vw } from './utils';
+
 export default () => {
   // fetch() to animate html snippets in and out
 
@@ -52,10 +54,23 @@ export default () => {
             opacity: [0, 1],
             easing: 'easeOutExpo',
             begin(ani) {
-              const homeMobile = document.getElementById('home-mobile');
-              if (homeMobile) {
-                homeMobile.classList.add('home-placeholder-mobile');
-              }
+              // const homeMobile = document.getElementById('home-mobile');
+              // const desktopImg = document.querySelector('#home-desktop img');
+              // const mobileImg = document.querySelector('#home-mobile img');
+              // if (homeMobile) {
+              //   homeMobile.classList.add('home-placeholder-mobile');
+              // }
+              // if (vw < 550) {
+              //   desktopImg.classList.remove('hero-placeholder-img');
+              //   desktopImg.style.display = 'none';
+              //   mobileImg.classList.add('hero-placeholder-img');
+              //   mobileImg.style.display = 'block';
+              // } else {
+              //   mobileImg.classList.remove('hero-placeholder-img');
+              //   mobileImg.style.display = 'none';
+              //   desktopImg.classList.add('hero-placeholder-img');
+              //   desktopImg.style.display = 'block';
+              //   }
             },
           });
         }, 700);

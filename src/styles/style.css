@@ -976,8 +976,14 @@ h4 {
   padding-bottom: 120%;
 }
 
-.hero-img .home-placeholder-desktop img,
+/* .hero-img .home-placeholder-desktop img,
 .hero-img .home-placeholder-mobile img {
+  position: absolute;
+  width: 100%;
+  transform: scale(1.25);
+} */
+
+.hero-placeholder-img {
   position: absolute;
   width: 100%;
   transform: scale(1.25);
