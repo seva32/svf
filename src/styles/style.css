@@ -9,7 +9,8 @@
   --mellon: #ccb921;
   --black: #170312ff;
   --capri: #437eee;
-  --backdrop-submit: #724e91ff;
+  --backdrop-submit: #b998d6;
+  --backdrop-nav: #f5e8ff;
   /* touch-action: pan-x pan-y; */
 }
 
@@ -791,7 +792,7 @@ h4 {
 
 .hamburger-backdrop {
   z-index: -2;
-  background-color: var(--baby-powder);
+  background-color: var(--backdrop-nav);
   position: absolute;
   bottom: 0;
   left: 0;

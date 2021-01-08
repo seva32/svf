@@ -104,10 +104,10 @@
           version="1.1"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <lineargradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="#00B4DB" />
-            <stop offset="50%" stop-color="#224488" />
-            <stop offset="100%" stop-color="#0083B0" />
+          <lineargradient id="grad1">
+            <stop offset="0%" stop-color="#b998d6" />
+            <stop offset="25%" stop-color="#9753d3" />
+            <stop offset="100%" stop-color="#7d20ce" />
           </lineargradient>
           <path
             id="wave-path-one"
@@ -171,10 +171,10 @@
             "
             ></animate>
           </path>
-          <lineargradient id="grad3" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color=" #00dbdb" />
-            <stop offset="50%" stop-color=" #228588" />
-            <stop offset="100%" stop-color=" #00b0a1" />
+          <lineargradient id="grad3">
+            <stop offset="0%" stop-color="#451f55" />
+            <stop offset="30%" stop-color="#421555" />
+            <stop offset="100%" stop-color="#503d58" />
           </lineargradient>
           <path
             fill="url(#grad3)"
@@ -237,10 +237,10 @@
             "
             ></animate>
           </path>
-          <lineargradient id="grad2" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="#0058db" />
-            <stop offset="50%" stop-color="#222488" />
-            <stop offset="100%" stop-color="#003eb0" />
+          <lineargradient id="grad2">
+            <stop offset="0%" stop-color="#22152b" />
+            <stop offset="20%" stop-color="#550d8b" />
+            <stop offset="100%" stop-color="#3d1c55" />
           </lineargradient>
           <path
             fill="url(#grad2)"
@@ -502,16 +502,18 @@
           .addEventListener('change', function (event) {
             event.preventDefault();
             this.contact_number.value = (Math.random() * 100000) | 0;
-            emailjs.sendForm('gmail', 'template_fJkHYOay', this).then(
-              function () {
-                // console.log('SUCCESS!');
-                document.getElementById('contact-form').reset();
-              },
-              function (error) {
-                // console.log('FAILED...', error);
-                document.getElementById('contact-form').reset();
-              },
-            );
+            if (!!this.message.value.length) {
+              emailjs.sendForm('gmail', 'template_fJkHYOay', this).then(
+                function () {
+                  // console.log('SUCCESS!');
+                  document.getElementById('contact-form').reset();
+                },
+                function (error) {
+                  // console.log('FAILED...', error);
+                  document.getElementById('contact-form').reset();
+                },
+              );
+            }
           });
       };
     </script>
