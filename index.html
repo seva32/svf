@@ -161,7 +161,6 @@
           .addEventListener('change', function (event) {
             event.preventDefault();
             this.contact_number.value = (Math.random() * 100000) | 0;
-            alert(JSON.stringify(event));
             if (!!this.message.value.length) {
               emailjs.sendForm('gmail', 'template_fJkHYOay', this).then(
                 function () {
