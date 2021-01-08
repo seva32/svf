@@ -934,6 +934,25 @@ h4 {
   right: 0;
   left: 0;
   bottom: 0;
+  width: 100%;
+  height: 100%;
+  will-change: auto;
+}
+
+.fractal-container-nav {
+  position: absolute;
+  top: -50vh;
+  right: 0;
+  width: 200px;
+  height: 200px;
+  will-change: auto;
+}
+
+.fractal-container-hero div,
+.fractal-container-hero div svg,
+.fractal-container-nav div,
+.fractal-container-nav div svg {
+  height: 100%;
 }
 
 @media only screen and (max-width: 550px) {
@@ -1012,6 +1031,7 @@ h4 {
   #software-svg {
     margin-left: 8rem;
     margin-bottom: -4rem;
+    transform: scale(2.1) !important;
   }
 
   #design-svg {
@@ -1095,6 +1115,7 @@ h4 {
     top: -50px;
     right: -30px;
     width: 40%;
+    will-change: auto;
   }
 
   .contact-form-dropback {
