@@ -85,7 +85,7 @@ if (hamWrapper) {
   hamWrapper.addEventListener('click', toggleHamburger);
 }
 
-const aArr = document.querySelectorAll('.hamburger-items div a');
+const aArr = document.querySelectorAll('.hamburger-items div button');
 
 for (let s = 0; s < aArr.length; s++) {
   aArr[s].addEventListener(

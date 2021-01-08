@@ -785,9 +785,11 @@ h4 {
   opacity: 0;
 }
 
-.hamburger-items div a {
+.hamburger-items div button {
   color: var(--black);
   text-transform: lowercase;
+  border: none;
+  cursor: pointer;
 }
 
 .hamburger-backdrop {
