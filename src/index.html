@@ -350,6 +350,7 @@
               cols="40"
               rows="5"
               placeholder="(☞ﾟヮﾟ)☞ send me a line"
+              maxlength="240"
             ></textarea>
           </form>
         </div>
@@ -497,11 +498,22 @@
 
     <script type="text/javascript">
       window.onload = function () {
+        const textareaElem = document.querySelector('#contact-form textarea');
+        textareaElem.addEventListener('keypress', function (e) {
+          var keyCode = e.keyCode || e.which;
+          if (keyCode === 13) {
+            console.log('entro');
+            textareaElem.value += '\r\n';
+            event.preventDefault();
+          }
+        });
+
         document
           .getElementById('contact-form')
           .addEventListener('change', function (event) {
             event.preventDefault();
             this.contact_number.value = (Math.random() * 100000) | 0;
+            alert(JSON.stringify(event));
             if (!!this.message.value.length) {
               emailjs.sendForm('gmail', 'template_fJkHYOay', this).then(
                 function () {
