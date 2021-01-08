@@ -104,21 +104,21 @@ export default () => {
                         anime({
                           targets: words[j],
                           translateX: '0px',
-                          duration: 2000,
+                          duration: 800,
                           easing: 'easeOutInSine',
                         });
                       } else if (j < 10) {
                         anime({
                           targets: words[j],
                           translateX: '0px',
-                          duration: 2000,
+                          duration: 1000,
                           easing: 'easeOutInSine',
                         });
                       } else {
                         anime({
                           targets: words[j],
                           translateY: '0px',
-                          duration: 2000,
+                          duration: 1200,
                           easing: 'easeOutInSine',
                         });
                       }

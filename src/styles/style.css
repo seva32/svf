@@ -958,7 +958,7 @@ h4 {
   height: 100%;
 }
 
-.hero-img .home-placeholder-desktop {
+#home-desktop {
   position: relative;
   width: 100%;
   max-width: 100%;
@@ -967,7 +967,7 @@ h4 {
   padding-bottom: 40%;
 }
 
-.hero-img .home-placeholder-mobile {
+#home-mobile {
   position: relative;
   width: 100%;
   max-width: 100%;
@@ -975,13 +975,6 @@ h4 {
   display: none;
   padding-bottom: 120%;
 }
-
-/* .hero-img .home-placeholder-desktop img,
-.hero-img .home-placeholder-mobile img {
-  position: absolute;
-  width: 100%;
-  transform: scale(1.25);
-} */
 
 .hero-placeholder-img {
   position: absolute;
@@ -1156,11 +1149,11 @@ h4 {
     background-position: 40% 45%;
   }
 
-  .hero-img .home-placeholder-desktop {
+  #home-desktop {
     display: none;
   }
 
-  .hero-img .home-placeholder-mobile {
+  #home-mobile {
     display: block;
   }
 }
