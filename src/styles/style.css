@@ -958,7 +958,7 @@ h4 {
   height: 100%;
 }
 
-.home-section {
+#home-section {
   width: 100%;
   position: relative;
   display: block;
@@ -1114,8 +1114,11 @@ h4 {
     padding-top: 8rem;
   }
 
-  .hero-img,
-  .home-section {
+  .hero-img {
+    min-height: calc(100vh - 170px);
+  }
+
+  #home-section {
     min-height: calc(100vh - 170px);
   }
 
