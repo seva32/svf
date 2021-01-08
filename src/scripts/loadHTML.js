@@ -25,7 +25,7 @@ export default () => {
       .then((response) => response.text())
       .then((html) => {
         const doc = new DOMParser().parseFromString(html, 'text/html');
-        // ambos targets tienes que apuntar a los nodos/class que agregue
+        // ambos targets tienen que apuntar a los nodos/class que agregue
         anime({
           targets: '.content-section div',
           translateX: 700,
@@ -51,6 +51,12 @@ export default () => {
             delay: (el, i) => 100 * i,
             opacity: [0, 1],
             easing: 'easeOutExpo',
+            begin(ani) {
+              const homeMobile = document.getElementById('home-mobile');
+              if (homeMobile) {
+                homeMobile.classList.add('home-placeholder-mobile');
+              }
+            },
           });
         }, 700);
       });
