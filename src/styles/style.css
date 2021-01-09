@@ -1028,6 +1028,11 @@ h4 {
     font-size: 1.5rem;
   }
 
+  .main-page,
+  .content-wrapper {
+    min-height: calc(100vh - 170px);
+  }
+
   #anime-demo {
     transform: scale(0.8);
   }
