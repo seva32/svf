@@ -2,7 +2,7 @@
   "homepage": "https://seva32.github.io/svf",
   "name": "sebastian-fantini",
   "version": "1.0.0",
-  "description": "Sebastian Fantini - Software developer. This is my personal site, developed with <3 in vanilla javascript. I'm a full stack developer, working with javascript (node, react) and java. You can reach me at hello@sebastianfantini.com",
+  "description": "Sebastian Fantini - Software developer. This is my personal site, developed with <3 in vanilla javascript. I'm a full stack developer, working with javascript (node & react). You can reach me at hello@sebastianfantini.com",
   "author": "Sebastian Fantini",
   "license": "MIT",
   "devDependencies": {
@@ -23,12 +23,12 @@
     "gh-pages": "^3.1.0",
     "html-loader": "^0.5.5",
     "htmlhint": "^0.14.2",
-    "node-sass": "^4.13.0",
-    "sass-loader": "^8.0.0",
     "style-loader": "^1.1.2",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.10.1"
+    "webpack-dev-server": "^3.10.1",
+    "sass": "^1.32.6",
+    "sass-loader": "7.3.1"
   },
   "scripts": {
     "start": "webpack-dev-server --open --config=config/webpack.dev.js",
