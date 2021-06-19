@@ -7,6 +7,7 @@ export default () => {
   const btnClose = document.querySelector('.contact-btn-close');
   const formBody = document.querySelector('.contact-form-body');
   // const submitBtn = document.getElementById(".submit-message");
+  // const textareaMsg = document.getElementById('message');
 
   // hover ani
   btnOpen.addEventListener('mouseenter', (event) => {
@@ -29,6 +30,7 @@ export default () => {
     btnOpen.style.zIndex = -1;
     btnClose.style.zIndex = 20;
     formBody.style.zIndex = 30;
+    // textareaMsg.focus();
   });
   // hover ani
   btnClose.addEventListener('mouseenter', (event) => {

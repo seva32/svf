@@ -433,7 +433,7 @@ h4 {
 }
 
 .contact-form-email .letter {
-  color: var(--baby-powder);
+  color: var(--purple);
   transform-origin: 0 100%;
   display: inline-block;
   line-height: 1rem;
