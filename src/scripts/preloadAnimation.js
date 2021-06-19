@@ -10,6 +10,12 @@ export default () => {
         easing: 'easeOutExpo',
       })
       .add({
+        targets: 'body',
+        opacity: [0, 1],
+        duration: 1,
+        delay: 100,
+      })
+      .add({
         targets: '.preload-wrapper',
         opacity: [0, 1],
         duration: 1,
@@ -50,6 +56,12 @@ export default () => {
     anime
       .timeline({
         easing: 'easeOutExpo',
+      })
+      .add({
+        targets: 'body',
+        opacity: [0, 1],
+        duration: 1,
+        delay: 100,
       })
       .add({
         targets: '.preload-wrapper',

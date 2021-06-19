@@ -55,6 +55,9 @@ body {
   text-rendering: optimizeLegibility;
   scrollbar-width: none;
 }
+body {
+  opacity: 0;
+}
 svg:not([fill]) {
   fill: currentColor;
 }
