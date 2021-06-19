@@ -924,40 +924,6 @@ h4 {
   -webkit-tap-highlight-color: transparent;
 }
 
-.fractal-container {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 20%;
-}
-
-.fractal-container-hero {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  will-change: auto;
-}
-
-.fractal-container-nav {
-  position: absolute;
-  top: -50vh;
-  right: 0;
-  width: 200px;
-  height: 200px;
-  will-change: auto;
-}
-
-.fractal-container-hero div,
-.fractal-container-hero div svg,
-.fractal-container-nav div,
-.fractal-container-nav div svg {
-  height: 100%;
-}
-
 #home-section {
   width: 100%;
   position: relative;
@@ -1165,13 +1131,6 @@ h4 {
 
   .waves-container div.waves svg path {
     transform: scale(2) translateY(-200px);
-  }
-
-  .fractal-container {
-    top: -50px;
-    right: -30px;
-    width: 40%;
-    will-change: auto;
   }
 
   .contact-form-dropback {
