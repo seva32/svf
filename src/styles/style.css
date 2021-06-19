@@ -927,11 +927,11 @@ h4 {
   height: calc(100vh - 170px);
 }
 
-.skills-wrapper div a {
+/* .skills-wrapper div a {
   display: flex;
   justify-content: center;
   max-width: 80%;
-}
+} */
 
 /* vs */
 
