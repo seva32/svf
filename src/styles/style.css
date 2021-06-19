@@ -930,9 +930,6 @@ h4 {
 .skills-wrapper div a {
   display: flex;
   justify-content: center;
-}
-
-.skills-img {
   max-width: 80%;
 }
 
