@@ -531,6 +531,14 @@
       defer
     ></script>
 
+    <script>
+      function animateView() {
+        // move svg to scripts/svg
+        const conway = document.querySelector('#conway');
+        conway.style.opacity = 0.5;
+      }
+    </script>
+
     <!-- polyfill -->
     <script>
       if (!Element.prototype.matches) {

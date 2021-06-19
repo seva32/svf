@@ -6,9 +6,10 @@ export default () => {
   // fetch() to animate html snippets in and out
 
   const projectsLink = document.querySelector('#projects-link');
+  const skillsLink = document.querySelector('#skills-link');
   const homeLink = document.querySelector('#home-link');
 
-  let linkArray = [projectsLink, homeLink];
+  let linkArray = [projectsLink, skillsLink, homeLink];
 
   function bouncer(arrToFilter) {
     return arrToFilter.filter(Boolean);
@@ -83,6 +84,9 @@ export default () => {
         switch (eachLink) {
           case projectsLink:
             fetchPage(eachLink, 'projects.html');
+            break;
+          case skillsLink:
+            fetchPage(eachLink, 'skills.html');
             break;
           case homeLink:
             fetchPage(eachLink, 'home.html'); // es el index.html

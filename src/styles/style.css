@@ -912,6 +912,30 @@ h4 {
   height: calc(100vh - 170px);
 }
 
+.projects-wrapper div a {
+  display: flex;
+  justify-content: center;
+}
+
+.projects-wrapper div a img {
+  max-width: 80%;
+}
+
+/* skills view */
+
+.skills-wrapper {
+  height: calc(100vh - 170px);
+}
+
+.skills-wrapper div a {
+  display: flex;
+  justify-content: center;
+}
+
+.skills-wrapper div a img {
+  max-width: 80%;
+}
+
 /* vs */
 
 .no-select {
