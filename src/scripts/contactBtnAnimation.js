@@ -7,7 +7,7 @@ export default () => {
   const btnClose = document.querySelector('.contact-btn-close');
   const formBody = document.querySelector('.contact-form-body');
   // const submitBtn = document.getElementById(".submit-message");
-  // const textareaMsg = document.getElementById('message');
+  const textareaMsg = document.getElementById('message');
 
   // hover ani
   btnOpen.addEventListener('mouseenter', (event) => {
@@ -30,7 +30,18 @@ export default () => {
     btnOpen.style.zIndex = -1;
     btnClose.style.zIndex = 20;
     formBody.style.zIndex = 30;
-    // textareaMsg.focus();
+    setTimeout(() => {
+      textareaMsg.focus();
+      // anime({
+      //   targets: textareaMsg.getAttribute('placeholder'),
+      //   duration: 2000,
+      //   innerHTML: 'new text but doesnt work',
+      //   loop: 8,
+      //   easing: 'easeInOutSine',
+      //   autoplay: true,
+      //   direction: 'alternate',
+      // });
+    }, 3500);
   });
   // hover ani
   btnClose.addEventListener('mouseenter', (event) => {
