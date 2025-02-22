@@ -28,6 +28,7 @@ export default () => {
       .then((response) => response.text())
       .then((html) => {
         const doc = new DOMParser().parseFromString(html, 'text/html');
+        const newContent = doc.querySelector('.new-content');
         // ambos targets tienen que apuntar a los nodos/class que agregue
         anime({
           targets: '.content-section div',
@@ -43,10 +44,7 @@ export default () => {
         setTimeout(() => {
           document
             .querySelector('.main-page')
-            .insertBefore(
-              doc.querySelector('.new-content'),
-              document.querySelector('.footer'),
-            );
+            .insertBefore(newContent, document.querySelector('.footer'));
 
           anime({
             targets: '.new-content .content-section div',

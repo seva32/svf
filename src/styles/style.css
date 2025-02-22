@@ -781,7 +781,7 @@ h4 {
 }
 
 .item-top {
-  margin-top: 30vh;
+  margin-top: 15vh;
 }
 
 .hamburger-items div {
@@ -990,6 +990,7 @@ h4 {
 @media only screen and (max-width: 550px) {
   html {
     font-size: 55%;
+    overflow: hidden;
   }
 
   body {
@@ -1142,7 +1143,7 @@ h4 {
   }
 
   .hamburger-items div:first-child {
-    margin-top: 45vh;
+    margin-top: 20vh;
   }
 
   .waves-container {
