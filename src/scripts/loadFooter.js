@@ -4,5 +4,5 @@ import dayjs from 'dayjs';
 export default (props) =>
   hyperHTML.wire(props)`
   <p>
-    ${props.content} - ${dayjs().format('YYYY')}
+    ${props.content} ${dayjs().format('YYYY')}
 </p>`;
