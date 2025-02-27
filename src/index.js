@@ -48,4 +48,4 @@ svgData.forEach((d) =>
 
 document
   .querySelector('.footer .copyright')
-  .appendChild(loadFooter({ content: 'sebastianfantini.com' }));
+  .appendChild(loadFooter({ content: 'sfantini.us ©' }));
