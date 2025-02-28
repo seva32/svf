@@ -546,6 +546,7 @@ h4 {
   margin-right: 10%;
   display: block;
   z-index: 1;
+  text-align: end;
 }
 
 .hamburger-wrapper svg {
@@ -764,9 +765,9 @@ h4 {
   min-width: 90px;
   cursor: pointer;
   border: none;
-  transform: scale(1.5);
   position: absolute;
   top: 20px;
+  right: -15%;
 }
 
 .hamburger-items {
@@ -1169,4 +1170,67 @@ h4 {
   #home-mobile {
     display: flex;
   }
+}
+
+.projects-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.project-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  background: #f0f0f0;
+  padding: 1rem;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.project-item:hover {
+  background: #e0e0e0;
+}
+
+.project-icon {
+  margin: 0 2rem;
+  width: 24px;
+  height: 24px;
+  fill: #333;
+  transition: transform 0.3s ease;
+  transform: scale(1.8);
+}
+
+.project-icon .curve {
+  fill: none;
+  stroke: #000;
+  stroke-width: 0.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.project-item:hover .project-icon .curve {
+  animation: draw 4s linear infinite alternate;
+}
+
+.project-item:hover .project-icon {
+  transform: scale(2);
+}
+
+.project-item span {
+  flex-grow: 1;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.project-item a {
+  margin-left: 1rem;
+  font-size: 2rem;
+  text-decoration: none;
+  color: #2d3034;
+  transition: color 0.3s ease;
+}
+
+.project-item a:hover {
+  color: #464c53;
 }
