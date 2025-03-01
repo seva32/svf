@@ -1293,3 +1293,33 @@ h4 {
   position: relative;
   z-index: 1;
 }
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.span-glow {
+  opacity: 0;
+  transition: opacity 0.3s;
+  margin: 0 0.5rem;
+  font-size: 24px;
+  font-weight: bold;
+  color: rgba(0, 123, 255, 0.7);
+  text-shadow: 0 0 10px rgba(0, 123, 255, 0.7), 0 0 20px rgba(0, 123, 255, 0.7);
+}
+
+.span-glow.glowing {
+  opacity: 1;
+  animation: pulse 1.5s infinite;
+}

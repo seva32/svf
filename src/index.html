@@ -271,6 +271,7 @@
         </form>
       </div>
       <div class="contact-form-submit flex-center">
+        <span class="span-glow">&gt;&gt;</span>
         <button class="submit-message" type="submit" form="contact-form">
           <div class="plane-wrapper">
             <img class="paper-plane" id="plane" src="#" alt="send message" />
@@ -303,6 +304,7 @@
             </path>
           </svg>
         </button>
+        <span class="span-glow">&lt;&lt;</span>
       </div>
     </div>
 
@@ -386,10 +388,19 @@
   <script type="text/javascript">
     window.onload = function () {
       const textareaElem = document.querySelector('#contact-form textarea');
-      textareaElem.addEventListener('keypress', function (e) {
+      const glowers = document.querySelectorAll('.span-glow');
+      textareaElem.addEventListener('input', function (e) {
+        if (textareaElem.value.trim() !== '') {
+          glowers.forEach((glower) => {
+            glower.classList.add('glowing');
+          });
+        } else {
+          glowers.forEach((glower) => {
+            glower.classList.remove('glowing');
+          });
+        }
         var keyCode = e.keyCode || e.which;
         if (keyCode === 13) {
-          console.log('entro');
           textareaElem.value += '\r\n';
           event.preventDefault();
         }
