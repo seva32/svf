@@ -1168,6 +1168,7 @@ h4 {
 
   #home-mobile {
     display: flex;
+    min-height: 70vh;
   }
 
   .skills-li {
