@@ -408,17 +408,15 @@
 
       document
         .getElementById('contact-form')
-        .addEventListener('change', function (event) {
+        .addEventListener('submit', function (event) {
           event.preventDefault();
           this.contact_number.value = (Math.random() * 100000) | 0;
           if (!!this.message.value.length) {
             emailjs.sendForm('gmail', 'template_fJkHYOay', this).then(
               function () {
-                // console.log('SUCCESS!');
                 document.getElementById('contact-form').reset();
               },
               function (error) {
-                // console.log('FAILED...', error);
                 document.getElementById('contact-form').reset();
               },
             );
