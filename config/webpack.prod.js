@@ -57,7 +57,7 @@ module.exports = {
         use: {
           loader: 'html-loader',
           options: {
-            attributes: false,
+            sources: false,
             minimize: true,
           },
         },

@@ -14,12 +14,16 @@ module.exports = {
   },
   mode: 'development',
   devServer: {
-    contentBase: path.join(__dirname, '../build'),
+    static: {
+      directory: path.join(__dirname, '../build'),
+    },
     compress: true,
     port: 3000,
-    overlay: true,
+    client: {
+      overlay: true,
+    },
   },
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'eval-cheap-source-map',
   module: {
     rules: [
       {
@@ -55,8 +59,8 @@ module.exports = {
         use: {
           loader: 'html-loader',
           options: {
-            attributes: false,
-            minimize: true,
+            sources: false,
+            minimize: false,
           },
         },
       },
