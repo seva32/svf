@@ -7,9 +7,7 @@ const CompressionPlugin = require('compression-webpack-plugin');
 // const TerserJSPlugin = require('terser-webpack-plugin');
 // const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const BrotliPlugin = require('brotli-webpack-plugin');
-const PurgecssPlugin = require('purgecss-webpack-plugin');
 // eslint-disable-next-line import/no-extraneous-dependencies
-const glob = require('glob');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
@@ -64,22 +62,6 @@ module.exports = {
       },
     ],
   },
-  // optimization: {
-  //   minimizer: [new TerserJSPlugin(), new OptimizeCSSAssetsPlugin()],
-  //   splitChunks: {
-  //     cacheGroups: {
-  //       commons: {
-  //         test: /[\\/]node_modules[\\/]/,
-  //         name: "vendors",
-  //         chunks: "all"
-  //       }
-  //     },
-  //     chunks: "all"
-  //   },
-  //   runtimeChunk: {
-  //     name: "runtime"
-  //   }
-  // },
   optimization: {
     runtimeChunk: 'single',
     splitChunks: {
@@ -113,11 +95,6 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [{ from: './**', to: './', context: './public' }],
     }),
-    // PurgecssPlugin will remove unused CSS
-    // new PurgecssPlugin({
-    //   paths: glob.sync(path.resolve(__dirname, '../src/**/*'), { nodir: true }),
-    // }),
-    // This plugin will extract all css to one file
     new MiniCssExtractPlugin({
       filename: '[name].[chunkhash:8].bundle.css',
       chunkFilename: '[name].[chunkhash:8].chunk.css',
