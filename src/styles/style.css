@@ -21,21 +21,25 @@
   background-repeat: no-repeat;
   /* outline: 1px solid red; */
 }
+
 *:focus {
   outline: none !important;
   -webkit-appearance: none;
 }
+
 /* *:focus-within {
   background: transparent;
 } */
 ::-webkit-scrollbar {
   display: none;
 }
+
 ::before,
 ::after {
   text-decoration: inherit;
   vertical-align: inherit;
 }
+
 html,
 body {
   line-height: 1.5;
@@ -43,27 +47,48 @@ body {
   list-style: none;
   margin: 0;
   padding: 0;
-  font-family: system-ui, /* macOS 10.11-10.12 */ -apple-system,
-    /* Windows 6+ */ Segoe UI, /* Android 4+ */ Roboto,
-    /* Ubuntu 10.10+ */ Ubuntu, /* Gnome 3+ */ Cantarell,
-    /* KDE Plasma 5+ */ Noto Sans, /* fallback */ sans-serif,
-    /* macOS emoji */ 'Apple Color Emoji', /* Windows emoji */ 'Segoe UI Emoji',
-    /* Windows emoji */ 'Segoe UI Symbol', /* Linux emoji */ 'Noto Color Emoji';
+  font-family: system-ui,
+    /* macOS 10.11-10.12 */
+    -apple-system,
+    /* Windows 6+ */
+    Segoe UI,
+    /* Android 4+ */
+    Roboto,
+    /* Ubuntu 10.10+ */
+    Ubuntu,
+    /* Gnome 3+ */
+    Cantarell,
+    /* KDE Plasma 5+ */
+    Noto Sans,
+    /* fallback */
+    sans-serif,
+    /* macOS emoji */
+    'Apple Color Emoji',
+    /* Windows emoji */
+    'Segoe UI Emoji',
+    /* Windows emoji */
+    'Segoe UI Symbol',
+    /* Linux emoji */
+    'Noto Color Emoji';
   font-size: 62.5%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   scrollbar-width: none;
 }
+
 body {
   opacity: 0;
 }
+
 svg:not([fill]) {
   fill: currentColor;
 }
+
 textarea {
   resize: vertical;
 }
+
 a,
 area,
 button,
@@ -77,6 +102,7 @@ textarea,
   touch-action: manipulation;
   text-decoration: none;
 }
+
 button,
 input,
 select,
@@ -89,6 +115,7 @@ textarea {
   /* padding: 0.25em 0.375em; */
   outline: none;
 }
+
 select {
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -96,33 +123,42 @@ select {
   border-radius: 0;
   padding-right: 1em;
 }
+
 select:not([multiple]):not([size]) {
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='4'%3E%3Cpath d='M4 0h6L7 4'/%3E%3C/svg%3E");
 }
+
 ::-ms-expand {
   display: none;
 }
+
 [aria-busy='true'] {
   cursor: progress;
 }
+
 [aria-controls] {
   cursor: pointer;
 }
+
 [aria-disabled='true'],
 [disabled] {
   cursor: default;
 }
+
 [aria-hidden='false'][hidden] {
   display: initial;
 }
+
 [aria-hidden='false'][hidden]:not(:focus) {
   clip: rect(0, 0, 0, 0);
   position: absolute;
 }
+
 blockquote,
 q {
   quotes: none;
 }
+
 blockquote:before,
 blockquote:after,
 q:before,
@@ -130,22 +166,36 @@ q:after {
   content: '';
   content: none;
 }
+
 ol,
 ul {
   list-style: none;
 }
+
 code,
 kbd,
 pre,
 samp {
   font-family:
-            /* macOS 10.10+ */ Menlo, /* Windows 6+ */ Consolas,
-    /* Android 4+ */ Roboto Mono, /* Ubuntu 10.10+ */ Ubuntu Monospace,
-    /* KDE Plasma 5+ */ Noto Mono, /* KDE Plasma 4+ */ Oxygen Mono,
-    /* Linux/OpenOffice fallback */ Liberation Mono, /* fallback */ monospace;
+    /* macOS 10.10+ */
+    Menlo,
+    /* Windows 6+ */
+    Consolas,
+    /* Android 4+ */
+    Roboto Mono,
+    /* Ubuntu 10.10+ */
+    Ubuntu Monospace,
+    /* KDE Plasma 5+ */
+    Noto Mono,
+    /* KDE Plasma 4+ */
+    Oxygen Mono,
+    /* Linux/OpenOffice fallback */
+    Liberation Mono,
+    /* fallback */
+    monospace;
 }
 
-button > * {
+button>* {
   pointer-events: none;
 }
 
@@ -439,8 +489,7 @@ h4 {
   line-height: 1rem;
 }
 
-#anime-letters svg path {
-}
+#anime-letters svg path {}
 
 #contact-email {
   display: flex;
@@ -732,8 +781,7 @@ h4 {
   margin-bottom: 8rem;
 }
 
-#code-svg {
-}
+#code-svg {}
 
 .content-wrapper div .hero-img .svg-container div svg path {
   stroke: var(--black);
@@ -916,6 +964,7 @@ h4 {
 .projects-wrapper div a {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .projects-wrapper div div div {
@@ -980,6 +1029,7 @@ h4 {
 }
 
 @media only screen and (max-width: 850px) and (orientation: landscape) {
+
   .preload-wrapper,
   .side-wrapper,
   .waves-container,
@@ -1089,12 +1139,7 @@ h4 {
     margin-right: 10rem;
   }
 
-  .content-wrapper
-    div
-    .hero-img
-    .svg-container
-    .svg-col-1
-    div:not(#software-svg) {
+  .content-wrapper div .hero-img .svg-container .svg-col-1 div:not(#software-svg) {
     width: 150%;
   }
 
@@ -1300,10 +1345,12 @@ h4 {
     transform: scale(1);
     opacity: 1;
   }
+
   50% {
     transform: scale(1.4);
     opacity: 0.6;
   }
+
   100% {
     transform: scale(1);
     opacity: 1;
