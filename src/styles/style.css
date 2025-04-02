@@ -47,29 +47,12 @@ body {
   list-style: none;
   margin: 0;
   padding: 0;
-  font-family: system-ui,
-    /* macOS 10.11-10.12 */
-    -apple-system,
-    /* Windows 6+ */
-    Segoe UI,
-    /* Android 4+ */
-    Roboto,
-    /* Ubuntu 10.10+ */
-    Ubuntu,
-    /* Gnome 3+ */
-    Cantarell,
-    /* KDE Plasma 5+ */
-    Noto Sans,
-    /* fallback */
-    sans-serif,
-    /* macOS emoji */
-    'Apple Color Emoji',
-    /* Windows emoji */
-    'Segoe UI Emoji',
-    /* Windows emoji */
-    'Segoe UI Symbol',
-    /* Linux emoji */
-    'Noto Color Emoji';
+  font-family: system-ui, /* macOS 10.11-10.12 */ -apple-system,
+    /* Windows 6+ */ Segoe UI, /* Android 4+ */ Roboto,
+    /* Ubuntu 10.10+ */ Ubuntu, /* Gnome 3+ */ Cantarell,
+    /* KDE Plasma 5+ */ Noto Sans, /* fallback */ sans-serif,
+    /* macOS emoji */ 'Apple Color Emoji', /* Windows emoji */ 'Segoe UI Emoji',
+    /* Windows emoji */ 'Segoe UI Symbol', /* Linux emoji */ 'Noto Color Emoji';
   font-size: 62.5%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -177,25 +160,13 @@ kbd,
 pre,
 samp {
   font-family:
-    /* macOS 10.10+ */
-    Menlo,
-    /* Windows 6+ */
-    Consolas,
-    /* Android 4+ */
-    Roboto Mono,
-    /* Ubuntu 10.10+ */
-    Ubuntu Monospace,
-    /* KDE Plasma 5+ */
-    Noto Mono,
-    /* KDE Plasma 4+ */
-    Oxygen Mono,
-    /* Linux/OpenOffice fallback */
-    Liberation Mono,
-    /* fallback */
-    monospace;
+    /* macOS 10.10+ */ Menlo, /* Windows 6+ */ Consolas,
+    /* Android 4+ */ Roboto Mono, /* Ubuntu 10.10+ */ Ubuntu Monospace,
+    /* KDE Plasma 5+ */ Noto Mono, /* KDE Plasma 4+ */ Oxygen Mono,
+    /* Linux/OpenOffice fallback */ Liberation Mono, /* fallback */ monospace;
 }
 
-button>* {
+button > * {
   pointer-events: none;
 }
 
@@ -489,7 +460,8 @@ h4 {
   line-height: 1rem;
 }
 
-#anime-letters svg path {}
+#anime-letters svg path {
+}
 
 #contact-email {
   display: flex;
@@ -781,7 +753,8 @@ h4 {
   margin-bottom: 8rem;
 }
 
-#code-svg {}
+#code-svg {
+}
 
 .content-wrapper div .hero-img .svg-container div svg path {
   stroke: var(--black);
@@ -1029,7 +1002,6 @@ h4 {
 }
 
 @media only screen and (max-width: 850px) and (orientation: landscape) {
-
   .preload-wrapper,
   .side-wrapper,
   .waves-container,
@@ -1139,7 +1111,12 @@ h4 {
     margin-right: 10rem;
   }
 
-  .content-wrapper div .hero-img .svg-container .svg-col-1 div:not(#software-svg) {
+  .content-wrapper
+    div
+    .hero-img
+    .svg-container
+    .svg-col-1
+    div:not(#software-svg) {
     width: 150%;
   }
 
@@ -1228,6 +1205,7 @@ h4 {
 }
 
 .project-item {
+  position: relative;
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
@@ -1235,6 +1213,7 @@ h4 {
   padding: 1rem;
   border-radius: 8px;
   transition: background 0.3s ease;
+  z-index: 0;
 }
 
 .project-item:hover {
@@ -1370,4 +1349,38 @@ h4 {
 .span-glow.glowing {
   opacity: 1;
   animation: pulse 1.5s infinite;
+}
+
+.badges {
+  position: absolute;
+  left: -25rem;
+  display: flex;
+  gap: 10px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease, left 0.3s ease;
+  z-index: -10;
+  width: 40ch !important;
+  flex-wrap: wrap;
+}
+
+.badge {
+  background-color: black;
+  color: white;
+  padding: 3px 6px;
+  opacity: 0;
+  border-radius: 4px;
+  font-size: 1.5rem !important;
+  transition: opacity 0.3s ease;
+  z-index: -10;
+}
+
+.project-item:hover .badges {
+  opacity: 1;
+  visibility: visible;
+  left: -20rem;
+}
+
+.project-item:hover .badge {
+  opacity: 1;
 }
