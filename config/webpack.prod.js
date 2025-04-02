@@ -6,7 +6,6 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 // const TerserJSPlugin = require('terser-webpack-plugin');
 // const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const BrotliPlugin = require('brotli-webpack-plugin');
 const PurgecssPlugin = require('purgecss-webpack-plugin');
 // eslint-disable-next-line import/no-extraneous-dependencies
 const glob = require('glob');
@@ -134,6 +133,5 @@ module.exports = {
     new CompressionPlugin({
       algorithm: 'gzip',
     }),
-    new BrotliPlugin(),
   ],
 };

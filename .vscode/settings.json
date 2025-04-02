@@ -1,14 +1,14 @@
 {
-    // Controls if quick suggestions should show up while typing
-    "editor.quickSuggestions": {
-        "other": true,
-        "comments": false,
-        "strings": false
-    },
-    "editor.formatOnSave": true,
-    "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true
-    },
-    "eslint.alwaysShowStatus": true,
-    "eslint.lintTask.enable": true
+  // Controls if quick suggestions should show up while typing
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": false,
+    "strings": false
+  },
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "eslint.alwaysShowStatus": true,
+  "eslint.lintTask.enable": true
 }
