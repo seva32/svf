@@ -11,15 +11,19 @@ module.exports = {
     path: path.join(__dirname, '../build'),
     filename: '[name].bundle.js',
     publicPath: '/',
+    clean: true, // ✅ NEW: Cleans the output folder before each build (Webpack 5 feature)
   },
   mode: 'development',
   devServer: {
-    contentBase: path.join(__dirname, '../build'),
+    static: path.join(__dirname, '../build'), // ✅ Changed from `contentBase`
     compress: true,
     port: 3000,
-    overlay: true,
+    client: {
+      overlay: true, // ✅ Moved `overlay` inside `client`
+    },
+    hot: true, // ✅ Enable HMR (Hot Module Replacement)
   },
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'eval-cheap-source-map',
   module: {
     rules: [
       {
