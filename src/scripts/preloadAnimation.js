@@ -1,9 +1,38 @@
+/* eslint-disable no-confusing-arrow */
 /* global anime */
 import { vw } from './utils';
 
-// const svgContainer = document.querySelector('.hero-img');
+const resetPreloadStyles = () => {
+  // Reset body opacity
+  document.body.style.opacity = 0;
+
+  // Reset preload-wrapper opacity
+  const preloadWrapper = document.querySelector('.preload-wrapper');
+  if (preloadWrapper) preloadWrapper.style.opacity = 0;
+
+  // Reset preload-content hr width
+  const preloadElems = document.querySelectorAll(
+    '.preload-content .preload-elem hr',
+  );
+  preloadElems.forEach((elem) => {
+    // eslint-disable-next-line no-param-reassign
+    elem.style.width = '0%';
+  });
+
+  // Reset main-wrapper translateY
+  const mainWrapper = document.querySelector('.main-wrapper');
+  if (mainWrapper) mainWrapper.style.transform = 'translateY(100vh)';
+
+  // Reset svg-container opacity
+  const svgContainer = document.querySelector('.svg-container');
+  if (svgContainer) svgContainer.style.opacity = 0;
+
+  console.log('Preload reset');
+};
 
 export default () => {
+  resetPreloadStyles(); // Reset styles before starting the animation
+
   if (vw > 550) {
     anime
       .timeline({
@@ -14,6 +43,13 @@ export default () => {
         opacity: [0, 1],
         duration: 1,
         delay: 100,
+      })
+      .add({
+        targets: '.side-wrapper',
+        opacity: [0],
+        duration: 1,
+        easing: 'easeInOutQuint',
+        delay: 1,
       })
       .add({
         targets: '.preload-wrapper',
@@ -28,23 +64,26 @@ export default () => {
         duration: (el, i) => (i === 1 ? 1200 : 400),
       })
       .add({
-        targets: '.side-wrapper',
-        translateX: ['-30vh', '0vh'],
-        duration: 1000,
-        offset: '-=100',
-      })
-      .add({
-        targets: '.main-wrapper',
-        translateY: ['100vh', '0vh'],
+        targets: ['.side-wrapper', '.main-wrapper'],
+        opacity: (el) =>
+          el.classList.contains('side-wrapper') ? [0, 1] : undefined,
+        translateY: (el) =>
+          el.classList.contains('main-wrapper') ? ['100vh', '0vh'] : undefined,
         duration: 2000,
-        easing: 'easeInQuint',
+        easing: 'easeInOutQuint',
         complete(anim) {
-          anime({
-            targets: '.svg-container',
-            opacity: [0, 1],
-            duration: 100,
-            easing: 'linear',
-          });
+          if (
+            anim.animatables.some((a) =>
+              a.target.classList.contains('main-wrapper'),
+            )
+          ) {
+            anime({
+              targets: '.svg-container',
+              opacity: [0, 1],
+              duration: 100,
+              easing: 'linear',
+            });
+          }
         },
       })
       .add({
@@ -107,10 +146,7 @@ export default () => {
                 translateY: anime.random(600, 1000),
                 duration: 1,
                 complete(_ani) {
-                  // se completa la ultima animacion que saca las palabras del viewport
-                  // entonces puedo comenzar la animacion para traerlas nuevamente
                   if (i === words.length - 1) {
-                    // nueva iter sobre todas las palabras
                     for (let j = 0; j < words.length; j++) {
                       if (j < 5) {
                         anime({
