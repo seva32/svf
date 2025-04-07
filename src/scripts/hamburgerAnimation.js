@@ -95,3 +95,27 @@ for (let s = 0; s < aArr.length; s++) {
     false,
   );
 }
+
+window.onload = () => {
+  // Reset anime.js timelines
+  if (sidebarTL) sidebarTL.seek(0);
+  if (projectsTL) projectsTL.seek(0);
+  if (skillTL) skillTL.seek(0);
+  if (homeTL) homeTL.seek(0);
+
+  // Reset DOM elements
+  document.querySelectorAll('.hamburger-items div').forEach((item) => {
+    item.classList.remove('selected'); // Remove 'selected' class
+  });
+
+  // Reset any inline styles
+  const animatedElements = document.querySelectorAll(
+    '.side-wrapper, .hamburger-items button',
+  );
+  animatedElements.forEach((el) => {
+    // eslint-disable-next-line no-param-reassign
+    el.style = ''; // Clear inline styles
+  });
+
+  console.log('Page reset to initial state.');
+};
