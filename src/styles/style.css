@@ -559,7 +559,7 @@ h4 {
 }
 
 .nav-wrapper {
-  width: 100%;
+  width: fit-content;
   position: absolute;
   top: 0;
   z-index: 1;
