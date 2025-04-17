@@ -22,10 +22,12 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"
     integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q=="
     crossorigin="anonymous"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script type="text/javascript">
     (function () {
-      emailjs.init('user_NzBQGXrQgfC4kaNRlTnHU');
+      emailjs.init({
+        publicKey: "user_NzBQGXrQgfC4kaNRlTnHU",
+      });
     })();
   </script>
 </head>
@@ -87,6 +89,7 @@
       <div class="contact-form-text">
         <form id="contact-form">
           <input type="hidden" name="contact_number" />
+          <input type="hidden" name="time" value="">
           <textarea name="message" id="message" cols="40" rows="5" placeholder="(☞ﾟヮﾟ)☞ send me a line"
             maxlength="240"></textarea>
         </form>
@@ -195,7 +198,7 @@
   </div>
 
   <script type="text/javascript">
-    window.onload = function () {
+    window.addEventListener('load', function () {
       const textareaElem = document.querySelector('#contact-form textarea');
       const glowers = document.querySelectorAll('.span-glow');
       textareaElem.addEventListener('input', function (e) {
@@ -208,30 +211,33 @@
             glower.classList.remove('glowing');
           });
         }
-        var keyCode = e.keyCode || e.which;
-        if (keyCode === 13) {
-          textareaElem.value += '\r\n';
-          event.preventDefault();
+      });
+
+      textareaElem.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          textareaElem.value += '\n';
         }
       });
 
-      document
-        .getElementById('contact-form')
-        .addEventListener('submit', function (event) {
+      const form = document.getElementById('contact-form');
+      const button = document.querySelector('.submit-message');
+
+      if (form && button) {
+        button.addEventListener('click', function (event) {
           event.preventDefault();
-          this.contact_number.value = (Math.random() * 100000) | 0;
-          if (!!this.message.value.length) {
-            emailjs.sendForm('gmail', 'template_fJkHYOay', this).then(
-              function () {
-                document.getElementById('contact-form').reset();
-              },
-              function (error) {
-                document.getElementById('contact-form').reset();
-              },
-            );
-          }
+          form.contact_number.value = (Math.random() * 100000) | 0;
+          form.time.value = new Date().toISOString();
+          emailjs.sendForm('gmail', 'template_fJkHYOay', form)
+            .then(() => {
+              console.log('SUCCESS!');
+            }, (error) => {
+              console.log('FAILED...', error);
+            });
         });
-    };
+      }
+
+    });
   </script>
 
   <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
